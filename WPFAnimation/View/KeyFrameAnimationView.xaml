@@ -1,0 +1,179 @@
+﻿<UserControl
+    x:Class="WPFAnimation.View.KeyFrameAnimationView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPFAnimation.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <Storyboard x:Name="storyboard"  x:Key="storyboard" RepeatBehavior="Forever">
+            <!--<DoubleAnimationUsingKeyFrames
+                RepeatBehavior="Forever"
+                Storyboard.TargetName="rect"
+                Storyboard.TargetProperty="Width">
+                <LinearDoubleKeyFrame KeyTime="0:0:0.5" Value="180" />
+            </DoubleAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames
+                RepeatBehavior="Forever"
+                Storyboard.TargetName="rect"
+                Storyboard.TargetProperty="Fill.Color">
+                <DiscreteColorKeyFrame KeyTime="0:0:0.5" Value="Red" />
+                <DiscreteColorKeyFrame KeyTime="0:0:1" Value="Orange" />
+            </ColorAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames
+                RepeatBehavior="Forever"
+                Storyboard.TargetName="rt"
+                Storyboard.TargetProperty="Angle">
+                <LinearDoubleKeyFrame KeyTime="0:0:5" Value="360" />
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames
+                RepeatBehavior="Forever"
+                Storyboard.TargetName="rt2"
+                Storyboard.TargetProperty="Angle">
+                <LinearDoubleKeyFrame KeyTime="0:0:5" Value="360" />
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames
+                RepeatBehavior="Forever"
+                Storyboard.TargetName="rt3"
+                Storyboard.TargetProperty="Angle">
+                <SplineDoubleKeyFrame
+                    KeySpline="0.1,0.5 0.9,0.5"
+                    KeyTime="0:0:2.5"
+                    Value="360" />
+            </DoubleAnimationUsingKeyFrames>-->
+
+            <StringAnimationUsingKeyFrames
+                AutoReverse="False"
+                RepeatBehavior="Forever"
+                Storyboard.TargetName="txtWaiting"
+                Storyboard.TargetProperty="Text">
+                <DiscreteStringKeyFrame KeyTime="0:0:1" Value="." />
+                <DiscreteStringKeyFrame KeyTime="0:0:2" Value=".." />
+                <DiscreteStringKeyFrame KeyTime="0:0:3" Value="..." />
+                <DiscreteStringKeyFrame KeyTime="0:0:4" Value="...." />
+                <DiscreteStringKeyFrame KeyTime="0:0:5" Value="....." />
+                <DiscreteStringKeyFrame KeyTime="0:0:6" Value="......" />
+                <DiscreteStringKeyFrame KeyTime="0:0:7" Value="" />
+            </StringAnimationUsingKeyFrames>
+
+        </Storyboard>
+    </UserControl.Resources>
+
+    <Grid Background="White">
+        <StackPanel HorizontalAlignment="Center">
+            <Rectangle
+                x:Name="rect"
+                Width="100"
+                Height="100"
+                Fill="Orange" />
+
+            <Grid>
+                <Grid.Resources>
+                    <Style TargetType="{x:Type Rectangle}">
+                        <Setter Property="Width" Value="100" />
+                        <Setter Property="Height" Value="100" />
+                        <Setter Property="Fill" Value="LightGreen" />
+                        <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
+                    </Style>
+                </Grid.Resources>
+                <Rectangle>
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <!--<TranslateTransform Y="50" />-->
+                            <ScaleTransform ScaleX="2" ScaleY="0.5" />
+                            <SkewTransform AngleX="60" AngleY="0" />
+                            <RotateTransform x:Name="rt" Angle="0" />
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+                <Rectangle>
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <!--<TranslateTransform Y="50" />-->
+                            <ScaleTransform ScaleX="0.5" ScaleY="2" />
+                            <SkewTransform AngleX="0" AngleY="-60" />
+                            <RotateTransform x:Name="rt2" Angle="0" />
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+            </Grid>
+
+            <Grid Width="80" Height="80">
+                <Border
+                    BorderBrush="Red"
+                    BorderThickness="1"
+                    RenderTransformOrigin="0.5,0.5">
+                    <Border.RenderTransform>
+                        <RotateTransform x:Name="rt3" Angle="0" />
+                    </Border.RenderTransform>
+                    <Ellipse
+                        Width="10"
+                        Height="10"
+                        VerticalAlignment="Bottom"
+                        Fill="Orange" />
+                    <!--<Border.Triggers>
+                        <EventTrigger RoutedEvent="Loaded">
+                            <BeginStoryboard>
+                                <Storyboard RepeatBehavior="Forever">
+                                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="rt3" Storyboard.TargetProperty="Angle">
+                                        <SplineDoubleKeyFrame
+                                            KeySpline="0.1,0.5 0.9,0.5"
+                                            KeyTime="0:0:2.5"
+                                            Value="360" />
+                                    </DoubleAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Border.Triggers>-->
+                </Border>
+            </Grid>
+
+            <TextBlock
+                x:Name="txtWaiting"
+                Margin="0,50,0,0"
+                Text=""
+                Unloaded="txtWaiting_Unloaded">
+                <!--<TextBlock.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <BeginStoryboard x:Name="st" Storyboard="{StaticResource storyboard}" />
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="Unloaded">
+                        <StopStoryboard BeginStoryboardName="st" />
+                    </EventTrigger>
+                </TextBlock.Triggers>-->
+            </TextBlock>
+
+        </StackPanel>
+
+        <StackPanel
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Orientation="Horizontal">
+            <Button Margin="0,0,30,0" Content="Start Animation">
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="Button.Click">
+                        <BeginStoryboard x:Name="st"  Storyboard="{StaticResource storyboard}" />
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                        <ResumeStoryboard BeginStoryboardName="st" />
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                        <PauseStoryboard BeginStoryboardName="st" />
+                        <!--<StopStoryboard BeginStoryboardName="st" />-->
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+
+
+        </StackPanel>
+
+
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,126 @@
+﻿<Window
+    x:Class="WPFPanel.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPFPanel"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:model="clr-namespace:WPFPanel.Model"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <x:Array x:Key="elements" Type="FrameworkElement">
+            <Border
+                Width="100"
+                Height="50"
+                Background="Orange" />
+            <Border
+                Width="120"
+                Height="50"
+                Background="Red" />
+            <Border
+                Width="150"
+                Height="50"
+                Background="Green" />
+            <Border
+                Width="100"
+                Height="50"
+                Background="Orange" />
+            <Border
+                Width="120"
+                Height="50"
+                Background="Red" />
+
+            <Border
+                Width="150"
+                Height="50"
+                Background="Green" />
+            <Border
+                Width="100"
+                Height="50"
+                Background="Orange" />
+            <Border
+                Width="120"
+                Height="50"
+                Background="Red" />
+            <Border
+                Width="150"
+                Height="50"
+                Background="Green" />
+            <Button
+                Width="200"
+                Height="50"
+                Content="Test" />
+        </x:Array>
+
+        <x:Array x:Key="elements2" Type="FrameworkElement">
+            <Border
+                Width="100"
+                Height="50"
+                Background="Orange" />
+            <Border
+                Width="120"
+                Height="50"
+                Background="Red" />
+            <Border
+                Width="150"
+                Height="50"
+                Background="Green" />
+            <Border
+                Width="100"
+                Height="50"
+                Background="Orange" />
+            <Border
+                Width="120"
+                Height="50"
+                Background="Red" />
+
+            <Border
+                Width="150"
+                Height="50"
+                Background="Green" />
+            <Border
+                Width="100"
+                Height="50"
+                Background="Orange" />
+            <Border
+                Width="120"
+                Height="50"
+                Background="Red" />
+            <Border
+                Width="150"
+                Height="50"
+                Background="Green" />
+            <Button
+                Width="200"
+                Height="50"
+                Content="Test" />
+        </x:Array>
+    </Window.Resources>
+    <Grid TextBlock.FontSize="12">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <ItemsControl ItemsSource="{DynamicResource elements}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <model:FlowPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+        </ItemsControl>
+
+        <ItemsControl Grid.Row="1" ItemsSource="{DynamicResource elements2}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <model:TilePanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+
+
+    </Grid>
+</Window>

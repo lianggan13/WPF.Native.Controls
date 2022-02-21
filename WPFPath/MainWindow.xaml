@@ -1,0 +1,27 @@
+﻿<Window
+    x:Class="WPFPath.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPFPath"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uc="clr-namespace:WPFPath.UC"
+    xmlns:view="clr-namespace:WPFPath.View"
+    Title="MainWindow"
+    Width="799"
+    Height="532"
+    mc:Ignorable="d">
+    <Grid>
+        <UniformGrid Columns="2" Rows="2">
+            <uc:CircularProgressBar Width="150" Height="150" />
+
+            <view:CoolingTower
+                Width="205"
+                Height="245"
+                IsRunning="True" />
+
+            <view:WaterPipeline></view:WaterPipeline>
+        </UniformGrid>
+
+    </Grid>
+</Window>

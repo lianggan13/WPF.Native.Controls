@@ -1,0 +1,194 @@
+﻿<UserControl
+    x:Class="WPF2DGraphics.View.DrawingsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPF2DGraphics.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Width="815"
+    Height="1180"
+    mc:Ignorable="d">
+    <Grid>
+        <StackPanel>
+            <WrapPanel>
+                <Image Width="100" Height="100">
+                    <Image.Source>
+                        <DrawingImage>
+                            <DrawingImage.Drawing>
+                                <GeometryDrawing Brush="Orange">
+                                    <GeometryDrawing.Pen>
+                                        <Pen Brush="Black" Thickness="10" />
+                                    </GeometryDrawing.Pen>
+                                    <GeometryDrawing.Geometry>
+                                        <EllipseGeometry RadiusX="100" RadiusY="50" />
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                            </DrawingImage.Drawing>
+                        </DrawingImage>
+                    </Image.Source>
+                </Image>
+                <Image Width="100" Height="100">
+                    <Image.Source>
+                        <DrawingImage>
+                            <DrawingImage.Drawing>
+                                <GeometryDrawing Brush="Orange">
+                                    <GeometryDrawing.Pen>
+                                        <Pen Brush="Black" Thickness="10" />
+                                    </GeometryDrawing.Pen>
+                                    <GeometryDrawing.Geometry>
+                                        <PathGeometry FillRule="Nonzero">
+                                            <PathFigure
+                                                IsClosed="True"
+                                                IsFilled="True"
+                                                StartPoint="0,0">
+                                                <LineSegment IsSmoothJoin="True" Point="0,100" />
+                                                <LineSegment IsSmoothJoin="True" Point="100,100" />
+                                            </PathFigure>
+                                            <PathFigure IsClosed="True" StartPoint="70,0">
+                                                <LineSegment IsSmoothJoin="True" Point="0,100" />
+                                                <LineSegment IsSmoothJoin="True" Point="100,100" />
+                                            </PathFigure>
+                                        </PathGeometry>
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                            </DrawingImage.Drawing>
+                        </DrawingImage>
+                    </Image.Source>
+                </Image>
+                <Image Width="100" Height="100">
+                    <Image.Source>
+                        <DrawingImage>
+                            <DrawingImage.Drawing>
+                                <GeometryDrawing Brush="Orange">
+                                    <GeometryDrawing.Pen>
+                                        <Pen Brush="Black" Thickness="10" />
+                                    </GeometryDrawing.Pen>
+                                    <GeometryDrawing.Geometry>
+                                        <GeometryGroup FillRule="EvenOdd">
+                                            <PathGeometry FillRule="Nonzero">
+                                                <PathFigure
+                                                    IsClosed="True"
+                                                    IsFilled="True"
+                                                    StartPoint="0,0">
+                                                    <LineSegment IsSmoothJoin="True" Point="0,100" />
+                                                    <LineSegment IsSmoothJoin="True" Point="100,100" />
+                                                </PathFigure>
+                                            </PathGeometry>
+                                            <PathGeometry>
+                                                <PathGeometry.Transform>
+                                                    <RotateTransform Angle="35" />
+                                                </PathGeometry.Transform>
+                                                <PathFigure IsClosed="True">
+                                                    <LineSegment IsSmoothJoin="True" Point="0,100" />
+                                                    <LineSegment IsSmoothJoin="True" Point="100,100" />
+                                                </PathFigure>
+                                            </PathGeometry>
+                                        </GeometryGroup>
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                            </DrawingImage.Drawing>
+                        </DrawingImage>
+                    </Image.Source>
+                </Image>
+                <Image Width="100" Height="100">
+                    <Image.Source>
+                        <DrawingImage>
+                            <DrawingImage.Drawing>
+                                <GeometryDrawing Brush="Orange" Geometry="F 0 M0,0 L0,100 L100,100 Z M70,0 L0,100 L100,100 Z">
+                                    <GeometryDrawing.Pen>
+                                        <Pen
+                                            Brush="Black"
+                                            LineJoin="Round"
+                                            StartLineCap="Triangle"
+                                            Thickness="10" />
+                                    </GeometryDrawing.Pen>
+                                </GeometryDrawing>
+                            </DrawingImage.Drawing>
+                        </DrawingImage>
+                    </Image.Source>
+                </Image>
+                <Image Width="100" Height="100">
+                    <Image.Source>
+                        <DrawingImage>
+                            <DrawingImage.Drawing>
+                                <GeometryDrawing Brush="Red" >
+                                    <GeometryDrawing.Pen>
+                                        <Pen
+                                            Brush="Black"
+                                            DashStyle="{x:Static DashStyles.DashDotDot}"
+                                            EndLineCap="Round"
+                                            LineJoin="Round"
+                                            StartLineCap="Triangle"
+                                            Thickness="10" />
+                                    </GeometryDrawing.Pen>
+                                    <GeometryDrawing.Geometry>
+                                        <PathGeometry FillRule="Nonzero">
+                                            <PathFigure
+                                                IsClosed="True"
+                                                IsFilled="True"
+                                                StartPoint="0,0">
+                                                <LineSegment IsSmoothJoin="False" Point="0,100" />
+                                                <LineSegment IsSmoothJoin="False" Point="100,100" />
+                                            </PathFigure>
+                                        </PathGeometry>
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                            </DrawingImage.Drawing>
+                        </DrawingImage>
+                    </Image.Source>
+                </Image>
+            </WrapPanel>
+            <Image>
+                <Image.Source>
+                    <DrawingImage>
+                        <DrawingImage.Drawing>
+                            <DrawingGroup>
+                                <!--  The body  -->
+                                <GeometryDrawing Brush="Blue" Geometry="M 240,250 C 200,375 200,250 175,200 C 100,400 100,250 100,200 C 0,350 0,250 30,130 C 75,0 100,0 150,0 C 200,0 250,0 250,150 Z" />
+                                <GeometryDrawing Brush="Black">
+                                    <GeometryDrawing.Pen>
+                                        <Pen Brush="Red" Thickness="8" />
+
+                                    </GeometryDrawing.Pen>
+                                    <!--  The eyes  -->
+                                    <GeometryDrawing.Geometry>
+                                        <GeometryGroup>
+                                            <EllipseGeometry
+                                                Center="95,95"
+                                                RadiusX="15"
+                                                RadiusY="15" />
+                                            <EllipseGeometry
+                                                Center="170,105"
+                                                RadiusX="15"
+                                                RadiusY="15" />
+                                        </GeometryGroup>
+
+                                    </GeometryDrawing.Geometry>
+
+                                </GeometryDrawing>
+                                <GeometryDrawing>
+                                    <GeometryDrawing.Pen>
+                                        <Pen
+                                            Brush="Black"
+                                            EndLineCap="Round"
+                                            LineJoin="Round"
+                                            StartLineCap="Round"
+                                            Thickness="10" />
+                                    </GeometryDrawing.Pen>
+                                    <GeometryDrawing.Geometry>
+                                        <LineGeometry StartPoint="75,160" EndPoint="175,150" />
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+
+
+                            </DrawingGroup>
+                        </DrawingImage.Drawing>
+                    </DrawingImage>
+                </Image.Source>
+            </Image>
+        </StackPanel>
+
+
+
+    </Grid>
+</UserControl>

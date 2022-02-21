@@ -1,0 +1,33 @@
+﻿<Window
+    x:Class="WPFDataGrid.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2"
+    xmlns:com="clr-namespace:WPFDataGrid.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:local="clr-namespace:WPFDataGrid"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:WPFDataGrid.ViewModel"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Window.DataContext>
+        <vm:MainViewModel />
+    </Window.DataContext>
+    <Grid>
+        <DataGrid
+            Name="dataGrid"
+            com:DataGridHelper.Columns="{Binding Columns}"
+            AutoGenerateColumns="False"
+            ItemsSource="{Binding RowsData}">
+            <DataGrid.Columns />
+        </DataGrid>
+
+        <Button
+            VerticalAlignment="Bottom"
+            Command="{Binding AddCommand}"
+            Content="Add Column" />
+    </Grid>
+</Window>
