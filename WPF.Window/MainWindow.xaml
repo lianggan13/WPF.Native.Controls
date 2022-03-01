@@ -1,0 +1,234 @@
+﻿<Window
+    x:Class="WPFWindow.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPFWindow"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:view="clr-namespace:WPFWindow.View"
+    Title="MaxSign Auto v1.6.0"
+    Width="1034"
+    Height="730"
+    MinWidth="1034"
+    MinHeight="730"
+    BorderBrush="#015478"
+    Closing="main_Closing"
+    ResizeMode="CanResizeWithGrip"
+    UseLayoutRounding="True"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Window.Resources />
+    <WindowChrome.WindowChrome>
+        <WindowChrome UseAeroCaptionButtons="False" />
+    </WindowChrome.WindowChrome>
+    <Window.Style>
+        <Style TargetType="{x:Type Window}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Window}">
+                        <Border
+                            x:Name="WindowBorder"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                            <Grid x:Name="LayoutRoot" Background="{TemplateBinding Background}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <!--  Title  -->
+
+                                <!--  Height="{Binding Path=(SystemParameters.WindowNonClientFrameThickness).Top}"  -->
+                                <Grid
+                                    x:Name="WindowTitlePanel"
+                                    Height="30"
+                                    Margin="0,0,0,0"
+                                    Background="{TemplateBinding BorderBrush}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackPanel Margin="12,0,0,0" Orientation="Horizontal">
+                                        <!--  ICON - 绑定程序ICON  -->
+                                        <!--<Image
+                                            Width="{x:Static SystemParameters.SmallIconWidth}"
+                                            Height="{x:Static SystemParameters.SmallIconHeight}"
+                                            Source="{TemplateBinding Icon}"
+                                            WindowChrome.IsHitTestVisibleInChrome="True" />-->
+                                        <!--  ICON - 使用自定义图片  -->
+                                        <TextBlock
+                                            Width="{x:Static SystemParameters.SmallIconWidth}"
+                                            Height="{x:Static SystemParameters.SmallIconHeight}"
+                                            VerticalAlignment="Center"
+                                            FontFamily="/Resource/ttf/#iconfont"
+                                            FontSize="10"
+                                            Foreground="White"
+                                            Text="&#xe60b;"
+                                            WindowChrome.IsHitTestVisibleInChrome="True" />
+                                        <!--  标题内容  -->
+                                        <ContentControl
+                                            Margin="8,0,0,0"
+                                            VerticalAlignment="Center"
+                                            Content="{TemplateBinding Title}"
+                                            FontSize="{DynamicResource {x:Static SystemFonts.CaptionFontSize}}"
+                                            Foreground="White" />
+                                    </StackPanel>
+
+                                    <!--  windows 功能按钮区域  -->
+                                    <StackPanel
+                                        x:Name="WindowCommandButtonsPanel"
+                                        Grid.Column="1"
+                                        Margin="0,0,-1,0"
+                                        HorizontalAlignment="Right"
+                                        Orientation="Horizontal"
+                                        WindowChrome.IsHitTestVisibleInChrome="True">
+
+                                        <!--  自定义功能区  -->
+                                        <!--<StackPanel
+                                            Margin="0,0,5,0"
+                                            HorizontalAlignment="Right"
+                                            VerticalAlignment="Center"
+                                            Orientation="Horizontal">-->
+                                        <ComboBox
+                                            x:Name="cbLang"
+                                            Width="60"
+                                            SelectedIndex="1"
+                                            Style="{StaticResource ComboBox.NonEditable.IconFont}">
+                                            <ComboBoxItem Content="中文" />
+                                            <ComboBoxItem Content="Englisth" />
+                                        </ComboBox>
+
+
+                                        <Border Width="35" Margin="0,0,0,0">
+                                            <Border.Style>
+                                                <Style TargetType="{x:Type Border}">
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="#14274E" />
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <Button
+                                                x:Name="btnMin"
+                                                VerticalAlignment="Center"
+                                                Click="btnMin_Click"
+                                                Cursor="Hand"
+                                                Style="{StaticResource Style.Button.MainWindow.Min}" />
+                                        </Border>
+
+
+                                        <Border Width="35" Margin="0,0,0,0">
+                                            <Border.Style>
+                                                <Style TargetType="{x:Type Border}">
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="#14274E" />
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <!--  Click="btnMax_Click"   SystemCommands.MaximizeWindowCommand  -->
+                                            <!--  Command="{x:Static SystemCommands.MinimizeWindowCommand}"  -->
+                                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                                <Button
+                                                    x:Name="btnMax"
+                                                    Margin="0,10,0,8"
+                                                    Click="btnMax_Click"
+                                                    Cursor="Hand"
+                                                    IsTabStop="False"
+                                                    Style="{StaticResource Style.Button.MainWindow.Normal}" />
+                                                <Button
+                                                    x:Name="btnNormal"
+                                                    Margin="0,10,0,8"
+                                                    Click="btnRestore_Click"
+                                                    Cursor="Hand"
+                                                    Style="{StaticResource Style.Button.MainWindow.Max}"
+                                                    Visibility="Collapsed" />
+                                            </StackPanel>
+                                        </Border>
+
+                                        <Border Width="35" Margin="0,0,0,0">
+                                            <Border.Style>
+                                                <Style TargetType="{x:Type Border}">
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="#D14646" />
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <Button
+                                                x:Name="btnClose"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Click="btnClose_Click"
+                                                Cursor="Hand"
+                                                Style="{StaticResource Style.Button.MainWindow.Close}" />
+                                        </Border>
+                                        <!--</StackPanel>-->
+                                    </StackPanel>
+                                </Grid>
+
+                                <!--  client area  -->
+                                <AdornerDecorator Grid.Row="1" KeyboardNavigation.IsTabStop="False">
+                                    <ContentPresenter
+                                        x:Name="MainContentPresenter"
+                                        Content="{TemplateBinding Content}"
+                                        KeyboardNavigation.TabNavigation="Cycle"
+                                        WindowChrome.IsHitTestVisibleInChrome="True" />
+                                </AdornerDecorator>
+
+                                <!--  resize grip  -->
+                                <ResizeGrip
+                                    x:Name="ResizeGrip"
+                                    Grid.Row="1"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom"
+                                    Visibility="Collapsed" />
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="WindowState" Value="Maximized">
+                                <Setter TargetName="btnMax" Property="Visibility" Value="Collapsed" />
+                                <Setter TargetName="btnNormal" Property="Visibility" Value="Visible" />
+                                <!--  消除最大化后标题栏因为部分系统 Border 隐藏而导致标题栏高度变小的问题  -->
+                                <Setter TargetName="WindowBorder" Property="BorderThickness" Value="0" />
+                                <Setter TargetName="WindowBorder" Property="Padding" Value="{x:Static SystemParameters.WindowResizeBorderThickness}" />
+                                <Setter TargetName="LayoutRoot" Property="Margin" Value="4" />
+                            </Trigger>
+                            <Trigger Property="WindowState" Value="Normal">
+                                <Setter TargetName="btnMax" Property="Visibility" Value="Visible" />
+                                <Setter TargetName="btnNormal" Property="Visibility" Value="Collapsed" />
+                            </Trigger>
+                            <Trigger Property="WindowState" Value="Minimized">
+                                <Setter TargetName="btnMin" Property="Visibility" Value="Collapsed" />
+                            </Trigger>
+
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="WindowState" Value="Normal" />
+                                    <Condition Property="ResizeMode" Value="CanResizeWithGrip" />
+                                </MultiTrigger.Conditions>
+                                <MultiTrigger.Setters>
+                                    <Setter TargetName="ResizeGrip" Property="Visibility" Value="Visible" />
+                                </MultiTrigger.Setters>
+                            </MultiTrigger>
+                            <!--<Trigger Property="IsActive" Value="False">
+                                <Setter TargetName="TitleTextBlock" Property="Foreground" Value="{StaticResource Brush.TitleBar.InactiveForeground}" />
+                                <Setter TargetName="MinimizeButton" Property="Foreground" Value="{StaticResource Brush.TitleBar.InactiveForeground}" />
+                                <Setter TargetName="RestoreButton" Property="Foreground" Value="{StaticResource Brush.TitleBar.InactiveForeground}" />
+                                <Setter TargetName="MaximizeButton" Property="Foreground" Value="{StaticResource Brush.TitleBar.InactiveForeground}" />
+                                <Setter TargetName="CloseButton" Property="Foreground" Value="{StaticResource Brush.TitleBar.InactiveForeground}" />
+                            </Trigger>-->
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Style>
+
+    <Grid>
+        <view:DialogReplica />
+    </Grid>
+</Window>

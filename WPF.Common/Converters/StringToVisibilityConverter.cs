@@ -1,0 +1,51 @@
+﻿using System;
+using System.Globalization;
+using System.Linq;
+using System.Windows;
+using System.Windows.Data;
+
+namespace GTS.MaxSign.Controls.Converters
+{
+
+    [ValueConversion(typeof(string), typeof(Visibility))]
+    public class StringToVisibilityConverter
+      : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var ss = parameter.ToString().Split(':');   // parameter RMC:Collapsed,RMC:Visible
+            string parKey = ss.ElementAt(0);
+            object parValue = Enum.Parse(typeof(Visibility), ss.ElementAt(1));
+            if (value == null)
+            {
+                return null;
+            }
+            else if (value.Equals(parKey))
+            {
+                // 满足条件 返回 parameter 中 parValue
+                return parValue;
+            }
+            else
+            {
+                // 不满足条件 返回 非 parameter 中 parValue
+                if (parValue.Equals(Visibility.Collapsed))
+                {
+                    return Visibility.Visible;
+                }
+                else if (parValue.Equals(Visibility.Visible))
+                {
+                    return Visibility.Collapsed;
+                }
+            }
+            return null;
+        }
+
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotSupportedException();
+        }
+
+
+    }
+}

@@ -1,0 +1,122 @@
+﻿<UserControl
+    x:Class="WPFAnimation.View.LinearAnimationView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPFAnimation.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <Storyboard
+            x:Key="Animation.Border"
+            AutoReverse="True"
+            RepeatBehavior="Forever"
+            Storyboard.TargetName="border">
+            <DoubleAnimation
+                Storyboard.TargetProperty="Width"
+                To="150"
+                Duration="0:0:2" />
+            <DoubleAnimation
+                Storyboard.TargetProperty="Height"
+                To="150"
+                Duration="0:0:2" />
+            <ColorAnimation
+                Storyboard.TargetProperty="Background.Color"
+                To="Orange"
+                Duration="0:0:2" />
+            <ColorAnimation
+                Storyboard.TargetProperty="(BorderBrush).(SolidColorBrush.Color)"
+                To="Green"
+                Duration="0:0:2" />
+        </Storyboard>
+
+        <Storyboard
+            x:Key="Animation.Grid"
+            AutoReverse="False"
+            RepeatBehavior="Forever"
+            Storyboard.TargetName="rt">
+            <DoubleAnimation
+                Storyboard.TargetProperty="Angle"
+                To="360"
+                Duration="0:0:5" />
+        </Storyboard>
+
+    </UserControl.Resources>
+
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="Loaded" SourceName="border">
+            <BeginStoryboard Storyboard="{StaticResource Animation.Border}" />
+        </EventTrigger>
+
+        <EventTrigger RoutedEvent="Loaded" SourceName="grid">
+            <BeginStoryboard Storyboard="{StaticResource Animation.Grid}" />
+        </EventTrigger>
+    </UserControl.Triggers>
+
+    <Grid Background="White">
+        <StackPanel HorizontalAlignment="Left">
+            <Grid Width="150" Height="150">
+                <Border
+                    x:Name="border"
+                    Width="40"
+                    Height="40"
+                    Background="Green"
+                    BorderBrush="Orange"
+                    BorderThickness="1"
+                    CornerRadius="0,0,0,0" />
+            </Grid>
+
+
+            <Grid
+                x:Name="grid"
+                Width="100"
+                Height="100"
+                RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <RotateTransform x:Name="rt" Angle="0" />
+                    <!--  CenterX="50" CenterY="50"  -->
+                </Grid.RenderTransform>
+
+                <Border BorderBrush="GreenYellow" BorderThickness="1">
+                    <Ellipse
+                        Width="12"
+                        Height="12"
+                        VerticalAlignment="Bottom"
+                        Fill="Orange"
+                        StrokeDashArray="2" />
+                </Border>
+            </Grid>
+            <Button Height="50" Content="Move">
+                <Button.RenderTransform>
+                    <TranslateTransform x:Name="tt" X="0" Y="0" />
+                </Button.RenderTransform>
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="Button.Click">
+                        <BeginStoryboard>
+                            <Storyboard Storyboard.TargetName="tt">
+                                <DoubleAnimation
+                                    By="120"
+                                    Storyboard.TargetProperty="X"
+                                    Duration="0:0:4" />
+                                <DoubleAnimation
+                                    Storyboard.TargetProperty="Y"
+                                    To="120"
+                                    Duration="0:0:4">
+                                    <DoubleAnimation.EasingFunction>
+                                        <BounceEase Bounces="3" Bounciness="2" />
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+
+
+
+
+        </StackPanel>
+    </Grid>
+</UserControl>

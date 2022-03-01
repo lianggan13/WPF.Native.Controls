@@ -1,0 +1,272 @@
+﻿<UserControl
+    x:Class="WPFItemsControl.View.SelectorView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ass="clr-namespace:WPFItemsControl.Assets"
+    xmlns:converter="clr-namespace:WPFCommon.Converters;assembly=WPF.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPFItemsControl.View"
+    xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:WPFItemsControl.ViewModel"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.DataContext>
+        <vm:SelectorVM x:Name="VM" />
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <converter:BoolToArrowConverter x:Key="BoolToArrowConverter" />
+        <converter:BoolToBrushConverter x:Key="BoolToBrushConverter" />
+        <DataTemplate x:Key="RealCourseDataTemplate">
+            <Border
+                Margin="0,5"
+                Background="White"
+                CornerRadius="10">
+                <Border.Effect>
+                    <DropShadowEffect
+                        BlurRadius="10"
+                        Direction="0"
+                        Opacity="0.2"
+                        ShadowDepth="0"
+                        Color="Gray" />
+                </Border.Effect>
+                <Grid Height="70">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="4.5*" />
+                    </Grid.ColumnDefinitions>
+                    <Border
+                        Margin="10,10"
+                        BorderBrush="#DDD"
+                        BorderThickness="0,0,1,0" />
+
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="#444"
+                        Text="{Binding CourseName}" />
+                    <Border
+                        Grid.Column="1"
+                        Margin="0,10"
+                        BorderBrush="#DDD"
+                        BorderThickness="0,0,1,0" />
+                    <lvc:PieChart
+                        Grid.Column="1"
+                        Margin="0,0,15,0"
+                        InnerRadius="15"
+                        LegendLocation="Right"
+                        Series="{Binding SeriesColection}">
+                        <lvc:PieChart.ChartLegend>
+                            <lvc:DefaultLegend BulletSize="10" />
+                        </lvc:PieChart.ChartLegend>
+                        <lvc:PieChart.DataTooltip>
+                            <lvc:DefaultTooltip BulletSize="10" />
+                        </lvc:PieChart.DataTooltip>
+                    </lvc:PieChart>
+                    <ItemsControl Grid.Column="2" ItemsSource="{Binding SeriesList}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <VirtualizingStackPanel Orientation="Horizontal" />
+                                <!--<UniformGrid Columns="{Binding DataContext.ItemCount, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}" />-->
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid
+                                    Margin="15,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition MinHeight="25" />
+                                        <RowDefinition MinHeight="25" />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock VerticalAlignment="Center" Text="{Binding SeriesName}" />
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        VerticalAlignment="Center"
+                                        Text="{Binding CurrentValue}" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        Margin="10,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Foreground="{Binding IsGrowing, Converter={StaticResource BoolToBrushConverter}}"
+                                        Text="{Binding IsGrowing, Converter={StaticResource BoolToArrowConverter}}" />
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        Margin="10,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Foreground="{Binding IsGrowing, Converter={StaticResource BoolToBrushConverter}}"
+                                        Text="{Binding ChangeRate, StringFormat=\{0\}%}" />
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+
+                    </ItemsControl>
+                </Grid>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="SkeletonCourseDataTemplate">
+            <Grid Margin="0,8">
+                <Grid.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation
+                                    AutoReverse="True"
+                                    RepeatBehavior="Forever"
+                                    Storyboard.TargetName="imgBlock"
+                                    Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)"
+                                    To="#F7F9FA"
+                                    Duration="0:0:1" />
+                                <DoubleAnimation
+                                    AutoReverse="True"
+                                    RepeatBehavior="Forever"
+                                    Storyboard.TargetName="border1"
+                                    Storyboard.TargetProperty="Background.GradientStops[1].Offset"
+                                    To="1"
+                                    Duration="0:0:1.5" />
+                                <DoubleAnimation
+                                    AutoReverse="True"
+                                    RepeatBehavior="Forever"
+                                    Storyboard.TargetName="border2"
+                                    Storyboard.TargetProperty="Background.GradientStops[1].Offset"
+                                    To="1"
+                                    Duration="0:0:2" />
+                                <DoubleAnimation
+                                    AutoReverse="True"
+                                    RepeatBehavior="Forever"
+                                    Storyboard.TargetName="border3"
+                                    Storyboard.TargetProperty="Background.GradientStops[1].Offset"
+                                    To="1"
+                                    Duration="0:0:1.3" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Grid.Triggers>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="160" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Border
+                    Name="imgBlock"
+                    Grid.Column="0"
+                    Width="90"
+                    Height="80"
+                    Background="#DDD"
+                    CornerRadius="10" />
+                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                    <Border
+                        x:Name="border1"
+                        Width="250"
+                        Height="20"
+                        Margin="0,6"
+                        HorizontalAlignment="Left">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                                <GradientStop Offset="0" Color="#DDD" />
+                                <GradientStop Offset="0" Color="Red" />
+                                <GradientStop Offset="1" Color="#DDD" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+                    </Border>
+                    <Border
+                        Name="border2"
+                        Height="20"
+                        Margin="0,6">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                                <GradientStop Offset="0" Color="#DDD" />
+                                <GradientStop Offset="0" Color="#F7F9FA" />
+                                <GradientStop Offset="1" Color="#DDD" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+                    </Border>
+                    <Border
+                        Name="border3"
+                        Width="400"
+                        Height="20"
+                        Margin="0,6"
+                        HorizontalAlignment="Left">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                                <GradientStop Offset="0" Color="#DDD" />
+                                <GradientStop Offset="0" Color="#F7F9FA" />
+                                <GradientStop Offset="1" Color="#DDD" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+        <ass:CourseDataTemplateSelector
+            x:Key="CourseDataTemplateSelector"
+            RealTemplate="{StaticResource RealCourseDataTemplate}"
+            SkeletonTemplate="{StaticResource SkeletonCourseDataTemplate}" />
+
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" MinHeight="35" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <ItemsControl ItemsSource="{Binding CourseSelections}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <RadioButton
+                        Margin="5,0"
+                        VerticalAlignment="Center"
+                        Click="RadioButton_Click"
+                        Content="{Binding CourseName}"
+                        GroupName="Course">
+                        <RadioButton.Template>
+                            <ControlTemplate TargetType="{x:Type RadioButton}">
+                                <Border
+                                    x:Name="back"
+                                    Background="#EEE"
+                                    CornerRadius="5">
+                                    <TextBlock
+                                        Margin="15,4"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Text="{TemplateBinding Content}" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsChecked" Value="True">
+                                        <Setter TargetName="back" Property="Background" Value="Orange" />
+                                        <Setter Property="Foreground" Value="White" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+
+                        </RadioButton.Template>
+                    </RadioButton>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <ItemsControl
+            x:Name="ccs"
+            Grid.Row="1"
+            ItemTemplateSelector="{StaticResource CourseDataTemplateSelector}"
+            ItemsSource="{Binding CourseSeriesList}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+    </Grid>
+</UserControl>

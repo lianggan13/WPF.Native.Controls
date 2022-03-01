@@ -1,0 +1,48 @@
+﻿<Window
+    x:Class="WPFThumb.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPFThumb"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <ControlTemplate x:Key="Thumb.ControlTemplate" TargetType="{x:Type Thumb}">
+            <Grid x:Name="PART_Grid">
+                <Grid.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Offset="0.1" Color="#aa0311" />
+                        <GradientStop Offset="0.62" Color="#cccccc" />
+                        <GradientStop Offset="0.89" Color="#82C3FF" />
+                    </LinearGradientBrush>
+                </Grid.Background>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <DataTrigger Binding="{Binding IsDragging, RelativeSource={RelativeSource Mode=Self}}" Value="true">
+                    <Setter TargetName="PART_Grid" Property="Background" Value="Chocolate" />
+                </DataTrigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid>
+        <Canvas x:Name="canvas">
+            <Thumb
+                x:Name="thumb"
+                Canvas.Left="0"
+                Canvas.Top="0"
+                Width="35"
+                Height="35"
+                DragDelta="Thumb_DragDelta"
+                Template="{StaticResource Thumb.ControlTemplate}" />
+            <TextBlock
+                x:Name="tt"
+                Canvas.Left="2"
+                Canvas.Top="2"
+                FontFamily="24" />
+
+        </Canvas>
+    </Grid>
+</Window>

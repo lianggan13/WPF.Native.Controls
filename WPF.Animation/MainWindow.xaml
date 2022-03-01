@@ -1,0 +1,258 @@
+﻿<Window
+    x:Class="WPFAnimation.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPFAnimation"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:WPFAnimation.View"
+    Title="MainWindow"
+    Width="1000"
+    Height="650"
+    mc:Ignorable="d">
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <ColorAnimation
+                        AutoReverse="True"
+                        RepeatBehavior="Forever"
+                        Storyboard.TargetName="imgBlock"
+                        Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)"
+                        To="#F7F9FA"
+                        Duration="0:0:1" />
+                    <DoubleAnimation
+                        AutoReverse="True"
+                        RepeatBehavior="Forever"
+                        Storyboard.TargetName="border1"
+                        Storyboard.TargetProperty="Background.GradientStops[1].Offset"
+                        To="1"
+                        Duration="0:0:1.5" />
+                    <DoubleAnimation
+                        AutoReverse="True"
+                        RepeatBehavior="Forever"
+                        Storyboard.TargetName="border2"
+                        Storyboard.TargetProperty="Background.GradientStops[1].Offset"
+                        To="1"
+                        Duration="0:0:2" />
+                    <DoubleAnimation
+                        AutoReverse="True"
+                        RepeatBehavior="Forever"
+                        Storyboard.TargetName="border3"
+                        Storyboard.TargetProperty="Background.GradientStops[1].Offset"
+                        To="1"
+                        Duration="0:0:1.3" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+
+    <TabControl SelectedIndex="4">
+        <TabItem Header="LinearAnimation">
+            <vm:LinearAnimationView />
+        </TabItem>
+
+        <TabItem Header="KeyFrameAnimation">
+            <vm:KeyFrameAnimationView />
+        </TabItem>
+
+        <TabItem Header="PathAnimation">
+            <vm:PathAnimationView />
+        </TabItem>
+
+        <TabItem Header="Adanced Animation">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.35*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid Margin="0,8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="160" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Border
+                        Name="imgBlock"
+                        Grid.Column="0"
+                        Width="90"
+                        Height="80"
+                        Background="#DDD"
+                        CornerRadius="10" />
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <Border
+                            x:Name="border1"
+                            Width="250"
+                            Height="20"
+                            Margin="0,6"
+                            HorizontalAlignment="Left">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                                    <GradientStop Offset="0" Color="#DDD" />
+                                    <GradientStop Offset="0" Color="#F7F9FA" />
+                                    <GradientStop Offset="1" Color="#DDD" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
+                        <Border
+                            Name="border2"
+                            Height="20"
+                            Margin="0,6">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                                    <GradientStop Offset="0" Color="#DDD" />
+                                    <GradientStop Offset="0" Color="#F7F9FA" />
+                                    <GradientStop Offset="1" Color="#DDD" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
+                        <Border
+                            Name="border3"
+                            Width="400"
+                            Height="20"
+                            Margin="0,6"
+                            HorizontalAlignment="Left">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                                    <GradientStop Offset="0" Color="#DDD" />
+                                    <GradientStop Offset="0" Color="#F7F9FA" />
+                                    <GradientStop Offset="1" Color="#DDD" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Row="1" Margin="0,3,0,0">
+                    <Rectangle>
+                        <Rectangle.Fill>
+                            <LinearGradientBrush x:Name="BasicBrush" StartPoint="0.499,1" EndPoint="0.5,1">
+                                <GradientStop Offset="0.0" Color="#08000000" />
+                                <GradientStop Offset="1.0" Color="#03000000" />
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                        <Rectangle.Triggers>
+                            <EventTrigger RoutedEvent="Rectangle.Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <PointAnimation
+                                            AutoReverse="True"
+                                            FillBehavior="HoldEnd"
+                                            RepeatBehavior="Forever"
+                                            Storyboard.TargetName="BasicBrush"
+                                            Storyboard.TargetProperty="StartPoint"
+                                            From="0.0,1"
+                                            To="1,1"
+                                            Duration="0:0:40" />
+                                        <PointAnimation
+                                            AutoReverse="True"
+                                            FillBehavior="HoldEnd"
+                                            RepeatBehavior="Forever"
+                                            Storyboard.TargetName="BasicBrush"
+                                            Storyboard.TargetProperty="EndPoint"
+                                            From="0.001,1"
+                                            To="1,1"
+                                            Duration="0:0:40" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Rectangle.Triggers>
+                    </Rectangle>
+                    <Rectangle Visibility="Collapsed">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush x:Name="ThirdBrush" StartPoint="0.499,1" EndPoint="0.5,1">
+                                <GradientStop Offset="0.0" Color="#08000000" />
+                                <GradientStop Offset="1.0" Color="#03000000" />
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                        <Rectangle.Triggers>
+                            <EventTrigger RoutedEvent="Rectangle.Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <PointAnimation
+                                            FillBehavior="HoldEnd"
+                                            RepeatBehavior="Forever"
+                                            Storyboard.TargetName="ThirdBrush"
+                                            Storyboard.TargetProperty="StartPoint"
+                                            From="1,1"
+                                            To="0.0,1"
+                                            Duration="0:0:15" />
+                                        <PointAnimation
+                                            FillBehavior="HoldEnd"
+                                            RepeatBehavior="Forever"
+                                            Storyboard.TargetName="ThirdBrush"
+                                            Storyboard.TargetProperty="EndPoint"
+                                            From="1,1"
+                                            To="0.001,1"
+                                            Duration="0:0:15" />
+                                        <PointAnimation
+                                            BeginTime="0:0:15"
+                                            FillBehavior="HoldEnd"
+                                            RepeatBehavior="Forever"
+                                            Storyboard.TargetName="ThirdBrush"
+                                            Storyboard.TargetProperty="EndPoint"
+                                            From="1,1"
+                                            To="0.0,1"
+                                            Duration="0:0:15" />
+                                        <PointAnimation
+                                            BeginTime="0:0:15"
+                                            FillBehavior="HoldEnd"
+                                            RepeatBehavior="Forever"
+                                            Storyboard.TargetName="ThirdBrush"
+                                            Storyboard.TargetProperty="StartPoint"
+                                            From="1,1"
+                                            To="0.001,1"
+                                            Duration="0:0:15" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Rectangle.Triggers>
+                    </Rectangle>
+                    <Rectangle Visibility="Collapsed">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush x:Name="SecondBrush" StartPoint="1,0.499" EndPoint="1,0.5">
+                                <GradientStop Offset="0.0" Color="#02000000" />
+                                <GradientStop Offset="1.0" Color="#07000000" />
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                        <Rectangle.Triggers>
+                            <EventTrigger RoutedEvent="Rectangle.Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <PointAnimation
+                                            AutoReverse="True"
+                                            FillBehavior="HoldEnd"
+                                            RepeatBehavior="Forever"
+                                            Storyboard.TargetName="SecondBrush"
+                                            Storyboard.TargetProperty="StartPoint"
+                                            From="1,1"
+                                            To="1,0"
+                                            Duration="0:0:20" />
+                                        <PointAnimation
+                                            AutoReverse="True"
+                                            FillBehavior="HoldEnd"
+                                            RepeatBehavior="Forever"
+                                            Storyboard.TargetName="SecondBrush"
+                                            Storyboard.TargetProperty="EndPoint"
+                                            From="1,1"
+                                            To="1,0.001"
+                                            Duration="0:0:20" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Rectangle.Triggers>
+                    </Rectangle>
+                </Grid>
+
+            </Grid>
+        </TabItem>
+
+        <TabItem Header="PathAnimation">
+            <vm:LoadingWait />
+        </TabItem>
+        <TabItem Header="DropdownView">
+            <vm:DropdownView />
+        </TabItem>
+    </TabControl>
+
+
+</Window>
