@@ -69,6 +69,9 @@
     </Compile>
     <Compile Include="ValidateTextBox\WatermarkTextBox.cs" />
     <Compile Include="ViewModel\SingleTextBoxVM.cs" />
+    <Compile Include="View\FocusTextBox.xaml.cs">
+      <DependentUpon>FocusTextBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\WatermarkTextBox.xaml.cs">
       <DependentUpon>WatermarkTextBox.xaml</DependentUpon>
     </Compile>
@@ -87,6 +90,10 @@
     <Page Include="ValidateTextBox\SingleTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FocusTextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\WatermarkTextBox.xaml">
       <SubType>Designer</SubType>

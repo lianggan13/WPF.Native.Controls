@@ -1,0 +1,149 @@
+﻿<UserControl
+    x:Class="Pagination.View.PaginationView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Pagination.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:Pagination.ViewModel"
+    d:DataContext="{d:DesignInstance vm:PaginationViewModel}"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <!--<UserControl.DataContext>
+        XDG0047	无法分配指定的值。应是以下类型:“Object”
+        <vm:PaginationViewModel />
+    </UserControl.DataContext>-->
+    <UserControl.Resources>
+        <LinearGradientBrush x:Key="ComboBox.MouseOver.Background" StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Offset="0.0" Color="#FFECF4FC" />
+            <GradientStop Offset="1.0" Color="#FFDCECFC" />
+        </LinearGradientBrush>
+
+        <Style x:Key="FlipButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="#555" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Width" Value="50" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Tag, RelativeSource={RelativeSource Mode=TemplatedParent}}">
+                            <ContentPresenter
+                                Name="content"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource ComboBox.MouseOver.Background}" />
+                    <Setter Property="BorderBrush" Value="#FF7EB4EA" />
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Foreground" Value="#CCC" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="PageButtonStyle" TargetType="RadioButton">
+            <Setter Property="GroupName" Value="number_button" />
+            <Setter Property="Margin" Value="1,0" />
+            <Setter Property="Foreground" Value="#888" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Border
+                            Name="root"
+                            Width="25"
+                            Height="25"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="5">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Text="{Binding Index}" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#EEE" />
+                </Trigger>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Background" Value="#FF0ABEFF" />
+                    <Setter Property="Foreground" Value="White" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="80" />
+        </Grid.ColumnDefinitions>
+
+        <!--  上一页翻页按钮  -->
+        <Button
+            Command="{Binding PgUpCommand}"
+            Style="{StaticResource FlipButtonStyle}"
+            Tag="10,0,0,10">
+            <Viewbox Margin="10">
+                <Path
+                    Data="M5,0 0,5 5,10"
+                    Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
+                    StrokeEndLineCap="Round"
+                    StrokeStartLineCap="Round"
+                    StrokeThickness="1" />
+            </Viewbox>
+        </Button>
+        <!--  下一页翻页按钮  -->
+        <Button
+            Grid.Column="2"
+            Command="{Binding PgDnCommand}"
+            Style="{StaticResource FlipButtonStyle}"
+            Tag="10,0,0,10">
+            <Viewbox Margin="10">
+                <Path
+                    Data="M5,0 0 5 5 10"
+                    RenderTransformOrigin="0.5,0.5"
+                    Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
+                    StrokeEndLineCap="Round"
+                    StrokeStartLineCap="Round"
+                    StrokeThickness="1">
+                    <Path.RenderTransform>
+                        <RotateTransform Angle="180" />
+                    </Path.RenderTransform>
+                </Path>
+            </Viewbox>
+        </Button>
+        <!--  数字标签  -->
+        <ItemsControl
+            Grid.Column="1"
+            Background="Transparent"
+            ItemsSource="{Binding Pages}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <!--  容器模板控件：  -->
+                    <UniformGrid Rows="1" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <RadioButton
+                        Command="{Binding DataContext.PgJumpCommand, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}"
+                        CommandParameter="{Binding Index}"
+                        IsChecked="{Binding IsCurrent}"
+                        IsEnabled="{Binding IsEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Style="{StaticResource PageButtonStyle}" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</UserControl>
