@@ -1,18 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ListViewImgTurn
 {
@@ -25,12 +18,12 @@ namespace ListViewImgTurn
         {
             InitializeComponent();
             ImageList = new List<string>();
-            ImageList.Add("https://img1.baidu.com/it/u=1416457311,1216095499&fm=26&fmt=auto");
-            ImageList.Add("https://img2.baidu.com/it/u=3885337919,326828042&fm=26&fmt=auto");
-            ImageList.Add("https://img2.baidu.com/it/u=175327901,886211028&fm=26&fmt=auto");
-            ImageList.Add("https://img0.baidu.com/it/u=3066308965,3675412486&fm=26&fmt=auto");
-            ImageList.Add("https://img2.baidu.com/it/u=771563104,2912096467&fm=26&fmt=auto");
-            ImageList.Add("https://img0.baidu.com/it/u=4091531897,1713912937&fm=26&fmt=auto");
+            ImageList.Add("/Assets/Images/1.jpg");
+            ImageList.Add("/Assets/Images/2.jpg");
+            ImageList.Add("/Assets/Images/3.jpg");
+            ImageList.Add("/Assets/Images/4.jpg");
+            ImageList.Add("/Assets/Images/5.jpg");
+            ImageList.Add("/Assets/Images/6.jpg");
             DataContext = this;
 
             this.Loaded += MainWindow_Loaded;
@@ -47,7 +40,7 @@ namespace ListViewImgTurn
         public List<string> ImageList { get; set; }
         Task task;
         CancellationTokenSource ts = new CancellationTokenSource();
-        
+
         // 设想这样一种场景,按钮点击事件,进入 while 循环,异步执行..., 
         // 如果第二次点击,又进入 while 循环,此如,怎样让 第一个 while 循环 退出呢?
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -62,7 +55,7 @@ namespace ListViewImgTurn
                 ts = new CancellationTokenSource();
                 token = ts.Token;
             }
-            
+
 
             task = new Task(() =>
             {
@@ -70,7 +63,7 @@ namespace ListViewImgTurn
                 {
                     if (token.IsCancellationRequested)
                     {
-                        return ;
+                        return;
                     }
 
                     this.Dispatcher.Invoke(() =>
@@ -101,7 +94,7 @@ namespace ListViewImgTurn
 
             if (Keyboard.IsKeyDown(Key.LeftCtrl))
             {
-                if(e.Delta > 0 && scale <10)
+                if (e.Delta > 0 && scale < 10)
                 {
                     // 放大
                     scale += step;

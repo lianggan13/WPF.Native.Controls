@@ -11,7 +11,6 @@
     MaxHeight="{x:Static SystemParameters.PrimaryScreenHeight}"
     AllowsTransparency="False"
     Background="#00F2F2F2"
-    FontFamily="/MenuWindowChrome;component/Fonts/#FontAwesome"
     mc:Ignorable="d">
     <Window.Resources>
         <Style x:Key="FocusVisual">
@@ -38,6 +37,7 @@
         <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5" />
         <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383" />
         <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FontFamily" Value="{StaticResource fontawesome}" />
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
             <Setter Property="Background" Value="{StaticResource Button.Static.Background}" />
             <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}" />
@@ -165,6 +165,7 @@
                         Margin="0,0,5,0"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
+                        FontFamily="{StaticResource fontawesome}"
                         FontSize="20"
                         Foreground="White"
                         Text="&#xf06c;" />
@@ -196,6 +197,7 @@
                     Background="#00DDDDDD"
                     Content="&#xf060;"
                     Cursor="Hand"
+                    FontFamily="{StaticResource fontawesome}"
                     FontSize="20"
                     Style="{DynamicResource ToggleButtonStyle}"
                     WindowChrome.IsHitTestVisibleInChrome="True" />
@@ -223,6 +225,7 @@
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
+                                    FontFamily="{StaticResource fontawesome}"
                                     Foreground="White"
                                     Text="&#xf285;" />
                             </Border>

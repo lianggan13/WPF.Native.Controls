@@ -55,6 +55,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="TIM.Login\ViewModel\LoginViewModel.cs" />
+    <Compile Include="TIM.Login\View\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Assets\Styles\BaseResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\Styles\ButtonStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\Styles\TextBoxStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,6 +83,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="TIM.Login\View\LoginView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -86,7 +106,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Resource Include="Fonts\fontawesome-webfont.ttf" />
+    <Resource Include="Assets\Fonts\fontawesome-webfont.ttf" />
+    <Resource Include="Assets\Fonts\iconfont.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -94,6 +115,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\flower.png" />
+    <Resource Include="Assets\Images\left_pic.png" />
+    <Resource Include="Assets\Images\qq.png" />
+    <Resource Include="Assets\Images\qr_record.png" />
+    <Resource Include="Assets\Images\TIM.png" />
+    <Resource Include="Assets\Images\wx.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TIM.Login\Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WPF.Common\WPF.Common.csproj">
+      <Project>{A0F9C22B-B526-44DD-B58A-A837E3A833EC}</Project>
+      <Name>WPF.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

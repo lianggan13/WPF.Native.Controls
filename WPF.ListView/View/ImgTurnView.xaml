@@ -151,7 +151,6 @@
                     <ItemsPanelTemplate>
                         <!--  使用 Grid 作为容器,产生 叠加效果  -->
                         <Grid />
-
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
                 <ListView.ItemContainerStyle>

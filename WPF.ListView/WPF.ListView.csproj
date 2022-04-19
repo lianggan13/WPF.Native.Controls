@@ -70,15 +70,34 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CustomControl\CustomImageControl.xaml.cs">
+      <DependentUpon>CustomImageControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControl\CustomItemsControl.cs" />
+    <Compile Include="CustomControl\ImagePanel.xaml.cs">
+      <DependentUpon>ImagePanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\ListImageViewModel.cs" />
     <Compile Include="ViewModel\LocationViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\ImgTurnView.xaml.cs">
       <DependentUpon>ImgTurnView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ListImageView.xaml.cs">
+      <DependentUpon>ListImageView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\LocationView.xaml.cs">
       <DependentUpon>LocationView.xaml</DependentUpon>
     </Compile>
+    <Page Include="CustomControl\CustomImageControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomControl\ImagePanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -94,6 +113,10 @@
     <Page Include="View\ImgTurnView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ListImageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\LocationView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -126,6 +149,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WPF.Common\WPF.Common.csproj">
+      <Project>{A0F9C22B-B526-44DD-B58A-A837E3A833EC}</Project>
+      <Name>WPF.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\1.jpg" />
+    <Resource Include="Assets\Images\2.jpg" />
+    <Resource Include="Assets\Images\3.jpg" />
+    <Resource Include="Assets\Images\4.jpg" />
+    <Resource Include="Assets\Images\5.jpg" />
+    <Resource Include="Assets\Images\6.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

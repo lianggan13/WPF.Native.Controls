@@ -143,8 +143,6 @@
             </Grid>
         </Border>
 
-
-
         <ListView
             Grid.Row="2"
             ItemsSource="{Binding ListData}"
@@ -240,11 +238,12 @@
                         <Ellipse
                             Width="100"
                             Height="100"
+                            Fill="Green"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center">
-                            <Ellipse.Fill>
-                                <ImageBrush ImageSource="12121456_7.jpg" />
-                            </Ellipse.Fill>
+                            <!--<Ellipse.Fill>
+                                --><!--<ImageBrush  />--><!--
+                            </Ellipse.Fill>-->
                         </Ellipse>
                         <TextBlock
                             Grid.Column="1"
