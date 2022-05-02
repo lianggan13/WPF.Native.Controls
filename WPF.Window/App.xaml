@@ -2,14 +2,14 @@
     x:Class="WPFWindow.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:WPFWindow"
     StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Resource/style/Combobox.xaml" />
-                <ResourceDictionary Source="/Resource/style/Button.xaml" />
+                <ResourceDictionary Source="/Assets/Styles/Style.Combobox.xaml" />
+                <ResourceDictionary Source="/Assets/Styles/Style.Button.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <FontFamily x:Key="iconfont">/Assets/Fonts/#iconfont</FontFamily>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

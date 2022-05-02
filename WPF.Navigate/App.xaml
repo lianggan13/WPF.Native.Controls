@@ -6,7 +6,7 @@
     xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:MenuWithSubMenu"
     d1p1:Ignorable="d"
-    StartupUri="MenuWindow.xaml">
+    StartupUri="/view/Pages/Page0.xaml">
     <Application.Resources>
         <ResourceDictionary />
     </Application.Resources>

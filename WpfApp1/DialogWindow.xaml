@@ -1,0 +1,39 @@
+﻿<Window
+    x:Class="WpfApp1.DialogWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:gdiprint="clr-namespace:System.Drawing.Printing;assembly=System.Drawing"
+    xmlns:local="clr-namespace:WpfApp1"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+    Title="StandardDialogs"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <wf:PageSetupDialog x:Key="printSetupDialog">
+            <wf:PageSetupDialog.PageSettings>
+                <gdiprint:PageSettings />
+            </wf:PageSetupDialog.PageSettings>
+        </wf:PageSetupDialog>
+    </Window.Resources>
+    <StackPanel>
+        <Button x:Name="openFileDialogButton">Open File Dialog</Button>
+        <Button x:Name="saveFileDialogButton">Save File Dialog</Button>
+        <Button x:Name="folderBrowserDialogButton">Folder Browser Dialog</Button>
+        <Button
+            x:Name="fontDialogButton"
+            FontFamily="Times New Roman"
+            FontSize="12pt"
+            FontStretch="Normal"
+            FontStyle="Italic"
+            FontWeight="Bold">
+            Font Dialog
+        </Button>
+        <Button x:Name="colorDialogButton" Background="Yellow">Color Dialog</Button>
+        <Button x:Name="pageSetupDialogButton">Page Setup Dialog</Button>
+        <Button x:Name="printDialogButton">Print Dialog</Button>
+        <!--<Button x:Name="printPreviewDialogButton">Print Preview Dialog</Button>-->
+    </StackPanel>
+</Window>

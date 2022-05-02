@@ -56,10 +56,18 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Common\WindowManager.cs" />
-    <Compile Include="View\DialogReplica.xaml.cs">
-      <DependentUpon>DialogReplica.xaml</DependentUpon>
+    <Compile Include="View\MenuAnimation.xaml.cs">
+      <DependentUpon>MenuAnimation.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BilibiliUserCenter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\MaxSignAutoChrome.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -69,19 +77,25 @@
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BilibiliUserCenter.xaml.cs">
+      <DependentUpon>BilibiliUserCenter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MaxSignAutoChrome.xaml.cs">
+      <DependentUpon>MaxSignAutoChrome.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Resource\style\Button.xaml">
+    <Page Include="Assets\Styles\Style.Button.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resource\style\Combobox.xaml">
+    <Page Include="Assets\Styles\Style.Combobox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\DialogReplica.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="View\MenuAnimation.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -102,14 +116,25 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Assets\Fonts\fontawesome-webfont.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Resource Include="Resource\ttf\iconfont.ttf" />
+    <Resource Include="Assets\Fonts\iconfont.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Assets\Images\dog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\noUser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\哔哩哔哩.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

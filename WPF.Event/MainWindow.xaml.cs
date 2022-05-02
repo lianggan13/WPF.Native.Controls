@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace WPFThumb
+namespace WPF.Event
 {
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
@@ -12,5 +12,9 @@ namespace WPFThumb
             InitializeComponent();
         }
 
+        private void TapHandler(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Tapped!");
+        }
     }
 }

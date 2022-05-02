@@ -1,66 +1,38 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Input;
-
-namespace WPFWindow
+﻿namespace WPF.Window
 {
+    using System;
+    using System.Linq;
+    using System.Reflection;
+    using System.Windows;
+    using System.Windows.Controls;
+
+
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Assembly assembly = Assembly.GetExecutingAssembly();
         public MainWindow()
         {
             InitializeComponent();
-            this.MaxHeight = SystemParameters.PrimaryScreenHeight;
         }
 
-        #region frame ui
-        private void btnMin_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            SystemCommands.MinimizeWindow(this);
-        }
+            if (sender is Button btn)
+            {
+                string tyname = btn.Content.ToString();
+                var tydest = assembly.DefinedTypes.OfType<TypeInfo>().FirstOrDefault(t => t.Name == tyname);
+                var obj = Activator.CreateInstance(assembly.FullName, tydest.FullName);
+                if (obj.Unwrap() is Window win)
+                {
+                    win.Owner = this;
+                    win.ShowDialog();
+                }
+            }
 
-        private void btnRestore_Click(object sender, RoutedEventArgs e)
-        {
-            SystemCommands.RestoreWindow(this);
-
-        }
-
-        private void btnMax_Click(object sender, RoutedEventArgs e)
-        {
-            SystemCommands.MaximizeWindow(this);
-        }
-
-        private void btnClose_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void main_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            Environment.Exit(0);
-        }
-
-        private void ShowCloseErr()
-        {
-            return;
-        }
-        #endregion
-
-        #region language
-        /// <summary>
-        /// 点击切换语言
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ComboBoxItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
 
         }
-        #endregion
-
-
-
     }
 }

@@ -1,0 +1,141 @@
+﻿<UserControl x:Class="WPF.Thumb.View.ThumbWindowSize"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF.Thumb.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Border
+        x:Name="Border"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        BorderBrush="#FF626161"
+        BorderThickness="2"
+        CornerRadius="3">
+
+        <DockPanel
+            x:Name="sizableContent"
+            MinWidth="100"
+            MinHeight="100"
+            Background="LightGray"
+            Focusable="False"
+            LastChildFill="True">
+
+            <Border
+                Height="30"
+                Background="Gray"
+                DockPanel.Dock="Top">
+                <DockPanel>
+                    <Button
+                        Width="16"
+                        Height="16"
+                        Margin="0,0,4,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Top"
+                        Background="Transparent"
+                        DockPanel.Dock="Right">
+                        <Button.Content>
+                            <Grid>
+                                <Line
+                                    Stroke="White"
+                                    StrokeThickness="1"
+                                    X1="1"
+                                    X2="8"
+                                    Y1="1"
+                                    Y2="8" />
+                                <Line
+                                    Stroke="White"
+                                    StrokeThickness="1"
+                                    X1="1"
+                                    X2="8"
+                                    Y1="8"
+                                    Y2="1" />
+                            </Grid>
+                        </Button.Content>
+                    </Button>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="White"
+                        Text="Pretend Dialog" />
+                </DockPanel>
+            </Border>
+
+            <DockPanel HorizontalAlignment="Stretch" DockPanel.Dock="Bottom">
+
+                <Thumb
+                    Margin="0,0,1,1"
+                    VerticalAlignment="Bottom"
+                    DockPanel.Dock="Right"
+                    DragCompleted="OnResizeThumbDragCompleted"
+                    DragDelta="OnResizeThumbDragDelta"
+                    DragStarted="OnResizeThumbDragStarted">
+                    <Thumb.Style>
+                        <Style BasedOn="{x:Null}" TargetType="{x:Type Thumb}">
+                            <Style.Setters>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate>
+                                            <Grid
+                                                x:Name="resizeVisual"
+                                                VerticalAlignment="Bottom"
+                                                DockPanel.Dock="Right">
+                                                <Line
+                                                    Stroke="DarkGray"
+                                                    StrokeThickness="1.5"
+                                                    X1="6"
+                                                    X2="18"
+                                                    Y1="18"
+                                                    Y2="6" />
+                                                <!--  smallest/right|bottom most  -->
+                                                <Line
+                                                    Stroke="DarkGray"
+                                                    StrokeThickness="1.5"
+                                                    X1="10"
+                                                    X2="18"
+                                                    Y1="18"
+                                                    Y2="10" />
+                                                <Line
+                                                    Stroke="DarkGray"
+                                                    StrokeThickness="1.5"
+                                                    X1="14"
+                                                    X2="18"
+                                                    Y1="18"
+                                                    Y2="14" />
+                                                <!--  longers/left|top most  -->
+                                                <Grid.Style>
+                                                    <Style TargetType="{x:Type Grid}">
+                                                        <Style.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Cursor" Value="SizeNWSE" />
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Grid.Style>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style.Setters>
+                        </Style>
+                    </Thumb.Style>
+                </Thumb>
+
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Button
+                        Width="75"
+                        Margin="12"
+                        Content="Ok"
+                        TabIndex="1" />
+                </StackPanel>
+            </DockPanel>
+
+            <StackPanel Margin="16,16,16,4" HorizontalAlignment="Center">
+                <TextBlock Text="Drag the lower right corner to resize." />
+            </StackPanel>
+        </DockPanel>
+    </Border>
+</UserControl>

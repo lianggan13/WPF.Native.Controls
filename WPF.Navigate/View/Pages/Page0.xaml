@@ -1,0 +1,13 @@
+﻿<!-- Page0.xaml -->
+<Page x:Class="PageState.Page0"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Welcome"
+    WindowTitle="Welcome">
+  <StackPanel Margin="10">
+    <TextBlock>Would you like to play a game?</TextBlock>
+    <TextBlock HorizontalAlignment="Right" VerticalAlignment="Bottom">
+      <Hyperlink Name="playLink">Play</Hyperlink>
+    </TextBlock>
+  </StackPanel>
+</Page>
