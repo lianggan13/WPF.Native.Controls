@@ -7,6 +7,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <!--红色的实线圆弧，旋转200度，顺时针，获取大圆弧-->
+        <Path Data="M 50,200 A 100,100 200 1 0 200,100" Stroke="Red" StrokeThickness="5" Fill="Transparent"/>
+        <!--绿色的虚线圆，旋转200度，顺时针，获取小圆弧-->
+        <Path Data="M 50,200 A 100,100 200 0 1 200,100" Stroke="Green" StrokeDashArray="2 2" StrokeThickness="5" Fill="Transparent"/>
+        
+        
+        
         <Path Data="M 20,10 h40 v40 h-40 v-40" Stroke="Black" />
         <Path Data="M 20,60 L 100,200 L 300,400" Stroke="DarkCyan" />
         <Path Data="M 10,100 L 100,100 100,50 Z M 10,10 L 100,10 100,40 Z" Stroke="Blue" />

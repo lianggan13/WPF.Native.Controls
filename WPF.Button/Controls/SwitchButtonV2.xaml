@@ -1,0 +1,93 @@
+﻿<ToggleButton
+    x:Class="WPF.Button.Controls.SwitchButtonV2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPF.Button.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="60"
+    d:DesignWidth="60"
+    mc:Ignorable="d">
+    <ToggleButton.Style>
+        <Style TargetType="{x:Type ToggleButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Grid>
+                            <Border
+                                Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}"
+                                Background="#FF3C3C3C"
+                                CornerRadius="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" />
+                            <Border
+                                Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}"
+                                Margin="8"
+                                BorderBrush="Black"
+                                BorderThickness="1"
+                                CornerRadius="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" />
+                            <Border
+                                Width="12"
+                                Background="#FF3C3C3C"
+                                CornerRadius="6"
+                                RenderTransformOrigin="0.5,0.5">
+                                <Border.Effect>
+                                    <DropShadowEffect
+                                        BlurRadius="14"
+                                        Direction="0"
+                                        Opacity="0.9"
+                                        ShadowDepth="0"
+                                        Color="Black" />
+                                </Border.Effect>
+                                <Border.RenderTransform>
+                                    <RotateTransform x:Name="rt" Angle="-30" />
+                                </Border.RenderTransform>
+                                <!--<Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Border
+                                    Margin="3,3"
+                                    Background="White"
+                                    CornerRadius="4" />
+                            </Grid>-->
+                                <UniformGrid Rows="2">
+                                    <Border
+                                        Margin="3,3"
+                                        Background="White"
+                                        CornerRadius="4" />
+                                </UniformGrid>
+
+                            </Border>
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="rt"
+                                                Storyboard.TargetProperty="Angle"
+                                                To="30"
+                                                Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="rt"
+                                                Storyboard.TargetProperty="Angle"
+                                                Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </ToggleButton.Style>
+</ToggleButton>

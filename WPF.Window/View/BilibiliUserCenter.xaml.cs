@@ -1,7 +1,6 @@
 ﻿
 namespace WPF.Window.View
 {
-
     using System.Windows;
     using System.Windows.Controls;
 
@@ -17,6 +16,7 @@ namespace WPF.Window.View
         private void RadioButton_Click(object sender, RoutedEventArgs e)
         {
             RadioButton radioButton = sender as RadioButton;
+            //Type.GetType()
             //pageFrame.Source = new Uri(radioButton.CommandParameter.ToString(), UriKind.Relative);
         }
     }

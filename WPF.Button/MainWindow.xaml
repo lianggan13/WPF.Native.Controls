@@ -9,61 +9,20 @@
     Title="MainWindow"
     Width="800"
     Height="450"
+    Loaded="Window_Loaded"
     mc:Ignorable="d">
-    <Window.Resources>
-        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Grid>
-                            <Rectangle RadiusX="4.5" RadiusY="4.5">
-                                <Rectangle.Fill>
-                                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
-                                        <GradientStop Offset="0" Color="#FF2AB2E7" />
-                                        <GradientStop Offset="1" Color="#FF35CECF" />
-                                    </LinearGradientBrush>
-                                </Rectangle.Fill>
-                            </Rectangle>
-                            <ContentPresenter
-                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                RecognizesAccessKey="True"
-                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsFocused" Value="True" />
-                            <Trigger Property="IsDefaulted" Value="True" />
-                            <Trigger Property="IsMouseOver" Value="True" />
-                            <Trigger Property="IsPressed" Value="True" />
-                            <Trigger Property="IsEnabled" Value="False" />
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
+    <Window.Resources />
 
     <Grid>
-        <StackPanel>
+        <UniformGrid Columns="2" Rows="2">
             <ctrls:SwitchButton />
-            <Button
-                Width="355"
-                Height="95"
-                Margin="0,0,0,15"
-                Content="登录"
-                Cursor="Hand"
-                FontSize="30"
-                Foreground="White"
-                Style="{DynamicResource ButtonStyle}" />
-            <Button
-                Width="355"
-                Height="95"
-                Content="注销"
-                Cursor="Hand"
-                FontSize="30"
-                Foreground="White"
-                Style="{StaticResource ButtonStyle}" />
+            <Grid Background="#FF030A28">
+                <ctrls:PushButton Width="60" Height="60" />
+            </Grid>
 
-        </StackPanel>
+            <Grid Background="#FF030A28">
+                <ctrls:SwitchButtonV2 Width="60" Height="60" />
+            </Grid>
+        </UniformGrid>
     </Grid>
 </Window>

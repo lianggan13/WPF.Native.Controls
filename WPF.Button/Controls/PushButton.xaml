@@ -1,0 +1,113 @@
+﻿<ToggleButton
+    x:Class="WPF.Button.Controls.PushButton"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPF.Button.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <ToggleButton.Style>
+        <Style TargetType="{x:Type ToggleButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Grid>
+                            <Border
+                                Name="PART_Effect"
+                                Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}"
+                                Background="White"
+                                CornerRadius="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}"
+                                Visibility="Visible">
+                                <Border.Effect>
+                                    <DropShadowEffect
+                                        BlurRadius="60"
+                                        Direction="0"
+                                        ShadowDepth="0"
+                                        Color="#9961FFC4" />
+                                </Border.Effect>
+                                <!--#region Another way: Margin=-23 Background-->
+                                <!--<Border.Background>
+                                    <RadialGradientBrush>
+                                        <GradientStop Offset="0.59" Color="Transparent" />
+                                        <GradientStop Offset="0.7" Color="#5500D787" />
+                                        <GradientStop Offset="1" Color="Transparent" />
+                                    </RadialGradientBrush>
+                                </Border.Background>-->
+                                <!--#endregion-->
+                            </Border>
+                            <Border
+                                Name="PART_Out"
+                                Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}"
+                                Background="Gray"
+                                BorderBrush="DarkGreen"
+                                BorderThickness="5"
+                                CornerRadius="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}">
+                                <Border
+                                    Name="PART_In"
+                                    Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}"
+                                    Margin="2"
+                                    Background="#FF00C88C"
+                                    CornerRadius="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" />
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <!--#region Trigger without animation-->
+                            <!--<Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="PART_In" Property="Background" Value="#FDFFFD" />
+                                <Setter TargetName="PART_Out" Property="Background" Value="#FF32FAC8" />
+                                <Setter TargetName="PART_Effect" Property="Visibility" Value="Visible" />
+                            </Trigger>-->
+                            <!--#endregion-->
+
+                            <!--#region Trigger with animation-->
+                            <Trigger Property="IsChecked" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation
+                                                Storyboard.TargetName="PART_In"
+                                                Storyboard.TargetProperty="Background.Color"
+                                                To="#FDFFFD"
+                                                Duration="0:0:0.5" />
+                                            <ColorAnimation
+                                                Storyboard.TargetName="PART_Out"
+                                                Storyboard.TargetProperty="BorderBrush.Color"
+                                                To="#FF32FAC8"
+                                                Duration="0:0:0.5" />
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_Effect" Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <Visibility>Visible</Visibility>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="PART_In" Storyboard.TargetProperty="Background.Color" />
+                                            <ColorAnimation Storyboard.TargetName="PART_Out" Storyboard.TargetProperty="BorderBrush.Color" />
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_Effect" Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <Visibility>Collapsed</Visibility>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                            <!--#endregion-->
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </ToggleButton.Style>
+</ToggleButton>
