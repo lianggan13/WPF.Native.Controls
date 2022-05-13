@@ -7,26 +7,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="MenuAnimation"
     Width="800"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
     Height="450"
     mc:Ignorable="d">
     <Window.Resources>
-        <Storyboard x:Key="ShowMenuStoryBoard">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="menuPanel" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <BackEase EasingMode="EaseOut" />
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="menuGrid" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Visible}" />
-            </ObjectAnimationUsingKeyFrames>
-            <ColorAnimationUsingKeyFrames Storyboard.TargetName="menuGrid" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
-                <EasingColorKeyFrame KeyTime="0" Value="#00000000" />
-                <EasingColorKeyFrame KeyTime="0:0:0.3" Value="#33000000" />
-            </ColorAnimationUsingKeyFrames>
-        </Storyboard>
+        <!--<sys:Int32 x:Key="Menu.Width">300</sys:Int32>-->
         <Storyboard x:Key="CollapseMenuStoryBoard">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetName="menuPanel" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0" />
@@ -41,25 +26,52 @@
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Collapsed}" />
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
+
     </Window.Resources>
     <Window.Triggers>
         <EventTrigger RoutedEvent="Window.Loaded">
             <EventTrigger.Actions>
-                <BeginStoryboard Storyboard="{StaticResource CollapseMenuStoryBoard}" />
+                <BeginStoryboard HandoffBehavior="SnapshotAndReplace">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="menuGrid" Storyboard.TargetProperty="(UIElement.Visibility)">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
+                            <DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Collapsed}" />
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </BeginStoryboard>
             </EventTrigger.Actions>
         </EventTrigger>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="menuBtn">
-            <BeginStoryboard Storyboard="{StaticResource ShowMenuStoryBoard}" />
-        </EventTrigger>
-        <EventTrigger RoutedEvent="UIElement.MouseLeftButtonDown" SourceName="menuGrid">
+
+        <!--<EventTrigger RoutedEvent="UIElement.MouseLeftButtonDown" SourceName="menuGrid">
             <BeginStoryboard Storyboard="{StaticResource CollapseMenuStoryBoard}" />
-        </EventTrigger>
+        </EventTrigger>-->
     </Window.Triggers>
     <Grid>
         <Grid
             x:Name="menuGrid"
             Panel.ZIndex="99999"
             Background="#00000000">
+            <Grid.Triggers>
+                <EventTrigger RoutedEvent="MouseLeftButtonDown">
+                    <BeginStoryboard HandoffBehavior="SnapshotAndReplace">
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="menuPanel" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="-300" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="menuGrid" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                <EasingColorKeyFrame KeyTime="0" Value="#33000000" />
+                                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#00000000" />
+                            </ColorAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="menuGrid" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Collapsed}" />
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Grid.Triggers>
+
             <StackPanel
                 x:Name="menuPanel"
                 Width="300"
@@ -86,6 +98,7 @@
                 <Button Height="50" />
             </StackPanel>
 
+
         </Grid>
 
         <Grid x:Name="mainGrid">
@@ -102,7 +115,32 @@
                     Content="&#xf039;"
                     FontFamily="/Assets/Fonts/#FontAwesome"
                     FontSize="20"
-                    Foreground="White" />
+                    Foreground="White">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click">
+                            <BeginStoryboard HandoffBehavior="SnapshotAndReplace">
+                                <Storyboard>
+                                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="menuPanel" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                                        <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
+                                            <EasingDoubleKeyFrame.EasingFunction>
+                                                <BackEase EasingMode="EaseOut" />
+                                            </EasingDoubleKeyFrame.EasingFunction>
+                                        </EasingDoubleKeyFrame>
+                                    </DoubleAnimationUsingKeyFrames>
+                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="menuGrid" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                        <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
+                                        <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Visible}" />
+                                    </ObjectAnimationUsingKeyFrames>
+                                    <ColorAnimationUsingKeyFrames Storyboard.TargetName="menuGrid" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                        <EasingColorKeyFrame KeyTime="0" Value="#00000000" />
+                                        <EasingColorKeyFrame KeyTime="0:0:0.3" Value="#33000000" />
+                                    </ColorAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+
+                </Button>
             </Grid>
         </Grid>
     </Grid>
