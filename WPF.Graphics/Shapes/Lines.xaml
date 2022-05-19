@@ -1,14 +1,15 @@
-﻿<Window
-    x:Class="WPFDataGrid.Demos.LineWinDemo"
+﻿<Page
+    x:Class="WPF.Graphics.Shapes.Lines"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:WPFDataGrid.Demos"
+    xmlns:local="clr-namespace:WPF.Graphics.Shapes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="LineWinDemo"
-    Width="829"
-    Height="567"
+    Title="Lines"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
     mc:Ignorable="d">
+
     <Grid>
         <Line
             Stroke="Pink"
@@ -123,4 +124,4 @@
 
 
     </Grid>
-</Window>
+</Page>

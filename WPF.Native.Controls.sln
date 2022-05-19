@@ -81,6 +81,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.Event", "WPF.Event\WPF.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimationExamples", "..\..\WPF-Samples-main\Animation\AnimationExamples\AnimationExamples.csproj", "{E230228F-54C2-4929-BD65-21E67E08B3E7}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF.Graphics", "WPF.Graphics\WPF.Graphics.csproj", "{12967860-BEEB-46D5-BB39-6311614DD9D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -239,6 +241,10 @@ Global
 		{E230228F-54C2-4929-BD65-21E67E08B3E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E230228F-54C2-4929-BD65-21E67E08B3E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E230228F-54C2-4929-BD65-21E67E08B3E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12967860-BEEB-46D5-BB39-6311614DD9D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12967860-BEEB-46D5-BB39-6311614DD9D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12967860-BEEB-46D5-BB39-6311614DD9D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12967860-BEEB-46D5-BB39-6311614DD9D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

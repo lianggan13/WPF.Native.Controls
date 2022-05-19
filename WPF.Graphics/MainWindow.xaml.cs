@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPFPath.View
+namespace WPF.Graphics
 {
     /// <summary>
-    /// WaterPipeline.xaml 的交互逻辑
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class WaterPipeline : UserControl
+    public partial class MainWindow : Window
     {
-        public WaterPipeline()
+        public MainWindow()
         {
             InitializeComponent();
         }

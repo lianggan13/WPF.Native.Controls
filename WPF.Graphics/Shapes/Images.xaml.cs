@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPFPath.View
+namespace WPF.Graphics.Shapes
 {
     /// <summary>
-    /// GeneralPath.xaml 的交互逻辑
+    /// Images.xaml 的交互逻辑
     /// </summary>
-    public partial class GeneralPath : UserControl
+    public partial class Images : Page
     {
-        public GeneralPath()
+        public Images()
         {
             InitializeComponent();
         }

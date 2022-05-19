@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPFCommon
+namespace WPF.Graphics.Shapes
 {
     /// <summary>
-    /// Window1.xaml 的交互逻辑
+    /// Lines.xaml 的交互逻辑
     /// </summary>
-    public partial class Window1 : Window
+    public partial class Lines : Page
     {
-        public Window1()
+        public Lines()
         {
             InitializeComponent();
         }
