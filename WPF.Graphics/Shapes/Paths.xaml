@@ -182,7 +182,7 @@
             </Path>
         </WrapPanel>
 
-        <Grid>
+        <Canvas>
             <!--  红色的实线圆弧，旋转200度，顺时针，获取大圆弧  -->
             <Path
                 Data="M 50,200 A 100,100 200 1 0 200,100"
@@ -259,6 +259,6 @@
             </TextBlock>
 
 
-        </Grid>
+        </Canvas>
     </UniformGrid>
 </Page>
