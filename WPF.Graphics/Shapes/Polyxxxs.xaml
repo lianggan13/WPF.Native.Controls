@@ -1,0 +1,45 @@
+﻿<Page
+    x:Class="WPF.Graphics.Shapes.Polyxxxs"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPF.Graphics.Shapes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Polyxxx"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <StackPanel Orientation="Horizontal">
+        <Polyline
+            Fill="Orange"
+            Points="40,10 70,50 10,50"
+            Stroke="Blue"
+            StrokeThickness="2" />
+        <Polygon
+            Fill="Orange"
+            Points="40,10 70,50 10,50"
+            Stroke="Blue"
+            StrokeThickness="2" />
+        <Polyline Points="0,30 10,30 15,0 18,60 23,30 35,30 40,0 43,60 48,30 160,30" Stroke="Blue" />
+
+        <Polygon
+            Fill="Orange"
+            FillRule="EvenOdd"
+            Points="50,30 13,41 36,11 36,49 14,18"
+            Stroke="Blue"
+            StrokeThickness="2" />
+        <Polygon
+            Fill="Orange"
+            FillRule="Nonzero"
+            Points="50,30 13,41 36,11 36,49 14,18"
+            Stroke="Blue"
+            StrokeThickness="2" />
+        <Polygon
+            Fill="Orange"
+            FillRule="Nonzero"
+            Points="10,10 60,10 60,25 20,25 20,40 40,40 40,18 50,18 50,50 10,50"
+            Stroke="Blue"
+            StrokeThickness="2" />
+    </StackPanel>
+</Page>
