@@ -2,7 +2,6 @@
     x:Class="WPF.Button.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:com="clr-namespace:WPFCommon;assembly=WPF.Common"
     xmlns:comt="clr-namespace:WPF.Common.Themes;assembly=WPF.Common"
     xmlns:ctrls="clr-namespace:WPF.Button.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"

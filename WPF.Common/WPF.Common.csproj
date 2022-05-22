@@ -189,6 +189,7 @@
     <Resource Include="Assets\Images\dog.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\Images\Moggie.jpg" />
     <Content Include="MVVMFoundation\Dlls\Microsoft.Expression.Interactions.dll" />
     <Content Include="MVVMFoundation\Dlls\System.Windows.Interactivity.dll" />
   </ItemGroup>
