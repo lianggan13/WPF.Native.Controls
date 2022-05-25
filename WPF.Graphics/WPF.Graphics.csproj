@@ -11,4 +11,8 @@
     <Folder Include="Pen\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WPF.Common\WPF.Common.csproj" />
+  </ItemGroup>
+
 </Project>
