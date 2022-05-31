@@ -11,6 +11,27 @@
     mc:Ignorable="d">
 
     <UniformGrid>
+        <Button>
+            <Rectangle
+                Width="30"
+                Height="50"
+                Stretch="Fill">
+                <Rectangle.Fill>
+                    <DrawingBrush>
+                        <DrawingBrush.Drawing>
+                            <GeometryDrawing Geometry="M10,25 L30,40 20,25 30,10Z">
+                                <GeometryDrawing.Pen>
+                                    <Pen Brush="Chocolate" Thickness="10" />
+                                </GeometryDrawing.Pen>
+                            </GeometryDrawing>
+                        </DrawingBrush.Drawing>
+                    </DrawingBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+
+        </Button>
+
+
         <Rectangle>
             <Rectangle.Fill>
                 <DrawingBrush
@@ -85,7 +106,7 @@
                                     </GeometryDrawing.Geometry>
                                 </GeometryDrawing>
 
-                                <GeometryDrawing >
+                                <GeometryDrawing>
                                     <GeometryDrawing.Brush>
                                         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                                             <GradientStop Offset="0" Color="#dfff" />
@@ -95,7 +116,7 @@
                                     <GeometryDrawing.Geometry>
                                         <RectangleGeometry
                                             RadiusX="0.1"
-                                            RadiusY="0.5" 
+                                            RadiusY="0.5"
                                             Rect="0.1,0.07,0.8,0.5" />
                                     </GeometryDrawing.Geometry>
                                 </GeometryDrawing>
@@ -137,7 +158,7 @@
                                     </GeometryDrawing.Geometry>
                                 </GeometryDrawing>
 
-                                <GeometryDrawing >
+                                <GeometryDrawing>
                                     <GeometryDrawing.Brush>
                                         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                                             <GradientStop Offset="0" Color="#dfff" />
@@ -147,7 +168,7 @@
                                     <GeometryDrawing.Geometry>
                                         <RectangleGeometry
                                             RadiusX="0.1"
-                                            RadiusY="0.5" 
+                                            RadiusY="0.5"
                                             Rect="0.1,0.07,0.8,0.5" />
                                     </GeometryDrawing.Geometry>
                                 </GeometryDrawing>
@@ -157,5 +178,42 @@
                 </DrawingBrush>
             </Rectangle.Fill>
         </Rectangle>
+
+        <Rectangle>
+            <Rectangle.Fill>
+                <DrawingBrush TileMode="Tile" Viewport="0,0,0.1,0.1">
+                    <DrawingBrush.Drawing>
+                        <DrawingGroup>
+                            <DrawingGroup.Children>
+                                <GeometryDrawing Brush="#66CCCCFF" Geometry="M0,0 L1,0 1,0.1, 0,0.1Z" />
+                                <GeometryDrawing Brush="#66CCCCFF" Geometry="M0,0 L0,1 0.1,1, 0.1,0Z" />
+                            </DrawingGroup.Children>
+                        </DrawingGroup>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+
+        <Rectangle>
+            <Rectangle.Fill>
+                <DrawingBrush TileMode="Tile" Viewport="0,0,10,10" ViewportUnits="Absolute">
+                    <DrawingBrush.Drawing>
+                        <DrawingGroup>
+                            <DrawingGroup.Children>
+                                <GeometryDrawing Brush="#99FFFFFF">
+                                    <GeometryDrawing.Geometry>
+                                        <RectangleGeometry Rect="0,0,1,1" />
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                                <GeometryDrawing Brush="#66CCCCFF" Geometry="M0,0 L1,0 1,0.1, 0,0.1Z" />
+                                <GeometryDrawing Brush="#66CCCCFF" Geometry="M0,0 L0,1 0.1,1, 0.1,0Z" />
+                            </DrawingGroup.Children>
+                        </DrawingGroup>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
     </UniformGrid>
 </Page>

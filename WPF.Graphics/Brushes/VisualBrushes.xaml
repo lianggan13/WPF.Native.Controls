@@ -76,7 +76,14 @@
             </Rectangle.LayoutTransform>
 
             <Rectangle.Fill>
-                <VisualBrush Visual="{Binding ElementName=mainUI}" />
+                <VisualBrush Visual="{Binding ElementName=mainUI}">
+                    <!--<VisualBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1" />
+                            <TranslateTransform Y="1" />
+                        </TransformGroup>
+                    </VisualBrush.RelativeTransform>-->
+                </VisualBrush>
             </Rectangle.Fill>
 
             <Rectangle.OpacityMask>

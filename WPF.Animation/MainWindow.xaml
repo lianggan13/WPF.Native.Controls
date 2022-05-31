@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:WPFAnimation"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pg="clr-namespace:WPF.Animation.View"
     xmlns:vm="clr-namespace:WPFAnimation.View"
     Title="MainWindow"
     Width="1000"
@@ -252,6 +253,10 @@
         <TabItem Header="DropdownView">
             <vm:DropdownView />
         </TabItem>
+        <TabItem Header="SplineXYProgress">
+            <Frame Source="./View/SplineXYProgress.xaml" />
+        </TabItem>
+
     </TabControl>
 
 

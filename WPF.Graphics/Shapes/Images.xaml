@@ -9,7 +9,26 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
+    <Page.Resources>
+        <PathGeometry x:Key="LeftArrowGeometry" Figures="M10,25 L30,40 20,25 30,10Z" />
+        <PathGeometry x:Key="RightArrowGeometry" Figures="M10,25 L30,40 20,25 30,10Z">
+            <PathGeometry.Transform>
+                <RotateTransform Angle="180" CenterX="20" CenterY="30" />
+            </PathGeometry.Transform>
+        </PathGeometry>
+        <PathGeometry x:Key="UpArrowGeometry" Figures="M10,25 L30,40 20,25 30,10Z">
+            <PathGeometry.Transform>
+                <RotateTransform Angle="90" CenterX="20" CenterY="30" />
+            </PathGeometry.Transform>
+        </PathGeometry>
+        <PathGeometry x:Key="DownArrowGeometry" Figures="M10,25 L30,40 20,25 30,10Z">
+            <PathGeometry.Transform>
+                <RotateTransform Angle="270" CenterX="20" CenterY="30" />
+            </PathGeometry.Transform>
+        </PathGeometry>
 
+
+    </Page.Resources>
     <UniformGrid>
         <Image Source="http://www.interact-sw.co.uk/images/M3/BackOfM3.jpeg" Stretch="Fill" />
         <Image>
@@ -60,5 +79,118 @@
                 </DrawingImage>
             </Image.Source>
         </Image>
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Button
+                Grid.Row="1"
+                Grid.Column="0"
+                Width="50"
+                Height="50">
+                <Image>
+                    <Image.Source>
+                        <DrawingImage>
+                            <DrawingImage.Drawing>
+                                <DrawingGroup>
+                                    <DrawingGroup.Children>
+                                        <GeometryDrawing Geometry="{StaticResource LeftArrowGeometry}">
+                                            <GeometryDrawing.Pen>
+                                                <Pen Brush="Black" Thickness="10" />
+                                            </GeometryDrawing.Pen>
+                                        </GeometryDrawing>
+                                    </DrawingGroup.Children>
+                                </DrawingGroup>
+                            </DrawingImage.Drawing>
+                        </DrawingImage>
+                    </Image.Source>
+                </Image>
+            </Button>
+
+            <Button
+                x:Name="btn1"
+                Grid.Row="1"
+                Grid.Column="2"
+                Width="50"
+                Height="50"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center">
+                <Image Visibility="Visible">
+                    <Image.Source>
+                        <DrawingImage>
+                            <DrawingImage.Drawing>
+                                <DrawingGroup>
+                                    <DrawingGroup.Children>
+                                        <GeometryDrawing Geometry="{StaticResource RightArrowGeometry}">
+                                            <GeometryDrawing.Pen>
+                                                <Pen Brush="Black" Thickness="10" />
+                                            </GeometryDrawing.Pen>
+                                        </GeometryDrawing>
+                                    </DrawingGroup.Children>
+                                </DrawingGroup>
+                            </DrawingImage.Drawing>
+                        </DrawingImage>
+                    </Image.Source>
+                </Image>
+            </Button>
+
+            <Button
+                Grid.Row="0"
+                Grid.Column="1"
+                Width="50"
+                Height="50">
+                <Image>
+                    <Image.Source>
+                        <DrawingImage>
+                            <DrawingImage.Drawing>
+                                <DrawingGroup>
+                                    <DrawingGroup.Children>
+                                        <GeometryDrawing Geometry="{StaticResource UpArrowGeometry}">
+                                            <GeometryDrawing.Pen>
+                                                <Pen Brush="Black" Thickness="10" />
+                                            </GeometryDrawing.Pen>
+                                        </GeometryDrawing>
+                                    </DrawingGroup.Children>
+                                </DrawingGroup>
+                            </DrawingImage.Drawing>
+                        </DrawingImage>
+                    </Image.Source>
+                </Image>
+            </Button>
+
+            <Button
+                Grid.Row="2"
+                Grid.Column="1"
+                Width="50"
+                Height="50">
+                <Image>
+                    <Image.Source>
+                        <DrawingImage>
+                            <DrawingImage.Drawing>
+                                <DrawingGroup>
+                                    <DrawingGroup.Children>
+                                        <GeometryDrawing Geometry="{StaticResource DownArrowGeometry}">
+                                            <GeometryDrawing.Pen>
+                                                <Pen Brush="Black" Thickness="10" />
+                                            </GeometryDrawing.Pen>
+                                        </GeometryDrawing>
+                                    </DrawingGroup.Children>
+                                </DrawingGroup>
+                            </DrawingImage.Drawing>
+                        </DrawingImage>
+                    </Image.Source>
+                </Image>
+            </Button>
+
+        </Grid>
+
+
     </UniformGrid>
 </Page>

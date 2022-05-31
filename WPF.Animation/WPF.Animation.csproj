@@ -86,6 +86,9 @@
     <Compile Include="View\PathAnimationView.xaml.cs">
       <DependentUpon>PathAnimationView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\SplineXYProgress.xaml.cs">
+      <DependentUpon>SplineXYProgress.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -119,6 +122,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\PathAnimationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SplineXYProgress.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
