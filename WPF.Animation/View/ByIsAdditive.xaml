@@ -1,0 +1,166 @@
+﻿<Page
+    x:Class="WPF.Animation.View.ByIsAdditive"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPF.Animation.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="ByIsAdditive"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <StackPanel Margin="20" Background="{StaticResource MyGridBrushResource}">
+
+        <Border>
+            <TextBlock Margin="20">
+                The IsAdditive property specifies whether the animation's output value is added to the base value of the property being animated. In the example below
+                the Width property of two rectangles is animated. Each rectangle starts out with a Width of 100 pixels and widens by another 100 for a total width of 200.
+                However, one of the rectangle animations has IsAdditive set to True so it's base width (100) is added to the animation output for a total of 300. Click the
+                &quot;Restart Animation&quot; button below more then once to see that subsequent animations build on earlier ones.
+            </TextBlock>
+        </Border>
+
+        <!--  TextBlock displays animation code to user for IsAdditive set to "True".  -->
+        <TextBlock Margin="10,0,0,0" xml:space="preserve">
+ &lt;DoubleAnimation ... <TextBlock FontWeight="Bold">IsAdditive=&quot;True&quot;</TextBlock>
+   Duration=&quot;0:0:1&quot; From=&quot;100&quot; By=&quot;100&quot; /&gt;
+       </TextBlock>
+        <!--  This rectangle is animated with IsAdditive set to "True".  -->
+        <Rectangle
+            Name="withIsAdditive"
+            Width="100"
+            Height="20"
+            Margin="12,0,0,5"
+            HorizontalAlignment="Left"
+            Fill="#AA3333FF" />
+        <!--  Measuring Stick  -->
+        <Path
+            Data="M 12,0 L 112,0"
+            Stroke="Black"
+            StrokeThickness="2" />
+        <Path
+            Data="M 112,0 L 112,8"
+            Stroke="Black"
+            StrokeThickness="2" />
+        <Path
+            Data="M 112,-9 L 212,-9"
+            Stroke="Black"
+            StrokeThickness="2" />
+        <Path
+            Data="M 212,-9 L 212,0"
+            Stroke="Black"
+            StrokeThickness="2" />
+        <Path
+            Data="M 212,-9 L 312,-9"
+            Stroke="Black"
+            StrokeThickness="2" />
+        <Path
+            Data="M 312,-9 L 312,0"
+            Stroke="Black"
+            StrokeThickness="2" />
+        <Path
+            Data="M 312,-9 L 412,-9"
+            Stroke="Black"
+            StrokeThickness="2" />
+        <Path
+            Data="M 412,-9 L 412,0"
+            Stroke="Black"
+            StrokeThickness="2" />
+        <Path
+            Data="M 412,-9 L 512,-9"
+            Stroke="Black"
+            StrokeThickness="2" />
+        <Path
+            Data="M 512,-9 L 512,0"
+            Stroke="Black"
+            StrokeThickness="2" />
+        <!--  End of Measuring Stick  -->
+        <!--  TextBlock displays animation code to user for IsAdditive set to "False".  -->
+        <TextBlock Margin="10,0,0,0" xml:space="preserve">
+ &lt;DoubleAnimation ... <TextBlock FontWeight="Bold">IsAdditive=&quot;False&quot;</TextBlock>
+   Duration=&quot;0:0:1&quot; From=&quot;100&quot; By=&quot;100&quot; /&gt;
+       </TextBlock>
+        <!--  This rectangle is animated with IsAdditive set to "False".  -->
+        <Rectangle
+            Name="withoutIsAdditive"
+            Width="100"
+            Height="20"
+            Margin="12,0,0,5"
+            HorizontalAlignment="Left"
+            Fill="#AA3333FF" />
+        <!--  Measuring Stick  -->
+        <Path
+            Data="M 12,0 L 112,0"
+            Stroke="Black"
+            StrokeThickness="2" />
+        <Path
+            Data="M 112,0 L 112,8"
+            Stroke="Black"
+            StrokeThickness="2" />
+        <Path
+            Data="M 112,-9 L 212,-9"
+            Stroke="Black"
+            StrokeThickness="2" />
+        <Path
+            Data="M 212,-9 L 212,0"
+            Stroke="Black"
+            StrokeThickness="2" />
+        <Path
+            Data="M 212,-9 L 312,-9"
+            Stroke="Black"
+            StrokeThickness="2" />
+        <Path
+            Data="M 312,-9 L 312,0"
+            Stroke="Black"
+            StrokeThickness="2" />
+        <Path
+            Data="M 312,-9 L 412,-9"
+            Stroke="Black"
+            StrokeThickness="2" />
+        <Path
+            Data="M 412,-9 L 412,0"
+            Stroke="Black"
+            StrokeThickness="2" />
+        <Path
+            Data="M 412,-9 L 512,-9"
+            Stroke="Black"
+            StrokeThickness="2" />
+        <Path
+            Data="M 512,-9 L 512,0"
+            Stroke="Black"
+            StrokeThickness="2" />
+        <!--  End of Measuring Stick  -->
+        <!--  Create a button to restart the animations.  -->
+        <Button Margin="0,30,0,0" HorizontalAlignment="Left">
+            Restart Animations
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+
+                            <!--  Animation with IsCumulative set to "True".  -->
+                            <DoubleAnimation
+                                By="100"
+                                IsAdditive="True"
+                                Storyboard.TargetName="withIsAdditive"
+                                Storyboard.TargetProperty="(Rectangle.Width)"
+                                From="100"
+                                Duration="0:0:1" />
+
+                            <!--  Animation with IsCumulative set to "False".  -->
+                            <DoubleAnimation
+                                By="100"
+                                IsAdditive="False"
+                                Storyboard.TargetName="withoutIsAdditive"
+                                Storyboard.TargetProperty="(Rectangle.Width)"
+                                From="100"
+                                Duration="0:0:1" />
+                        </Storyboard>
+
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+    </StackPanel>
+</Page>

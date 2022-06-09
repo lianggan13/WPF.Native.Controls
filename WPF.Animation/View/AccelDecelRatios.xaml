@@ -1,0 +1,115 @@
+﻿<Page
+    x:Class="WPF.Animation.View.AccelDecelRatios"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPF.Animation.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="AccelDecelRatios"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <Border Background="{StaticResource MyGridBrushResource}">
+
+        <StackPanel Margin="20">
+
+            <Border>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="20">
+                        This example shows how the AccelerationRatio and DecelerationRatio properties
+                        can be used to make animations speed up or slow down as they progress. Several rectangles
+                        are animated by DoubleAnimations with identical durations and target values, but with different
+                        AccelerationRatio and DecelerationRatio settings.
+                    </TextBlock>
+
+                </StackPanel>
+            </Border>
+
+            <TextBlock>No Acceleration or Deceleration</TextBlock>
+            <Rectangle
+                Name="nonAcceleratedOrDeceleratedRectangle"
+                Width="10"
+                Height="20"
+                HorizontalAlignment="Left"
+                Fill="#AA3333FF" />
+            <TextBlock Margin="0,20,0,0">AccelerationRatio=&quot;0.4&quot;</TextBlock>
+            <Rectangle
+                Name="acceleratedRectangle"
+                Width="10"
+                Height="20"
+                HorizontalAlignment="Left"
+                Fill="#AA3333FF" />
+            <TextBlock Margin="0,20,0,0">DecelerationRatio=&quot;0.6&quot;</TextBlock>
+            <Rectangle
+                Name="deceleratedRectangle"
+                Width="10"
+                Height="20"
+                HorizontalAlignment="Left"
+                Fill="#AA3333FF" />
+            <TextBlock Margin="0,20,0,0">AccelerationRatio=&quot;0.4&quot; DecelerationRatio=&quot;0.6&quot;</TextBlock>
+            <Rectangle
+                Name="acceleratedAndDeceleratedRectangle"
+                Width="10"
+                Height="20"
+                HorizontalAlignment="Left"
+                Fill="#AA3333FF" />
+
+            <!--  Create a button to restart the animations.  -->
+            <Button
+                Name="myRestartButton"
+                Margin="0,30,0,0"
+                HorizontalAlignment="Left">
+                Restart Animations
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="Button.Click">
+                        <BeginStoryboard>
+                            <Storyboard CurrentStateInvalidated="StateInvalidated">
+
+                                <!--  Creates an animation without acceleration or deceleration for comparison.  -->
+                                <DoubleAnimation
+                                    Storyboard.TargetName="nonAcceleratedOrDeceleratedRectangle"
+                                    Storyboard.TargetProperty="(Rectangle.Width)"
+                                    From="20"
+                                    To="400"
+                                    Duration="0:0:10" />
+
+                                <!--  Creates an animation that accelerates through 40% of its duration.  -->
+                                <DoubleAnimation
+                                    AccelerationRatio="0.4"
+                                    Storyboard.TargetName="acceleratedRectangle"
+                                    Storyboard.TargetProperty="(Rectangle.Width)"
+                                    From="20"
+                                    To="400"
+                                    Duration="0:0:10" />
+
+                                <!--  Creates an animation that decelerates through 60% of its duration.  -->
+                                <DoubleAnimation
+                                    DecelerationRatio="0.6"
+                                    Storyboard.TargetName="deceleratedRectangle"
+                                    Storyboard.TargetProperty="(Rectangle.Width)"
+                                    From="20"
+                                    To="400"
+                                    Duration="0:0:10" />
+
+                                <!--
+                                    Creates an animation that accelerates through 40% of its duration and
+                                    decelerates through the 60% of its duration.
+                                -->
+                                <DoubleAnimation
+                                    AccelerationRatio="0.4"
+                                    DecelerationRatio="0.6"
+                                    Storyboard.TargetName="acceleratedAndDeceleratedRectangle"
+                                    Storyboard.TargetProperty="(Rectangle.Width)"
+                                    From="20"
+                                    To="400"
+                                    Duration="0:0:10" />
+
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+        </StackPanel>
+    </Border>
+</Page>

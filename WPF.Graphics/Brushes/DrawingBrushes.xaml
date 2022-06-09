@@ -197,7 +197,10 @@
 
         <Rectangle>
             <Rectangle.Fill>
-                <DrawingBrush TileMode="Tile" Viewport="0,0,10,10" ViewportUnits="Absolute">
+                <DrawingBrush
+                    TileMode="Tile"
+                    Viewport="0,0,10,10"
+                    ViewportUnits="Absolute">
                     <DrawingBrush.Drawing>
                         <DrawingGroup>
                             <DrawingGroup.Children>
@@ -206,8 +209,8 @@
                                         <RectangleGeometry Rect="0,0,1,1" />
                                     </GeometryDrawing.Geometry>
                                 </GeometryDrawing>
-                                <GeometryDrawing Brush="#66CCCCFF" Geometry="M0,0 L1,0 1,0.1, 0,0.1Z" />
-                                <GeometryDrawing Brush="#66CCCCFF" Geometry="M0,0 L0,1 0.1,1, 0.1,0Z" />
+                                <GeometryDrawing Brush="#99CCCCFF" Geometry="M0,0 L1,0 1,0.1, 0,0.1Z" />
+                                <GeometryDrawing Brush="#99CCCCFF" Geometry="M0,0 L0,1 0.1,1, 0.1,0Z" />
                             </DrawingGroup.Children>
                         </DrawingGroup>
                     </DrawingBrush.Drawing>

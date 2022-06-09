@@ -20,25 +20,7 @@
             <Setter Property="Orientation" Value="Horizontal" />
         </Style>
 
-        <DrawingBrush
-            x:Key="MyPartiallyTransparentGridBrushResource"
-            TileMode="Tile"
-            Viewport="0,0,10,10"
-            ViewportUnits="Absolute">
-            <DrawingBrush.Drawing>
-                <DrawingGroup>
-                    <DrawingGroup.Children>
-                        <GeometryDrawing Brush="#99FFFFFF">
-                            <GeometryDrawing.Geometry>
-                                <RectangleGeometry Rect="0,0,1,1" />
-                            </GeometryDrawing.Geometry>
-                        </GeometryDrawing>
-                        <GeometryDrawing Brush="#66CCCCFF" Geometry="M0,0 L1,0 1,0.1, 0,0.1Z" />
-                        <GeometryDrawing Brush="#66CCCCFF" Geometry="M0,0 L0,1 0.1,1, 0.1,0Z" />
-                    </DrawingGroup.Children>
-                </DrawingGroup>
-            </DrawingBrush.Drawing>
-        </DrawingBrush>
+      
     </Page.Resources>
     <Page.Triggers>
         <EventTrigger RoutedEvent="Page.Loaded">
@@ -302,7 +284,7 @@
                         <TransformGroup>
                             <ScaleTransform/>
                             <SkewTransform/>
-                            <RotateTransform Angle="-27.785"/>
+                            <RotateTransform Angle="0"/>
                             <TranslateTransform x:Name="myTranslateTransform3D"  />
                         </TransformGroup>
                     </Rectangle.RenderTransform>

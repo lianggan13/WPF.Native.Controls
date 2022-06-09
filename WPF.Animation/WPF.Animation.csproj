@@ -68,8 +68,26 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModel\LoadingWaitViewModel.cs" />
+    <Compile Include="View\AccelDecelRatios.xaml.cs">
+      <DependentUpon>AccelDecelRatios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AutoReverses.xaml.cs">
+      <DependentUpon>AutoReverses.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BeginTimes.xaml.cs">
+      <DependentUpon>BeginTimes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ByIsAdditive.xaml.cs">
+      <DependentUpon>ByIsAdditive.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ByIsCumulative.xaml.cs">
+      <DependentUpon>ByIsCumulative.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DropdownView.xaml.cs">
       <DependentUpon>DropdownView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HandoffBehaviors.xaml.cs">
+      <DependentUpon>HandoffBehaviors.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\LinearAnimationView.xaml.cs">
       <DependentUpon>LinearAnimationView.xaml</DependentUpon>
@@ -86,6 +104,12 @@
     <Compile Include="View\PathAnimationView.xaml.cs">
       <DependentUpon>PathAnimationView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\RepeatBehaviors.xaml.cs">
+      <DependentUpon>RepeatBehaviors.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Speeds.xaml.cs">
+      <DependentUpon>Speeds.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\SplineXYProgress.xaml.cs">
       <DependentUpon>SplineXYProgress.xaml</DependentUpon>
     </Compile>
@@ -101,7 +125,31 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AccelDecelRatios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AutoReverses.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BeginTimes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ByIsAdditive.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ByIsCumulative.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\DropdownView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HandoffBehaviors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -122,6 +170,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\PathAnimationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RepeatBehaviors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Speeds.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
