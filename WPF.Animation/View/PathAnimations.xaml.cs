@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPFAnimation.View
+namespace WPF.Animation.View
 {
     /// <summary>
-    /// PathAnimationView.xaml 的交互逻辑
+    /// PathAnimations.xaml 的交互逻辑
     /// </summary>
-    public partial class PathAnimationView : UserControl
+    public partial class PathAnimations : Page
     {
-        public PathAnimationView()
+        public PathAnimations()
         {
             InitializeComponent();
         }

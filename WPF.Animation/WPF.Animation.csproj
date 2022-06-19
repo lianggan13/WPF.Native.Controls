@@ -86,6 +86,9 @@
     <Compile Include="View\DropdownView.xaml.cs">
       <DependentUpon>DropdownView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\FollowMouse.xaml.cs">
+      <DependentUpon>FollowMouse.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\HandoffBehaviors.xaml.cs">
       <DependentUpon>HandoffBehaviors.xaml</DependentUpon>
     </Compile>
@@ -101,8 +104,8 @@
     <Compile Include="View\LoadingWait.xaml.cs">
       <DependentUpon>LoadingWait.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\PathAnimationView.xaml.cs">
-      <DependentUpon>PathAnimationView.xaml</DependentUpon>
+    <Compile Include="View\PathAnimations.xaml.cs">
+      <DependentUpon>PathAnimations.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\RepeatBehaviors.xaml.cs">
       <DependentUpon>RepeatBehaviors.xaml</DependentUpon>
@@ -149,6 +152,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\FollowMouse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\HandoffBehaviors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -169,7 +176,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\PathAnimationView.xaml">
+    <Page Include="View\PathAnimations.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

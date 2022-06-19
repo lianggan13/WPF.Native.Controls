@@ -79,6 +79,22 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF.Graphics", "WPF.Graphic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomAnimation", "..\..\WPF-Samples-main\Animation\CustomAnimation\CustomAnimation.csproj", "{1A9044D7-C2EE-4F0F-9285-8BA0AF4DC3D5}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeyFrameAnimation", "..\..\WPF-Samples-main\Animation\KeyFrameAnimation\KeyFrameAnimation.csproj", "{4193AFCC-D5BC-45B7-B21B-C4A25C37A700}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeySplineAnimations", "..\..\WPF-Samples-main\Animation\KeySplineAnimations\KeySplineAnimations.csproj", "{10943E68-65D8-4BB6-B527-FB7A15F1F08A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalAnimations", "..\..\WPF-Samples-main\Animation\LocalAnimations\LocalAnimations.csproj", "{25060FB8-91AA-48E8-967D-DC44240F434B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpacityAnimation", "..\..\WPF-Samples-main\Animation\OpacityAnimation\OpacityAnimation.csproj", "{9555DE9A-C478-4445-B1D9-B6808CADA904}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PathAnimations", "..\..\WPF-Samples-main\Animation\PathAnimations\PathAnimations.csproj", "{FFA153CA-8819-4E30-83E1-E1F140128997}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Per-FrameAnimation", "..\..\WPF-Samples-main\Animation\Per-FrameAnimation\Per-FrameAnimation.csproj", "{20D23173-AF06-4C80-A69F-122C4FD8193F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PropertyAnimation", "..\..\WPF-Samples-main\Animation\PropertyAnimation\PropertyAnimation.csproj", "{160DE6CE-6511-4F82-B8C9-349C59DE0C85}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TargetValues", "..\..\WPF-Samples-main\Animation\TargetValues\TargetValues.csproj", "{6C73DA30-ABAD-440E-90B4-CDDB8C4D052D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -233,12 +249,52 @@ Global
 		{1A9044D7-C2EE-4F0F-9285-8BA0AF4DC3D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A9044D7-C2EE-4F0F-9285-8BA0AF4DC3D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A9044D7-C2EE-4F0F-9285-8BA0AF4DC3D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4193AFCC-D5BC-45B7-B21B-C4A25C37A700}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4193AFCC-D5BC-45B7-B21B-C4A25C37A700}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4193AFCC-D5BC-45B7-B21B-C4A25C37A700}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4193AFCC-D5BC-45B7-B21B-C4A25C37A700}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10943E68-65D8-4BB6-B527-FB7A15F1F08A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10943E68-65D8-4BB6-B527-FB7A15F1F08A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10943E68-65D8-4BB6-B527-FB7A15F1F08A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10943E68-65D8-4BB6-B527-FB7A15F1F08A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25060FB8-91AA-48E8-967D-DC44240F434B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25060FB8-91AA-48E8-967D-DC44240F434B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25060FB8-91AA-48E8-967D-DC44240F434B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25060FB8-91AA-48E8-967D-DC44240F434B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9555DE9A-C478-4445-B1D9-B6808CADA904}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9555DE9A-C478-4445-B1D9-B6808CADA904}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9555DE9A-C478-4445-B1D9-B6808CADA904}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9555DE9A-C478-4445-B1D9-B6808CADA904}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFA153CA-8819-4E30-83E1-E1F140128997}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFA153CA-8819-4E30-83E1-E1F140128997}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFA153CA-8819-4E30-83E1-E1F140128997}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFA153CA-8819-4E30-83E1-E1F140128997}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20D23173-AF06-4C80-A69F-122C4FD8193F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20D23173-AF06-4C80-A69F-122C4FD8193F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20D23173-AF06-4C80-A69F-122C4FD8193F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20D23173-AF06-4C80-A69F-122C4FD8193F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{160DE6CE-6511-4F82-B8C9-349C59DE0C85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{160DE6CE-6511-4F82-B8C9-349C59DE0C85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{160DE6CE-6511-4F82-B8C9-349C59DE0C85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{160DE6CE-6511-4F82-B8C9-349C59DE0C85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C73DA30-ABAD-440E-90B4-CDDB8C4D052D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C73DA30-ABAD-440E-90B4-CDDB8C4D052D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C73DA30-ABAD-440E-90B4-CDDB8C4D052D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C73DA30-ABAD-440E-90B4-CDDB8C4D052D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1A9044D7-C2EE-4F0F-9285-8BA0AF4DC3D5} = {FA9CEFBE-5ABE-49F5-A33F-A5827E099778}
+		{4193AFCC-D5BC-45B7-B21B-C4A25C37A700} = {FA9CEFBE-5ABE-49F5-A33F-A5827E099778}
+		{10943E68-65D8-4BB6-B527-FB7A15F1F08A} = {FA9CEFBE-5ABE-49F5-A33F-A5827E099778}
+		{25060FB8-91AA-48E8-967D-DC44240F434B} = {FA9CEFBE-5ABE-49F5-A33F-A5827E099778}
+		{9555DE9A-C478-4445-B1D9-B6808CADA904} = {FA9CEFBE-5ABE-49F5-A33F-A5827E099778}
+		{FFA153CA-8819-4E30-83E1-E1F140128997} = {FA9CEFBE-5ABE-49F5-A33F-A5827E099778}
+		{20D23173-AF06-4C80-A69F-122C4FD8193F} = {FA9CEFBE-5ABE-49F5-A33F-A5827E099778}
+		{160DE6CE-6511-4F82-B8C9-349C59DE0C85} = {FA9CEFBE-5ABE-49F5-A33F-A5827E099778}
+		{6C73DA30-ABAD-440E-90B4-CDDB8C4D052D} = {FA9CEFBE-5ABE-49F5-A33F-A5827E099778}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EF6F54E5-30D6-4AD2-A424-DCDDF362B481}

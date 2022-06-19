@@ -57,10 +57,6 @@
             <vm:KeyFrameAnimationView />
         </TabItem>
 
-        <TabItem Header="PathAnimation">
-            <vm:PathAnimationView />
-        </TabItem>
-
         <TabItem Header="Adanced Animation">
             <Grid>
                 <Grid.RowDefinitions>
@@ -256,6 +252,15 @@
         <TabItem Header="SplineXYProgress">
             <Frame Source="./View/SplineXYProgress.xaml" />
         </TabItem>
+
+        <TabItem Header="PathAnimations">
+            <Frame Source="./View/PathAnimations.xaml" />
+        </TabItem>
+
+        <TabItem Header="FollowMouse">
+            <Frame Source="./View/FollowMouse.xaml" />
+        </TabItem>
+
 
     </TabControl>
 
