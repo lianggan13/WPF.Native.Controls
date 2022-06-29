@@ -59,6 +59,17 @@
     <Compile Include="View\MenuAnimation.xaml.cs">
       <DependentUpon>MenuAnimation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\WindowSkin.xaml.cs">
+      <DependentUpon>WindowSkin.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Assets\Styles\Style.YellowSkin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\Styles\Style.BlueSkin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -96,6 +107,10 @@
     <Page Include="View\MenuAnimation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\WindowSkin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

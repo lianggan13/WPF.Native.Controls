@@ -20,7 +20,7 @@
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is Button btn)
+            if (e.OriginalSource is Button btn)
             {
                 string tyname = btn.Content.ToString();
                 var tydest = assembly.DefinedTypes.OfType<TypeInfo>().FirstOrDefault(t => t.Name == tyname);

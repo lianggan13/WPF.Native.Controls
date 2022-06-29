@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Text;
 using System.Windows;
 
 namespace WPFWindow
@@ -13,5 +8,16 @@ namespace WPFWindow
     /// </summary>
     public partial class App : Application
     {
+        private void App_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        {
+            var sb = new StringBuilder();
+            sb.AppendFormat("{0}\n", e.Exception.InnerException.Message);
+            sb.AppendFormat("{0}\n", e.Exception.Message);
+            sb.AppendFormat("Exception handled on main UI thread {0}.", e.Dispatcher.Thread.ManagedThreadId);
+            MessageBox.Show(sb.ToString());
+
+            // Keep application running in the face of this exception
+            e.Handled = true;
+        }
     }
 }

@@ -57,6 +57,12 @@
     <Compile Include="TextBlockAnimation.xaml.cs">
       <DependentUpon>TextBlockAnimation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Decorations.xaml.cs">
+      <DependentUpon>Decorations.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Inlines.xaml.cs">
+      <DependentUpon>Inlines.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TextEffects.xaml.cs">
       <DependentUpon>TextEffects.xaml</DependentUpon>
     </Compile>
@@ -75,6 +81,14 @@
     <Page Include="TextBlockAnimation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Decorations.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Inlines.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TextEffects.xaml">
       <SubType>Designer</SubType>
