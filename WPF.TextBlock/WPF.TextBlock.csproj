@@ -54,6 +54,9 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Compile Include="FlowDocuments\ControlViewer.xaml.cs">
+      <DependentUpon>ControlViewer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TextBlockAnimation.xaml.cs">
       <DependentUpon>TextBlockAnimation.xaml</DependentUpon>
     </Compile>
@@ -66,6 +69,14 @@
     <Compile Include="View\TextEffects.xaml.cs">
       <DependentUpon>TextEffects.xaml</DependentUpon>
     </Compile>
+    <Page Include="FlowDocuments\ControlViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FlowDocuments\MyFlowDocument.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

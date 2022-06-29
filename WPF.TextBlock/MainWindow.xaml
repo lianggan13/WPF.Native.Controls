@@ -9,81 +9,12 @@
     Width="800"
     Height="450"
     mc:Ignorable="d">
-    <StackPanel Orientation="Horizontal">
-        <Border
-            Margin="5"
-            BorderBrush="Black"
-            BorderThickness="2">
-            <TextBlock Margin="5" TextWrapping="WrapWithOverflow">
-                <TextBlock.Inlines>
-                    <Bold>
-                        <Run>BlockText 控件XAML示例</Run>
-                    </Bold>
+    <TabControl Background="White">
 
-                    <LineBreak />
+        <TabItem Header="FlowDocuments">
+            <Frame Source="./FlowDocuments/ControlViewer.xaml" />
+        </TabItem>
 
-                    <Run>TextBlock支持以下的几种流显示样式：</Run>
 
-                    <LineBreak />
-
-                    <Bold>粗体（Bold）</Bold>
-
-                    <LineBreak />
-
-                    <Italic>斜体（Italic）</Italic>
-
-                    <LineBreak />
-
-                    <Underline>下划线（Underline）</Underline>
-
-                    <LineBreak />
-
-                    <Hyperlink NavigateUri="www.baidu.com">
-                        超级链接
-                    </Hyperlink>
-
-                    <LineBreak />
-
-                    <Hyperlink NavigateUri="www.baidu.com" OverridesDefaultStyle="True">
-                        超级链接(自定义样式)
-                        <Hyperlink.Style>
-                            <Style>
-                                <Style.Triggers>
-                                    <Trigger Property="TextBlock.IsMouseOver" Value="True">
-                                        <Setter Property="TextBlock.Cursor" Value="Hand" />
-                                        <Setter Property="TextBlock.TextDecorations">
-                                            <Setter.Value>
-                                                <TextDecorationCollection>
-                                                    <TextDecoration Location="Underline" />
-                                                </TextDecorationCollection>
-                                            </Setter.Value>
-                                        </Setter>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Hyperlink.Style>
-                    </Hyperlink>
-
-                    <LineBreak />
-
-                    <Span FontSize="18" Foreground="Red">Span 设置字体、颜色等</Span>
-                    <Span FontSize="18" Foreground="Red">
-                        <Span.Inlines>
-                            <Run Text="ssss" />
-                        </Span.Inlines>
-                    </Span>
-
-                    <LineBreak />
-
-                    <InlineUIContainer>
-                        <StackPanel Margin="5" Background="AntiqueWhite">
-                            <TextBlock>Inline UI 容器</TextBlock>
-                            <Button Width="80" Content="按钮" />
-                        </StackPanel>
-                    </InlineUIContainer>
-
-                </TextBlock.Inlines>
-            </TextBlock>
-        </Border>
-    </StackPanel>
+    </TabControl>
 </Window>

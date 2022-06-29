@@ -12,7 +12,7 @@
     mc:Ignorable="d">
 
     <StackPanel TextElement.Foreground="Wheat">
-        <TextBlock TextAlignment="Left" TextWrapping="Wrap">
+        <TextBlock  TextAlignment="Left" TextWrapping="Wrap">
             <Span TextDecorations="Underline">Underline</Span>
             ,<Span TextDecorations="Baseline">Baseline</Span>
             ,<Span TextDecorations="Strikethrough">Strikethrough</Span>
@@ -47,10 +47,9 @@
             HorizontalAlignment="Left"
             BorderBrush="Gray"
             BorderThickness="2">
-
             <TextBlock
                 IsHyphenationEnabled="True"
-                Language="nl"
+                Language="en-GB"
                 TextWrapping="Wrap">
                 A cumbersome word.
             </TextBlock>

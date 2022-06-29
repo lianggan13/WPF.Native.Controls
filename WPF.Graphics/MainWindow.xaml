@@ -14,5 +14,9 @@
         <TabItem Header="DrawingBrushes">
             <Frame Source="./Brushes/DrawingBrushes.xaml" />
         </TabItem>
+
+        <TabItem Header="VisualLayer">
+            <Frame Source="./VisualRender/VisualLayer.xaml" />
+        </TabItem>
     </TabControl>
 </Window>

@@ -1,0 +1,45 @@
+<FlowDocument xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    FontSize="14" FontFamily="Georgia"
+    >
+    <Paragraph Style="{StaticResource heading1}">
+        Go With The Flow
+    </Paragraph>
+
+  <Paragraph>
+    A <Span Style="{StaticResource code}">FlowDocument</Span> is a text document that can be
+    formatted to adjust to the available space. This enables an application to adapt to a wide
+    variety of form factors. For example, if the user has a tablet PC, they may be able to
+    choose between portrait and landscape orientations. Applications that are able to
+    adapt to either layout will be of more use on such devices than those with an
+    inflexible approach to layout.
+  </Paragraph>
+
+  <Paragraph>
+    Another benefit of flow documents it that they can be displayed either in the classic
+    HTML-style scrolling view, or in a paginated multi-column view. This might not sound
+    like a good thing: if you are used to reading columnar text on the internet, you may
+    not have enjoyed the experience. Most multi-column layouts are designed for print,
+    and the column heights have been tailored for the target paper size. This will usually
+    be taller than a computer screen. Reading such text on screen is a horrible experience
+    because you have to scroll down through one column, and then scroll back up to the start
+    of the next one, severely disrupting the reading experience.
+  </Paragraph>
+
+  <Paragraph>
+    Fortunately, it doesn't have to be this way. If text is broken into columns that are
+    exactly as tall as the space available on screen, they can significantly improve the
+    readability. By keeping columns relatively narrow, the number of words in any single
+    line of text is kept reasonably low. This is important because if lines become too long,
+    readability is reduced because our eyes tend to lose track of where they are when moving
+    from the end of one line to the start of the next. The only way you can fill the whole
+    screen width with text without destroying readbility is to split it into columns.
+  </Paragraph>
+
+  <Paragraph>
+    One of the flow document readers offered by WPF does exactly this. It calculates the
+    optimal number of columns based on the available width, and the current font size,
+    and then splits the text into columns of the appropriate height and width. If the
+    text is too large to fit, WPF splits it into pages, and provides controls for navigating
+    between pages.
+  </Paragraph>
+</FlowDocument>
