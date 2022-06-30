@@ -54,6 +54,11 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Compile Include="DrawText\DrawFormattedText.cs" />
+    <Compile Include="DrawText\DrawGlyph.cs" />
+    <Compile Include="DrawText\DrawTextViewer.xaml.cs">
+      <DependentUpon>DrawTextViewer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FlowDocuments\ControlViewer.xaml.cs">
       <DependentUpon>ControlViewer.xaml</DependentUpon>
     </Compile>
@@ -69,6 +74,10 @@
     <Compile Include="View\TextEffects.xaml.cs">
       <DependentUpon>TextEffects.xaml</DependentUpon>
     </Compile>
+    <Page Include="DrawText\DrawTextViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FlowDocuments\ControlViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
