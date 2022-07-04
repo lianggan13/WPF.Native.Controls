@@ -50,7 +50,6 @@
                                             Center="50,50"
                                             RadiusX="50"
                                             RadiusY="20" />
-
                                     </CombinedGeometry.Geometry1>
                                     <CombinedGeometry.Geometry2>
                                         <RectangleGeometry

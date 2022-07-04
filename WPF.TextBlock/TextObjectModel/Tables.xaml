@@ -1,0 +1,220 @@
+﻿<UserControl
+    x:Class="WPF.TextBlock.TextObjectModel.Tables"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPF.TextBlock.TextObjectModel"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    Background="White"
+    mc:Ignorable="d">
+    <UniformGrid>
+        <!--  FlowDocument -> Table  -->
+        <FlowDocumentPageViewer>
+            <FlowDocument>
+                <Table CellSpacing="6">
+                    <TableRowGroup FontWeight="Bold">
+                        <TableRow FontSize="24">
+                            <TableCell ColumnSpan="3" TextAlignment="Center">
+                                <Paragraph>Ice Cream</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow Background="LightGray" FontSize="18">
+                            <TableCell>
+                                <Paragraph>Type</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Description</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Availability</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                    </TableRowGroup>
+                    <TableRowGroup>
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph>Chocolate</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Yummy</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Widespread</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph>Cookie Dough</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Extra yummy</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Scarce - Ian ate it all</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph>Artichoke</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Gruesome</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Rarely available</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                    </TableRowGroup>
+                </Table>
+            </FlowDocument>
+        </FlowDocumentPageViewer>
+
+        <!--  FlowDocument -> Table  -->
+        <FlowDocumentPageViewer>
+            <FlowDocument>
+                <Table BorderBrush="Black" BorderThickness="1">
+                    <Table.Columns>
+                        <TableColumn Width="25" />
+                        <TableColumn />
+                    </Table.Columns>
+                    <TableRowGroup>
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph>&#x2665;</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Raspberry</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph>&#x2665;</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Vanilla</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                    </TableRowGroup>
+                </Table>
+            </FlowDocument>
+        </FlowDocumentPageViewer>
+
+        <!--  FlowDocument -> Paragraph -> Figure -> Table  -->
+        <FlowDocumentPageViewer>
+            <FlowDocument>
+                <Paragraph>
+                    This paragraph contains a 'floater'. It is the table you can see to
+                    the right.
+                    <Figure
+                        Width="2 columns"
+                        HorizontalAnchor="ContentRight"
+                        VerticalAnchor="ContentTop">
+                        <Table BorderBrush="Black" BorderThickness="1">
+                            <Table.Columns>
+                                <TableColumn Width="25" />
+                                <TableColumn />
+                            </Table.Columns>
+                            <TableRowGroup>
+                                <TableRow>
+                                    <TableCell>
+                                        <Paragraph>&#x2665;</Paragraph>
+                                    </TableCell>
+                                    <TableCell>
+                                        <Paragraph>Raspberry</Paragraph>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell>
+                                        <Paragraph>&#x2665;</Paragraph>
+                                    </TableCell>
+                                    <TableCell Background="Red">
+                                        <Paragraph>Vanilla</Paragraph>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell ColumnSpan="2">
+                                        <Paragraph
+                                            Margin="0,5,0,0"
+                                            FontStyle="Italic"
+                                            TextAlignment="Center">
+                                            Example ice cream flavours
+                                        </Paragraph>
+                                    </TableCell>
+                                </TableRow>
+                            </TableRowGroup>
+                        </Table>
+                    </Figure>
+                    This table is anchored to this paragraph because the Floater element
+                    appears inside of this paragraph.
+                </Paragraph>
+                <Paragraph>
+                    This second paragraph also flows around the Floater because the table
+                    is tall enough to span two paragraphs.
+                </Paragraph>
+                <Paragraph>
+                    This is some more text, so that we have enough to see what's going
+                    on in this example. Its main purpose is to give the third column
+                    something to do. It needs to go on a bit, because there's quite a
+                    lot of space to fill. There's nothing to see here. Please move along.
+                </Paragraph>
+            </FlowDocument>
+        </FlowDocumentPageViewer>
+
+        <!--  FlowDocument -> Paragraph -> Floater -> Table  -->
+        <FlowDocumentPageViewer>
+            <FlowDocument>
+                <Paragraph>
+                    This paragraph contains a 'floater'. It is the table you can see to
+                    the right.
+                    <Floater Width="150" HorizontalAlignment="Right">
+                        <Table BorderBrush="Black" BorderThickness="1">
+                            <Table.Columns>
+                                <TableColumn Width="25" />
+                                <TableColumn />
+                            </Table.Columns>
+                            <TableRowGroup>
+                                <TableRow>
+                                    <TableCell>
+                                        <Paragraph>&#x2665;</Paragraph>
+                                    </TableCell>
+                                    <TableCell>
+                                        <Paragraph>Raspberry</Paragraph>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell>
+                                        <Paragraph>&#x2665;</Paragraph>
+                                    </TableCell>
+                                    <TableCell>
+                                        <Paragraph>Vanilla</Paragraph>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell ColumnSpan="2">
+                                        <Paragraph
+                                            Margin="0,5,0,0"
+                                            FontStyle="Italic"
+                                            TextAlignment="Center">
+                                            Example ice cream flavours
+                                        </Paragraph>
+                                    </TableCell>
+                                </TableRow>
+                            </TableRowGroup>
+                        </Table>
+                    </Floater>
+                    This table is anchored to this paragraph because the Floater element
+                    appears inside of this paragraph.
+                </Paragraph>
+                <Paragraph>
+                    This second paragraph also flows around the Floater because the table
+                    is tall enough to span two paragraphs.
+                </Paragraph>
+            </FlowDocument>
+        </FlowDocumentPageViewer>
+
+
+
+    </UniformGrid>
+</UserControl>

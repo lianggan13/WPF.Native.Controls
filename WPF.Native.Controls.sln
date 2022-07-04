@@ -77,10 +77,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.Event", "WPF.Event\WPF.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF.Graphics", "WPF.Graphics\WPF.Graphics.csproj", "{12967860-BEEB-46D5-BB39-6311614DD9D1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClipboardSpy", "..\..\WPF-Samples-main\Clipboard\ClipboardSpy\ClipboardSpy.csproj", "{BB2C76A3-F18A-4F39-BCC6-57BC7C1F4BB2}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClipboardViewer", "..\..\WPF-Samples-main\Clipboard\ClipboardViewer\ClipboardViewer.csproj", "{2506CDF0-DB03-4948-848B-F408722ABE27}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -231,21 +227,9 @@ Global
 		{12967860-BEEB-46D5-BB39-6311614DD9D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12967860-BEEB-46D5-BB39-6311614DD9D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12967860-BEEB-46D5-BB39-6311614DD9D1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BB2C76A3-F18A-4F39-BCC6-57BC7C1F4BB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BB2C76A3-F18A-4F39-BCC6-57BC7C1F4BB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BB2C76A3-F18A-4F39-BCC6-57BC7C1F4BB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BB2C76A3-F18A-4F39-BCC6-57BC7C1F4BB2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2506CDF0-DB03-4948-848B-F408722ABE27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2506CDF0-DB03-4948-848B-F408722ABE27}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2506CDF0-DB03-4948-848B-F408722ABE27}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2506CDF0-DB03-4948-848B-F408722ABE27}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{BB2C76A3-F18A-4F39-BCC6-57BC7C1F4BB2} = {FA9CEFBE-5ABE-49F5-A33F-A5827E099778}
-		{2506CDF0-DB03-4948-848B-F408722ABE27} = {FA9CEFBE-5ABE-49F5-A33F-A5827E099778}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EF6F54E5-30D6-4AD2-A424-DCDDF362B481}
