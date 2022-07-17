@@ -91,5 +91,18 @@
                     of</Span>
                 styles.</Span>
         </TextBlock>
+
+        <TextBlock>
+            <Span Typography.DiscretionaryLigatures="True">Th</Span>
+
+        </TextBlock>
+        <TextBlock
+            Margin="5"
+            Background="PaleGreen"
+            TextWrapping="Wrap">
+            This book is called
+            ‘<Bold>Programming WPF</Bold>
+            ’</TextBlock>
+
     </StackPanel>
 </Page>

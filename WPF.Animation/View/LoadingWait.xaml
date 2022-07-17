@@ -33,6 +33,7 @@
                 RenderTransformOrigin="0.5,0.5"
                 Unloaded="HandleUnloaded"
                 Visibility="Visible">
+
                 <Canvas.Style>
                     <Style TargetType="{x:Type Canvas}">
                         <Setter Property="RenderTransform">
@@ -95,6 +96,7 @@
                         </Style.Triggers>
                     </Style>
                 </Canvas.Style>
+
                 <Ellipse
                     x:Name="C0"
                     Canvas.Left="{DXBinding @r(R) + @r(R) * ($sys:Math.Sin( 0 * $sys:Math.PI * 2 / 10.0 ))}"

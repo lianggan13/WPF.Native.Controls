@@ -1,0 +1,60 @@
+﻿<UserControl
+    x:Class="WPF.TextBlock.TextObjectModel.UIContainers"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPF.TextBlock.TextObjectModel"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    Background="White"
+    mc:Ignorable="d">
+    <UniformGrid>
+        <FlowDocumentPageViewer>
+            <FlowDocument>
+                <Paragraph>
+                    This is a paragraph.
+                </Paragraph>
+                <BlockUIContainer>
+                    <Button Content="Button" />
+                </BlockUIContainer>
+                <Paragraph>
+                    This is another paragraph.
+                </Paragraph>
+            </FlowDocument>
+        </FlowDocumentPageViewer>
+
+        <FlowDocumentPageViewer>
+            <FlowDocument>
+                <Paragraph>
+                    This paragraph is followed by an image in a block container:
+                </Paragraph>
+
+                <BlockUIContainer>
+                    <Image Width="200" Source="/Assets/Images/Picture.jpg" />
+                </BlockUIContainer>
+
+                <Paragraph>
+                    This paragraph uses an inline UI container to host an image:<InlineUIContainer BaselineAlignment="Center">
+                        <Image Height="40" Source="/Assets/Images/Picture2.jpg" />
+                    </InlineUIContainer>
+                </Paragraph>
+            </FlowDocument>
+        </FlowDocumentPageViewer>
+
+        <TextBlock>
+            <Span FontFamily="Cambria">
+                <Run Text="This uses " />
+                <Span FontWeight="Bold">
+                    <Run Text="a " />
+                    <Span FontStyle="Italic">
+                        <Run Text="mixture" />
+                    </Span>
+                    <Run Text=" of" />
+                </Span>
+            </Span>
+            <Run Text=" styles"></Run>
+        </TextBlock>
+
+    </UniformGrid>
+</UserControl>

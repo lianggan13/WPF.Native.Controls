@@ -15,6 +15,9 @@
             <Frame Source="./FlowDocuments/ControlViewer.xaml" />
         </TabItem>
 
+        <TabItem Header="DrawText">
+            <Frame Source="./DrawText/DrawTextViewer.xaml" />
+        </TabItem>
 
     </TabControl>
 </Window>

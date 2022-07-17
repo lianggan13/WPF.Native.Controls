@@ -54,12 +54,30 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Compile Include="DrawText\DrawFormattedText.cs" />
+    <Compile Include="DrawText\DrawGlyph.cs" />
+    <Compile Include="DrawText\DrawTextViewer.xaml.cs">
+      <DependentUpon>DrawTextViewer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FlowDocuments\ControlViewer.xaml.cs">
       <DependentUpon>ControlViewer.xaml</DependentUpon>
     </Compile>
     <Compile Include="TextBlockAnimation.xaml.cs">
       <DependentUpon>TextBlockAnimation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TextObjectModel\Lists.xaml.cs">
+      <DependentUpon>Lists.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TextObjectModel\Tables.xaml.cs">
+      <DependentUpon>Tables.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TextObjectModel\TextObjectModelPage.xaml.cs">
+      <DependentUpon>TextObjectModelPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TextObjectModel\UIContainers.xaml.cs">
+      <DependentUpon>UIContainers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\TextPointerHelper.cs" />
     <Compile Include="View\Decorations.xaml.cs">
       <DependentUpon>Decorations.xaml</DependentUpon>
     </Compile>
@@ -69,6 +87,10 @@
     <Compile Include="View\TextEffects.xaml.cs">
       <DependentUpon>TextEffects.xaml</DependentUpon>
     </Compile>
+    <Page Include="DrawText\DrawTextViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FlowDocuments\ControlViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -92,6 +114,22 @@
     <Page Include="TextBlockAnimation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TextObjectModel\Lists.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TextObjectModel\Tables.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TextObjectModel\TextObjectModelPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TextObjectModel\UIContainers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Decorations.xaml">
       <SubType>Designer</SubType>
@@ -131,6 +169,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Assets\Images\Picture.jpg" />
+    <Resource Include="Assets\Images\Picture2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
