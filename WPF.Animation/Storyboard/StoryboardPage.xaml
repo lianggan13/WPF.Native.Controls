@@ -1,0 +1,446 @@
+﻿<Page
+    x:Class="WPF.Animation.Storyboard.StoryboardPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPF.Animation.Storyboard"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="StoryboardPage"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <UniformGrid>
+        <Ellipse
+            Name="myEllipse"
+            Width="10"
+            Height="100"
+            Fill="Red">
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="Ellipse.MouseEnter">
+                    <BeginStoryboard Name="changeWidth">
+                        <Storyboard>
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="(Ellipse.Width)"
+                                To="300"
+                                Duration="0:0:5" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+
+                <EventTrigger RoutedEvent="Ellipse.MouseLeftButtonDown">
+                    <PauseStoryboard BeginStoryboardName="changeWidth" />
+                </EventTrigger>
+
+                <EventTrigger RoutedEvent="Ellipse.MouseLeftButtonUp">
+                    <ResumeStoryboard BeginStoryboardName="changeWidth" />
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+
+        <StackPanel>
+            <StackPanel.Resources>
+                <Style x:Key="widthOnFocus">
+                    <Style.Triggers>
+                        <Trigger Property="FrameworkElement.IsFocused" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard Name="changeWidth">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetProperty="(FrameworkElement.Width)"
+                                            To="300"
+                                            Duration="0:0:5" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <RemoveStoryboard BeginStoryboardName="changeWidth" />
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </StackPanel.Resources>
+            <TextBox Width="200" Style="{StaticResource widthOnFocus}" />
+            <TextBox Width="200" Style="{StaticResource widthOnFocus}" />
+        </StackPanel>
+
+        <Ellipse
+            Width="20"
+            Height="100"
+            Fill="Green">
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="Ellipse.MouseEnter">
+                    <BeginStoryboard Name="enterAnim">
+                        <Storyboard>
+                            <DoubleAnimation
+                                By="400"
+                                Storyboard.TargetProperty="Width"
+                                Duration="0:0:4" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Ellipse.MouseLeave">
+                    <BeginStoryboard Name="leaveAnim" HandoffBehavior="Compose">
+                        <Storyboard>
+                            <DoubleAnimation
+                                By="-400"
+                                Storyboard.TargetProperty="Width"
+                                Duration="0:0:4" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Ellipse.Unloaded">
+                    <RemoveStoryboard BeginStoryboardName="enterAnim" />
+                    <RemoveStoryboard BeginStoryboardName="leaveAnim" />
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="CornflowerBlue" />
+                    <Setter Property="Height" Value="26" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Grid Height="{TemplateBinding Height}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="1.8*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <Rectangle
+                                        Grid.RowSpan="2"
+                                        Fill="{TemplateBinding Background}"
+                                        RadiusX="13"
+                                        RadiusY="13">
+                                        <Rectangle.Stroke>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                <GradientStop Offset="0" Color="Black" />
+                                                <GradientStop Offset="1" Color="LightGray" />
+                                            </LinearGradientBrush>
+                                        </Rectangle.Stroke>
+                                    </Rectangle>
+
+
+                                    <!--  Glow  -->
+
+                                    <Rectangle
+                                        Grid.RowSpan="2"
+                                        RadiusX="13"
+                                        RadiusY="13">
+                                        <Rectangle.Fill>
+                                            <RadialGradientBrush Center="0.5, 1" GradientOrigin="0.5,1" RadiusX="0.7" RadiusY="0.8">
+                                                <RadialGradientBrush.GradientStops>
+                                                    <GradientStop x:Name="glowStop" Offset="0" Color="White" />
+                                                    <GradientStop Offset="1" Color="Transparent" />
+                                                </RadialGradientBrush.GradientStops>
+                                            </RadialGradientBrush>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+
+
+                                    <Rectangle
+                                        Margin="3,1.1"
+                                        RadiusX="11"
+                                        RadiusY="12">
+                                        <Rectangle.Fill>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                <GradientStop Offset="0" Color="#dfff" />
+                                                <GradientStop Offset="1" Color="#0fff" />
+                                            </LinearGradientBrush>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+
+                                    <ContentPresenter
+                                        Grid.RowSpan="3"
+                                        Margin="13,2,13,4"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center" />
+                                </Grid>
+
+                                <ControlTemplate.Triggers>
+                                    <EventTrigger RoutedEvent="Button.Loaded">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    AccelerationRatio="0.4"
+                                                    AutoReverse="True"
+                                                    DecelerationRatio="0.6"
+                                                    RepeatBehavior="Forever"
+                                                    Storyboard.TargetName="glowStop"
+                                                    Storyboard.TargetProperty="(GradientStop.Color)"
+                                                    From="#1fff"
+                                                    To="#cfff"
+                                                    Duration="0:0:1" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </StackPanel.Resources>
+
+            <Button Margin="4,0">Click me!</Button>
+            <Button Background="DarkRed" Foreground="White">And me!</Button>
+        </StackPanel>
+
+        <Ellipse Width="200" Height="100">
+            <Ellipse.Fill>
+                <LinearGradientBrush x:Name="gradientBrush" StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="Red" />
+                    <GradientStop Offset="0.5" Color="Black" />
+                    <GradientStop Offset="1" Color="Blue" />
+                </LinearGradientBrush>
+            </Ellipse.Fill>
+
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="Ellipse.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <!--  Storyboard.TargetProperty="(Ellipse.Fill).(SolidColorBrush.Color)"  -->
+                            <ColorAnimation
+                                Storyboard.TargetName="gradientBrush"
+                                Storyboard.TargetProperty="(LinearGradientBrush.GradientStops)[2].(GradientStop.Color)"
+                                To="Green"
+                                Duration="0:0:4" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+
+        <StackPanel>
+            <TextBlock
+                Name="ten"
+                Background="White"
+                Text="10 seconds" />
+            <TextBlock
+                Name="fifteen"
+                Background="White"
+                Text="15 seconds" />
+            <TextBlock
+                Name="twentyfive"
+                Background="White"
+                Text="25 seconds" />
+
+            <MediaElement Name="media" />
+
+            <StackPanel.Triggers>
+                <EventTrigger RoutedEvent="StackPanel.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard SlipBehavior="Slip">
+
+                            <MediaTimeline Source="\Assets\Medias\VoiceRecording.wma" Storyboard.TargetName="media" />
+
+                            <ColorAnimation
+                                BeginTime="0:0:10"
+                                Storyboard.TargetName="ten"
+                                Storyboard.TargetProperty="(TextBlock.Background).(SolidColorBrush.Color)"
+                                To="PaleGreen"
+                                Duration="0:0:0.2" />
+
+                            <ColorAnimation
+                                BeginTime="0:0:15"
+                                Storyboard.TargetName="fifteen"
+                                Storyboard.TargetProperty="(TextBlock.Background).(SolidColorBrush.Color)"
+                                To="PaleGreen"
+                                Duration="0:0:0.2" />
+
+                            <ColorAnimation
+                                BeginTime="0:0:25"
+                                Storyboard.TargetName="twentyfive"
+                                Storyboard.TargetProperty="(TextBlock.Background).(SolidColorBrush.Color)"
+                                To="PaleGreen"
+                                Duration="0:0:0.2" />
+
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </StackPanel.Triggers>
+        </StackPanel>
+
+        <Button Width="20" Height="20">
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Button.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:5">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <Visibility>Hidden</Visibility>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Canvas>
+            <Rectangle
+                Width="20"
+                Height="20"
+                Fill="Red">
+                <Rectangle.Triggers>
+                    <EventTrigger RoutedEvent="Rectangle.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+
+                                <DoubleAnimation
+                                    AutoReverse="True"
+                                    RepeatBehavior="Forever"
+                                    Storyboard.TargetProperty="(Canvas.Left)"
+                                    From="0"
+                                    To="800"
+                                    Duration="0:0:10" />
+
+                                <DoubleAnimationUsingKeyFrames
+                                    RepeatBehavior="Forever"
+                                    Storyboard.TargetProperty="(Canvas.Top)"
+                                    Duration="0:0:2">
+                                    <DoubleAnimationUsingKeyFrames.KeyFrames>
+                                        <LinearDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                                        <SplineDoubleKeyFrame
+                                            KeySpline="0.4,0 0.7,0.7"
+                                            KeyTime="0:0:0.5"
+                                            Value="50" />
+                                        <SplineDoubleKeyFrame
+                                            KeySpline="0.2,0.2 0.7,0.4"
+                                            KeyTime="0:0:1"
+                                            Value="200" />
+                                        <SplineDoubleKeyFrame
+                                            KeySpline="0,0.3 0.75,0.75"
+                                            KeyTime="0:0:1.5"
+                                            Value="50" />
+                                        <SplineDoubleKeyFrame
+                                            KeySpline="0.25,0.25 0.6,1"
+                                            KeyTime="0:0:2"
+                                            Value="0" />
+                                    </DoubleAnimationUsingKeyFrames.KeyFrames>
+                                </DoubleAnimationUsingKeyFrames>
+
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Rectangle.Triggers>
+            </Rectangle>
+        </Canvas>
+
+        <Path Stroke="Chocolate" StrokeThickness="4">
+            <Path.Data>
+                <LineGeometry StartPoint="50,50" EndPoint="0,0" />
+            </Path.Data>
+            <Path.Triggers>
+                <EventTrigger RoutedEvent="Path.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <PointAnimationUsingPath
+                                AutoReverse="True"
+                                RepeatBehavior="Forever"
+                                Storyboard.TargetProperty="(Path.Data).(LineGeometry.EndPoint)"
+                                Duration="0:0:2">
+                                <PointAnimationUsingPath.PathGeometry>
+                                    <PathGeometry Figures="M 14.64,14.64 A 50,50 90, 0 1 85.36,14.64" />
+                                </PointAnimationUsingPath.PathGeometry>
+                            </PointAnimationUsingPath>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Path.Triggers>
+        </Path>
+
+        <Ellipse Height="100" Fill="Red">
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="Ellipse.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+
+                            <!--  Example 16-24. Parent and child timelines with default HoldEnd FillBehavior  -->
+
+                            <ParallelTimeline BeginTime="0:0:2">
+                                <DoubleAnimation
+                                    Storyboard.TargetProperty="(Ellipse.Width)"
+                                    From="10"
+                                    To="300"
+                                    Duration="0:0:5" />
+                            </ParallelTimeline>
+
+                            <!--  End of Example 16-24.  -->
+
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+
+        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+            <StackPanel.Triggers>
+                <EventTrigger RoutedEvent="StackPanel.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+
+                            <!--  Example 16-25. Using SpeedRatio in a hierarchy  -->
+
+                            <ParallelTimeline RepeatBehavior="Forever">
+
+                                <DoubleAnimation
+                                    AutoReverse="True"
+                                    BeginTime="0:0:0"
+                                    By="30"
+                                    Storyboard.TargetName="button1"
+                                    Storyboard.TargetProperty="(Button.Height)"
+                                    Duration="0:0:0.2" />
+
+                                <DoubleAnimation
+                                    AutoReverse="True"
+                                    BeginTime="0:0:1"
+                                    By="30"
+                                    SpeedRatio="2"
+                                    Storyboard.TargetName="button2"
+                                    Storyboard.TargetProperty="(Button.Height)"
+                                    Duration="0:0:0.2" />
+
+                                <ParallelTimeline BeginTime="0:0:2" SpeedRatio="4">
+
+                                    <DoubleAnimation
+                                        AutoReverse="True"
+                                        BeginTime="0:0:0"
+                                        By="30"
+                                        SpeedRatio="0.25"
+                                        Storyboard.TargetName="button3"
+                                        Storyboard.TargetProperty="(Button.Height)"
+                                        Duration="0:0:0.2" />
+
+                                    <DoubleAnimation
+                                        AutoReverse="True"
+                                        BeginTime="0:0:1"
+                                        By="30"
+                                        SpeedRatio="0.125"
+                                        Storyboard.TargetName="button4"
+                                        Storyboard.TargetProperty="(Button.Height)"
+                                        Duration="0:0:0.2" />
+
+                                </ParallelTimeline>
+
+                            </ParallelTimeline>
+
+                            <!--  End of Example 16-25.  -->
+
+
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </StackPanel.Triggers>
+
+            <Button Name="button1" Height="25">One</Button>
+            <Button Name="button2" Height="25">Two</Button>
+            <Button Name="button3" Height="25">Three</Button>
+            <Button Name="button4" Height="25">Four</Button>
+        </StackPanel>
+    </UniformGrid>
+</Page>

@@ -1,0 +1,52 @@
+﻿<Page
+    x:Class="WPF.Animation.Clock.ClockPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPF.Animation.Clock"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="ClockPage"
+    Width="300"
+    Height="300"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <Storyboard x:Key="sunrise">
+            <DoubleAnimation
+                Storyboard.TargetProperty="(Canvas.Top)"
+                From="100"
+                To="0"
+                Duration="0:0:3" />
+            <ColorAnimation
+                Storyboard.TargetProperty="(Ellipse.Fill).(SolidColorBrush.Color)"
+                From="Red"
+                To="Yellow"
+                Duration="0:0:3" />
+        </Storyboard>
+
+        <Storyboard x:Key="sunset">
+            <DoubleAnimation
+                Storyboard.TargetProperty="(Canvas.Top)"
+                From="0"
+                To="100"
+                Duration="0:0:3" />
+            <ColorAnimation
+                Storyboard.TargetProperty="(Ellipse.Fill).(SolidColorBrush.Color)"
+                From="Yellow"
+                To="Red"
+                Duration="0:0:3" />
+        </Storyboard>
+    </Page.Resources>
+
+    <Canvas Background="Aqua">
+        <Ellipse
+            x:Name="myEllipse"
+            Width="100"
+            Height="100"
+            Fill="Yellow" />
+        <Rectangle
+            Canvas.Top="150"
+            Width="300"
+            Height="150"
+            Fill="Green" />
+    </Canvas>
+</Page>

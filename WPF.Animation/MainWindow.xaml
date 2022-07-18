@@ -261,6 +261,18 @@
             <Frame Source="./View/FollowMouse.xaml" />
         </TabItem>
 
+        <TabItem Header="Media">
+            <Frame Source="./Media/MediaPage.xaml" />
+        </TabItem>
+
+        <TabItem Header="Storyboard">
+            <Frame Source="./Storyboard/StoryboardPage.xaml" />
+        </TabItem>
+
+
+        <TabItem Header="ClockPage">
+            <Frame Source="./Clock/ClockPage.xaml" />
+        </TabItem>
 
     </TabControl>
 

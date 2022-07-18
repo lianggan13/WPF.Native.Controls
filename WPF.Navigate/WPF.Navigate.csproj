@@ -74,6 +74,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TransAnimation\Page1.xaml.cs">
+      <DependentUpon>Page1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransAnimation\Page2.xaml.cs">
+      <DependentUpon>Page2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransAnimation\Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\MagicWordPageFunction.xaml.cs">
       <DependentUpon>MagicWordPageFunction.xaml</DependentUpon>
     </Compile>
@@ -120,6 +129,18 @@
     <Folder Include="ViewModel\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="TransAnimation\Page1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TransAnimation\Page2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TransAnimation\Window1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\Pages\MagicWordPageFunction.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

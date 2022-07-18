@@ -67,6 +67,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Clock\ClockPage.xaml.cs">
+      <DependentUpon>ClockPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Media\MediaPage.xaml.cs">
+      <DependentUpon>MediaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Storyboard\StoryboardPage.xaml.cs">
+      <DependentUpon>StoryboardPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\LoadingWaitViewModel.cs" />
     <Compile Include="View\AccelDecelRatios.xaml.cs">
       <DependentUpon>AccelDecelRatios.xaml</DependentUpon>
@@ -116,6 +125,10 @@
     <Compile Include="View\SplineXYProgress.xaml.cs">
       <DependentUpon>SplineXYProgress.xaml</DependentUpon>
     </Compile>
+    <Page Include="Clock\ClockPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -128,6 +141,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Media\MediaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Storyboard\StoryboardPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AccelDecelRatios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -228,6 +249,11 @@
       <Project>{A0F9C22B-B526-44DD-B58A-A837E3A833EC}</Project>
       <Name>WPF.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Medias\VoiceRecording.wma">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
