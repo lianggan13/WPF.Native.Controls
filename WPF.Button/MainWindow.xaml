@@ -15,7 +15,7 @@
     <Window.Resources />
 
     <Grid>
-        <UniformGrid Columns="2" Rows="2">
+        <UniformGrid>
             <ctrls:SwitchButton />
             <Grid Background="#FF030A28">
                 <ctrls:PushButton Width="60" Height="60" />
@@ -37,6 +37,50 @@
                     Foreground="Green" />
 
             </Grid>
+
+            <Button>
+                <local:Foo.Bar>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Offset="0" Color="#800" />
+                            <GradientStop Offset="0.35" Color="Red" />
+                            <GradientStop Offset="1" Color="#500" />
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </local:Foo.Bar>
+            </Button>
         </UniformGrid>
+
+        <ItemsControl>
+            <ItemsControl.ItemsSource>
+                <x:Array xmlns:sys="clr-namespace:System;assembly=mscorlib" Type="{x:Type sys:String}">
+                    <sys:String>toe</sys:String>
+                    <sys:String>foot</sys:String>
+                    <sys:String>ankle</sys:String>
+                    <sys:String>knee</sys:String>
+                    <sys:String>thigh</sys:String>
+                </x:Array>
+            </ItemsControl.ItemsSource>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <TextBlock Text="The " />
+                        <TextBlock Text="{Binding RelativeSource={RelativeSource PreviousData}}" />
+                        <TextBlock Text=" bone's connected to the " />
+                        <TextBlock Text="{Binding}" />
+                        <TextBlock Text=" bone" />
+                    </WrapPanel>
+                    <DataTemplate.Triggers>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource PreviousData}}" Value="{x:Null}">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+
+        </ItemsControl>
+
+
     </Grid>
 </Window>
