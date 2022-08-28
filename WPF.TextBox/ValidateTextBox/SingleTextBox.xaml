@@ -3,9 +3,9 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Interaction="http://schemas.microsoft.com/expression/2010/interactions"
+    xmlns:Interactivity="http://schemas.microsoft.com/expression/2010/interactivity"
     xmlns:com="clr-namespace:WPFTextBox.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
     xmlns:local="clr-namespace:WPFTextBox.ValidateTextBox"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:WPFTextBox.ViewModel"
@@ -127,17 +127,17 @@
             ToolTip="{Binding Model.ToolTip}"
             Validation.Error="Value_ErrorEvent"
             Validation.ErrorTemplate="{StaticResource advErrorTemplate}">
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="PreviewTextInput">
+            <Interactivity:Interaction.Triggers>
+                <Interactivity:EventTrigger EventName="PreviewTextInput">
                     <Interaction:CallMethodAction MethodName="PreviewTextInput" TargetObject="{Binding Model}" />
-                </i:EventTrigger>
-                <i:EventTrigger EventName="PreviewKeyDown">
+                </Interactivity:EventTrigger>
+                <Interactivity:EventTrigger EventName="PreviewKeyDown">
                     <Interaction:CallMethodAction MethodName="SingleTextBox_PreviewKeyDown" TargetObject="{Binding Model}" />
-                </i:EventTrigger>
-                <i:EventTrigger EventName="Validation.Error">
+                </Interactivity:EventTrigger>
+                <Interactivity:EventTrigger EventName="Validation.Error">
                     <Interaction:CallMethodAction MethodName="Value_ErrorEvent" TargetObject="{Binding Model}" />
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
+                </Interactivity:EventTrigger>
+            </Interactivity:Interaction.Triggers>
         </TextBox>
         <Image
             x:Name="imgError"

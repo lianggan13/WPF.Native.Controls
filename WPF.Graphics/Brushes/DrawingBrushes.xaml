@@ -304,5 +304,121 @@
                 </DrawingBrush>
             </Rectangle.Fill>
         </Rectangle>
+
+
+
+        <Rectangle Width="250" Height="8">
+            <Rectangle.Fill>
+                <DrawingBrush>
+                    <DrawingBrush.Drawing>
+                        <DrawingGroup>
+                            <!--<GeometryDrawing Brush="#66CCCCFF" Geometry="M0,0 L1,0 1,0.1, 0,0.1Z" />-->
+
+
+                            <DrawingGroup.Children>
+
+                                <GeometryDrawing Brush="#3333FF">
+                                    <GeometryDrawing.Geometry>
+                                        <RectangleGeometry Rect="0,0,1,1" />
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                                <GeometryDrawing Brush="Red" Geometry="M0.1,0 L0.1,0 0.1,1, 0.1,1Z " />
+                            </DrawingGroup.Children>
+                        </DrawingGroup>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Rectangle.Fill>
+
+
+        </Rectangle>
+
+        <Rectangle Width="120" Height="20">
+            <Rectangle.Fill>
+                <DrawingBrush Viewport="0,0,0.3,0.3" ViewportUnits="Absolute">
+                    <DrawingBrush.Drawing>
+                        <DrawingGroup>
+                            <DrawingGroup.Children>
+                                <GeometryDrawing Brush="#3333FF">
+                                    <GeometryDrawing.Pen>
+                                        <Pen Brush="#32E0FF" Thickness="3" />
+                                    </GeometryDrawing.Pen>
+                                    <GeometryDrawing.Geometry>
+                                        <LineGeometry StartPoint="20,0" EndPoint="20,30" />
+                                        <!--<RectangleGeometry Rect="0,0,1,1" />-->
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                                <!--<GeometryDrawing Brush="#66CCCCFF" Geometry="M0,0 L1,0 1,0.1, 0,0.1Z" />-->
+                                <!--<GeometryDrawing Brush="#66CCCCFF" Geometry="M0.2,0 L0.12,0 0.12,1, 0.1,1Z" />-->
+                                <!--<GeometryDrawing Brush="Chartreuse" Geometry="M0.1,0 L0.2,0 0.2,1, 0.1,1Z">
+                                    <GeometryDrawing.Pen>
+                                        <Pen Brush="#32E0FF" Thickness="0.01" />
+                                    </GeometryDrawing.Pen>
+                                </GeometryDrawing>-->
+                            </DrawingGroup.Children>
+                        </DrawingGroup>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Border
+            Width="310"
+            Height="20"
+            Background="Transparent"
+            BorderBrush="#32E0FF"
+            BorderThickness="1">
+            <Border>
+                <Border.Background>
+                    <VisualBrush
+                        TileMode="Tile"
+                        Viewport="0 0 0.08 1"
+                        ViewportUnits="RelativeToBoundingBox">
+                        <VisualBrush.Visual>
+                            <Border
+                                Width="20"
+                                Background="Transparent">
+                                <Border
+                                    Width="6"
+                                    Height="8"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom"
+                                    Background="#0C6AC7"
+                                    BorderThickness="0" />
+                            </Border>
+                        </VisualBrush.Visual>
+                    </VisualBrush>
+                </Border.Background>
+            </Border>
+        </Border>
+
+        <Grid Grid.Row="1">
+            <Border
+                Height="140"
+                VerticalAlignment="Top"
+                BorderThickness="10">
+                <Border.Background>
+                    <DrawingBrush
+                        TileMode="Tile"
+                        Viewport="0,0,25,2"
+                        ViewportUnits="Absolute">
+                        <DrawingBrush.Drawing>
+                            <GeometryDrawing>
+                                <GeometryDrawing.Pen>
+                                    <Pen Brush="#EEE" />
+                                </GeometryDrawing.Pen>
+                                <GeometryDrawing.Geometry>
+                                    <PathGeometry>
+                                        <PathFigure IsClosed="False" StartPoint="0,0">
+                                            <LineSegment Point="10,0" />
+                                            <LineSegment Point="10,10" />
+                                        </PathFigure>
+                                    </PathGeometry>
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                        </DrawingBrush.Drawing>
+                    </DrawingBrush>
+                </Border.Background>
+            </Border>
+        </Grid>
     </UniformGrid>
 </Page>

@@ -8,11 +8,20 @@
     Title="MainWindow"
     Width="800"
     Height="450"
+    Background="Transparent"
     mc:Ignorable="d">
-    <TabControl Background="White">
+    <TabControl Background="Transparent" SelectedIndex="0">
+
+        <TabItem Header="VisualBrushes">
+            <Frame Source="./Brushes/VisualBrushes.xaml" />
+        </TabItem>
 
         <TabItem Header="DrawingBrushes">
             <Frame Source="./Brushes/DrawingBrushes.xaml" />
+        </TabItem>
+
+        <TabItem Header="LinearGradientBrushes">
+            <Frame Source="./Brushes/LinearGradientBrushes.xaml" />
         </TabItem>
 
         <TabItem Header="VisualLayer">

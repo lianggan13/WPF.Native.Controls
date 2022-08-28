@@ -54,7 +54,7 @@
                     <Path.Data>
                         <PathGeometry>
                             <PathGeometry.Figures>
-                                <PathFigure IsClosed="True" StartPoint="0,0">
+                                <PathFigure IsClosed="False" StartPoint="0,0">
                                     <PathFigure.Segments>
                                         <LineSegment Point="50,0" />
                                         <LineSegment Point="50,50" />

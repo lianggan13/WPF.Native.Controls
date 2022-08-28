@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WPF.Graphics.Brushes
 {
@@ -23,6 +13,31 @@ namespace WPF.Graphics.Brushes
         public LinearGradientBrushes()
         {
             InitializeComponent();
+            this.Loaded += LinearGradientBrushes_Loaded;
+        }
+
+        private async void LinearGradientBrushes_Loaded(object sender, RoutedEventArgs e)
+        {
+            await Task.Delay(TimeSpan.FromSeconds(5));
+
+            //while (true)
+            //{
+            //    if (grateBottom.Defense)
+            //    {
+            //        grateBottom.Defense = false;
+            //    }
+            //    else if (grateBottom.State == GratingState.Error)
+            //    {
+            //        grateBottom.Defense = true;
+            //        grateBottom.State = GratingState.DefenseWarning;
+            //    }
+            //    else
+            //    {
+            //        grateBottom.State = GratingState.Error;
+            //    }
+            //    await Task.Delay(TimeSpan.FromSeconds(8));
+            //}
+
         }
     }
 }

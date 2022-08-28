@@ -1,0 +1,195 @@
+﻿<Control
+    x:Class="WPF.Graphics.Brushes.GrateLine"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPF.Graphics.Brushes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Control.Resources>
+        <Style TargetType="{x:Type local:GrateLine}">
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type local:GrateLine}">
+                        <ControlTemplate.Resources>
+
+                            <Storyboard x:Key="PART_Storyboard_NoDefense">
+                                <ColorAnimation
+                                    RepeatBehavior="1x"
+                                    Storyboard.TargetName="PART_Rect"
+                                    Storyboard.TargetProperty="(Rectangle.Fill).(LinearGradientBrush.GradientStops)[0].(GradientStop.Color)"
+                                    To="#A3A9CC"
+                                    Duration="0:0:0" />
+                                <ColorAnimation
+                                    RepeatBehavior="1x"
+                                    Storyboard.TargetName="PART_Rect"
+                                    Storyboard.TargetProperty="(Rectangle.Fill).(LinearGradientBrush.GradientStops)[1].(GradientStop.Color)"
+                                    To="#66A3A9CC"
+                                    Duration="0:0:0" />
+                                <ColorAnimation
+                                    RepeatBehavior="1x"
+                                    Storyboard.TargetName="PART_Rect"
+                                    Storyboard.TargetProperty="(Rectangle.Fill).(LinearGradientBrush.GradientStops)[2].(GradientStop.Color)"
+                                    To="#33A3A9CC"
+                                    Duration="0:0:0" />
+                            </Storyboard>
+
+                            <Storyboard x:Key="PART_Storyboard_Defense">
+                                <ColorAnimation
+                                    RepeatBehavior="1x"
+                                    Storyboard.TargetName="PART_Rect"
+                                    Storyboard.TargetProperty="(Rectangle.Fill).(LinearGradientBrush.GradientStops)[0].(GradientStop.Color)"
+                                    To="#FF3939"
+                                    Duration="0:0:0" />
+                                <ColorAnimation
+                                    RepeatBehavior="1x"
+                                    Storyboard.TargetName="PART_Rect"
+                                    Storyboard.TargetProperty="(Rectangle.Fill).(LinearGradientBrush.GradientStops)[1].(GradientStop.Color)"
+                                    To="#66FF3939"
+                                    Duration="0:0:0" />
+                                <ColorAnimation
+                                    RepeatBehavior="1x"
+                                    Storyboard.TargetName="PART_Rect"
+                                    Storyboard.TargetProperty="(Rectangle.Fill).(LinearGradientBrush.GradientStops)[2].(GradientStop.Color)"
+                                    To="#33FF3939"
+                                    Duration="0:0:0" />
+                            </Storyboard>
+
+                            <Storyboard x:Key="PART_Storyboard_Error">
+                                <ColorAnimation
+                                    RepeatBehavior="1x"
+                                    Storyboard.TargetName="PART_Rect"
+                                    Storyboard.TargetProperty="(Rectangle.Fill).(LinearGradientBrush.GradientStops)[0].(GradientStop.Color)"
+                                    To="#FFA500"
+                                    Duration="0:0:0" />
+                                <ColorAnimation
+                                    RepeatBehavior="1x"
+                                    Storyboard.TargetName="PART_Rect"
+                                    Storyboard.TargetProperty="(Rectangle.Fill).(LinearGradientBrush.GradientStops)[1].(GradientStop.Color)"
+                                    To="#66FFA500"
+                                    Duration="0:0:0" />
+                                <ColorAnimation
+                                    RepeatBehavior="1x"
+                                    Storyboard.TargetName="PART_Rect"
+                                    Storyboard.TargetProperty="(Rectangle.Fill).(LinearGradientBrush.GradientStops)[2].(GradientStop.Color)"
+                                    To="#33FFA500"
+                                    Duration="0:0:0" />
+                            </Storyboard>
+
+                            <LinearGradientBrush x:Key="Brush_Defense">
+                                <GradientStop Color="#FF3939" />
+                                <GradientStop Offset="0.348" Color="#66FF3939" />
+                                <GradientStop Offset="0.63" Color="#33FF3939" />
+                                <GradientStop Offset="1" />
+                            </LinearGradientBrush>
+                            
+                            <LinearGradientBrush x:Key="Brush_NoDefense">
+                                <GradientStop Color="#A3A9CC" />
+                                <GradientStop Offset="0.348" Color="#66A3A9CC" />
+                                <GradientStop Offset="0.63" Color="#33A3A9CC" />
+                                <GradientStop Offset="1" />
+                            </LinearGradientBrush>
+                        </ControlTemplate.Resources>
+                        
+                        <Rectangle
+                            x:Name="PART_Rect"
+                            HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                            <!--<Rectangle.Fill>
+                                <LinearGradientBrush StartPoint="{Binding StartPoint, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:GrateLine}, AncestorLevel=1}}" EndPoint="{Binding EndPoint, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:GrateLine}, AncestorLevel=1}}">
+                                    <GradientStop Color="#A3A9CC" />
+                                    <GradientStop Offset="0.348" Color="#66A3A9CC" />
+                                    <GradientStop Offset="0.63" Color="#33A3A9CC" />
+                                    <GradientStop Offset="1" />
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>-->
+                        </Rectangle>
+                        <ControlTemplate.Triggers>
+                            <!--<Trigger Property="Defense" Value="False">
+                            -->
+                            <!--<Setter TargetName="PART_Rect" Property="Fill" Value="{StaticResource PART_Brush_NoDefense}" />-->
+                            <!--
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard x:Name="TwinkleStoryboard1" Storyboard="{StaticResource PART_Storyboard_NoDefense}" />
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <StopStoryboard BeginStoryboardName="TwinkleStoryboard1" />
+                                    <RemoveStoryboard BeginStoryboardName="TwinkleStoryboard1" />
+                                </Trigger.ExitActions>
+                            </Trigger>-->
+
+                            <!--<Trigger Property="State" Value="Error">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard x:Name="TwinkleStoryboard2" Storyboard="{StaticResource PART_Storyboard_Error}" />
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <StopStoryboard BeginStoryboardName="TwinkleStoryboard2" />
+                                    <RemoveStoryboard BeginStoryboardName="TwinkleStoryboard2" />
+                                </Trigger.ExitActions>
+                            </Trigger>-->
+
+                            <!--<Trigger Property="State" Value="Unknown">
+                            -->
+                            <!--<Setter TargetName="PART_Rect" Property="Fill" Value="{StaticResource PART_Brush_NoDefense}" />-->
+                            <!--
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard x:Name="TwinkleStoryboard1" Storyboard="{StaticResource PART_Storyboard_NoDefense}" />
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <StopStoryboard BeginStoryboardName="TwinkleStoryboard1" />
+                                </Trigger.ExitActions>
+                            </Trigger>-->
+
+                            <!--<MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Defense" Value="True" />
+                                    <Condition Property="State" Value="Defense" />
+                                </MultiTrigger.Conditions>
+                                <MultiTrigger.Setters>
+                                    <Setter TargetName="PART_Rect" Property="Fill" Value="{StaticResource PART_Brush_Defense}" />
+                                </MultiTrigger.Setters>
+                            </MultiTrigger>-->
+
+
+                            <!--<MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Defense" Value="True" />
+                                    <Condition Property="State" Value="Defense" />
+                                </MultiTrigger.Conditions>
+                                <MultiTrigger.EnterActions>
+                                    <BeginStoryboard x:Name="TwinkleStoryboard3" Storyboard="{StaticResource PART_Storyboard_Defense}" />
+                                </MultiTrigger.EnterActions>
+                                <MultiTrigger.ExitActions>
+                                    <StopStoryboard BeginStoryboardName="TwinkleStoryboard3" />
+                                    <RemoveStoryboard BeginStoryboardName="TwinkleStoryboard3" />
+                                </MultiTrigger.ExitActions>
+                            </MultiTrigger>
+
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Defense" Value="True" />
+                                    <Condition Property="State" Value="DefenseWarning" />
+                                </MultiTrigger.Conditions>
+                                <MultiTrigger.EnterActions>
+                                    <BeginStoryboard x:Name="TwinkleStoryboard" Storyboard="{StaticResource PART_Storyboard_Defense}" />
+                                </MultiTrigger.EnterActions>
+                                <MultiTrigger.ExitActions>
+                                    <StopStoryboard BeginStoryboardName="TwinkleStoryboard" />
+                                    <RemoveStoryboard BeginStoryboardName="TwinkleStoryboard" />
+                                </MultiTrigger.ExitActions>
+                            </MultiTrigger>-->
+
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+
+            </Setter>
+        </Style>
+    </Control.Resources>
+
+</Control>
