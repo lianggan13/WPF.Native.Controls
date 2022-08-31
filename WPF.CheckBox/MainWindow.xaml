@@ -88,12 +88,132 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+
     </Window.Resources>
-    <Viewbox Height="100">
-        <CheckBox
-            Height="30"
-            Content="复选框"
-            FontSize="20"
-            Style="{DynamicResource CheckBoxStyle}" />
-    </Viewbox>
+    <StackPanel>
+
+        <Viewbox Height="100">
+            <CheckBox
+                Height="30"
+                Content="复选框"
+                FontSize="20"
+                Style="{DynamicResource CheckBoxStyle}" />
+        </Viewbox>
+
+        <CheckBox>
+            <CheckBox.Resources>
+                <Style TargetType="{x:Type CheckBox}">
+                    <Setter Property="Cursor" Value="Hand" />
+                    <Setter Property="IsChecked" Value="False" />
+                    <Setter Property="IsThreeState" Value="True" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type CheckBox}">
+                                <Grid HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                                    <Grid.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="Width" Value="70" />
+                                            <Setter Property="Height" Value="34" />
+                                            <Setter Property="Margin" Value="0,0,0,0" />
+                                            <Setter Property="BorderThickness" Value="1" />
+                                        </Style>
+
+                                        <Style TargetType="{x:Type Path}">
+                                            <Setter Property="Width" Value="15" />
+                                            <Setter Property="Height" Value="17" />
+                                            <Setter Property="Margin" Value="8,0,0,0" />
+                                            <Setter Property="HorizontalAlignment" Value="Left" />
+                                        </Style>
+
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="Margin" Value="27,0,0,0" />
+                                            <Setter Property="HorizontalAlignment" Value="Left" />
+                                            <Setter Property="VerticalAlignment" Value="Center" />
+                                            <Setter Property="FontSize" Value="16" />
+                                        </Style>
+                                    </Grid.Resources>
+
+                                    <!--#region 有电-->
+                                    <Border
+                                        x:Name="PART_Elsc"
+                                        Background="#903C1010"
+                                        BorderBrush="#3C1010"
+                                        Visibility="Visible">
+                                        <Border.Effect>
+                                            <DropShadowEffect
+                                                BlurRadius="49.7"
+                                                Direction="0"
+                                                ShadowDepth="0"
+                                                Color="#FF3C1010" />
+                                        </Border.Effect>
+
+                                        <Grid>
+                                            <Path Data="M6.580,6.190 L9.688,-0.000 L3.374,-0.000 L-0.000,9.274 L6.189,9.274 L3.909,17.003 L12.996,6.190 L6.580,6.190 Z" Fill="#F62A2A" />
+                                            <TextBlock Foreground="#F62A2A" Text="有电" />
+                                        </Grid>
+                                    </Border>
+                                    <!--#endregion-->
+
+                                    <!--#region 无电-->
+                                    <Border
+                                        x:Name="PART_NoElsc"
+                                        Background="#90153E26"
+                                        BorderBrush="#153E26"
+                                        Opacity="0"
+                                        Visibility="Visible">
+                                        <Border.Effect>
+                                            <DropShadowEffect ShadowDepth="0" Color="#99153E26" />
+                                        </Border.Effect>
+                                        <Grid>
+                                            <Path Data="M13.996,6.190 L11.250,9.744 L4.319,2.478 L5.148,-0.000 L10.954,-0.000 L8.097,6.190 L13.996,6.190 ZM12.692,14.434 L-0.007,1.121 L0.941,0.127 L13.640,13.440 L12.692,14.434 ZM6.635,9.274 L2.046,9.274 L3.237,5.712 L6.635,9.274 ZM9.385,12.157 L5.640,17.003 L7.493,10.173 L9.385,12.157 Z" Fill="#22FF94" />
+                                            <TextBlock Foreground="#22FF94" Text="无电" />
+                                        </Grid>
+                                    </Border>
+                                    <!--#endregion-->
+
+                                    <!--#region 故障-->
+                                    <Border
+                                        x:Name="PART_Fault"
+                                        Background="#903A2F0B"
+                                        BorderBrush="#3A2F0B"
+                                        Opacity="0"
+                                        Visibility="Visible">
+                                        <Border.Effect>
+                                            <DropShadowEffect ShadowDepth="0" Color="#993A2F0B" />
+                                        </Border.Effect>
+                                        <Grid>
+                                            <Path Data="M15.817,12.331 L8.985,0.550 L8.984,0.550 C8.899,0.235 8.509,-0.000 8.041,-0.000 C7.567,-0.000 7.176,0.239 7.096,0.559 L0.103,12.616 L0.110,12.624 C-0.052,12.782 -0.020,13.157 0.197,13.506 C0.415,13.863 0.743,14.062 0.956,13.980 L0.964,13.993 L15.117,13.993 L15.128,13.974 C15.364,14.011 15.654,13.805 15.836,13.436 C16.048,13.011 16.033,12.537 15.817,12.331 L15.817,12.331 ZM7.051,4.254 C7.067,3.744 7.487,3.339 7.999,3.339 C8.511,3.339 8.930,3.744 8.946,4.254 L8.946,9.121 C8.946,9.642 8.522,10.065 7.998,10.065 C7.474,10.065 7.050,9.642 7.050,9.121 L7.050,4.254 L7.051,4.254 ZM7.997,12.748 C7.428,12.748 6.967,12.288 6.967,11.722 C6.967,11.155 7.428,10.695 7.997,10.695 C8.566,10.695 9.028,11.155 9.028,11.722 C9.028,12.288 8.566,12.748 7.997,12.748 L7.997,12.748 Z" Fill="#FFDE25" />
+                                            <TextBlock Foreground="#FFDE25" Text="故障" />
+                                        </Grid>
+                                    </Border>
+                                    <!--#endregion-->
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsChecked" Value="False">
+                                        <Setter TargetName="PART_Elsc" Property="Opacity" Value="1" />
+                                        <Setter TargetName="PART_NoElsc" Property="Opacity" Value="0" />
+                                        <Setter TargetName="PART_Fault" Property="Opacity" Value="0" />
+                                    </Trigger>
+                                    <Trigger Property="IsChecked" Value="true">
+                                        <Setter TargetName="PART_Elsc" Property="Opacity" Value="0" />
+                                        <Setter TargetName="PART_NoElsc" Property="Opacity" Value="1" />
+                                        <Setter TargetName="PART_Fault" Property="Opacity" Value="0" />
+                                    </Trigger>
+                                    <Trigger Property="IsChecked" Value="{x:Null}">
+                                        <Setter TargetName="PART_Elsc" Property="Opacity" Value="0" />
+                                        <Setter TargetName="PART_NoElsc" Property="Opacity" Value="0" />
+                                        <Setter TargetName="PART_Fault" Property="Opacity" Value="1" />
+                                    </Trigger>
+
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </CheckBox.Resources>
+        </CheckBox>
+    </StackPanel>
+
+
 </Window>

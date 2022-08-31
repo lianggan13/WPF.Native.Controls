@@ -75,6 +75,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.Event", "WPF.Event\WPF.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF.Graphics", "WPF.Graphics\WPF.Graphics.csproj", "{12967860-BEEB-46D5-BB39-6311614DD9D1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.Popup", "WPF.Popup\WPF.Popup.csproj", "{ED03E06E-9F3F-4164-9583-880C59E0C7B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -221,6 +223,10 @@ Global
 		{12967860-BEEB-46D5-BB39-6311614DD9D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12967860-BEEB-46D5-BB39-6311614DD9D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12967860-BEEB-46D5-BB39-6311614DD9D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED03E06E-9F3F-4164-9583-880C59E0C7B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED03E06E-9F3F-4164-9583-880C59E0C7B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED03E06E-9F3F-4164-9583-880C59E0C7B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED03E06E-9F3F-4164-9583-880C59E0C7B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

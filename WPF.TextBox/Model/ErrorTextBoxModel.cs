@@ -4,7 +4,7 @@ using System.Windows.Input;
 
 namespace WPFTextBox.Model
 {
-    public class SingleTextBoxModel : ValidatorBaseModel
+    public class ErrorTextBoxModel : ValidatorBaseModel
     {
         private string name;
         private string value;

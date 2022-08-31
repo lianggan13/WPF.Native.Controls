@@ -98,7 +98,7 @@ namespace WPFCommon.MVVMFoundation
 
         #region Constructors
 
-        public RelayCommand(Action<T> execute, object parameter)
+        public RelayCommand(Action<T> execute, object parameter = null)
             : this(execute, null)
         {
         }

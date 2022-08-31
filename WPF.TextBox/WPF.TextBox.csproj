@@ -63,14 +63,17 @@
     </ApplicationDefinition>
     <Compile Include="Common\BoolToVisibilityConverter.cs" />
     <Compile Include="Model\ValidatorBaseModel.cs" />
-    <Compile Include="Model\SingleTextBoxModel.cs" />
-    <Compile Include="ValidateTextBox\SingleTextBox.xaml.cs">
-      <DependentUpon>SingleTextBox.xaml</DependentUpon>
+    <Compile Include="Model\ErrorTextBoxModel.cs" />
+    <Compile Include="ViewModel\AutoFillTextBoxVM.cs" />
+    <Compile Include="View\ErrorTextBox.xaml.cs">
+      <DependentUpon>ErrorTextBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ValidateTextBox\WatermarkTextBox.cs" />
-    <Compile Include="ViewModel\SingleTextBoxVM.cs" />
+    <Compile Include="ViewModel\ErrorTextBoxVM.cs" />
     <Compile Include="View\FocusTextBox.xaml.cs">
       <DependentUpon>FocusTextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AutoFillTextBox.xaml.cs">
+      <DependentUpon>AutoFillTextBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\WatermarkTextBox.xaml.cs">
       <DependentUpon>WatermarkTextBox.xaml</DependentUpon>
@@ -87,13 +90,17 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ValidateTextBox\SingleTextBox.xaml">
+    <Page Include="View\ErrorTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\FocusTextBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\AutoFillTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\WatermarkTextBox.xaml">
       <SubType>Designer</SubType>

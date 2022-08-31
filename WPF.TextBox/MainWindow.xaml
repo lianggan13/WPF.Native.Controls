@@ -5,8 +5,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:WPFTextBox"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:view="clr-namespace:WPFTextBox.View"
-    xmlns:vt="clr-namespace:WPFTextBox.ValidateTextBox"
+    xmlns:view="clr-namespace:WPF.TextBox.View"
+    xmlns:vt="clr-namespace:WPF.TextBox.View"
     Title="MainWindow"
     Width="529"
     Height="332"
@@ -14,109 +14,22 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Window.Resources />
-    <StackPanel>
-        <vt:SingleTextBox x:Name="txtSingle" />
-        <vt:WatermarkTextBox Margin="0,4" WatermarkText="Watermark">
-            <vt:WatermarkTextBox.Style>
-                <Style BasedOn="{StaticResource {x:Type TextBox}}" TargetType="{x:Type vt:WatermarkTextBox}">
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="vt:WatermarkTextBox">
-                                <Border
-                                    Background="{TemplateBinding Background}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    SnapsToDevicePixels="True">
-                                    <Grid>
-                                        <ScrollViewer
-                                            x:Name="PART_ContentHost"
-                                            Margin="3"
-                                            Focusable="False"
-                                            HorizontalScrollBarVisibility="Hidden"
-                                            VerticalScrollBarVisibility="Hidden" />
-                                        <TextBlock
-                                            x:Name="PART_Watermark"
-                                            Margin="5,0,0,0"
-                                            VerticalAlignment="Center"
-                                            FontStyle="Italic"
-                                            FontWeight="Bold"
-                                            Foreground="Gray"
-                                            Text="{TemplateBinding WatermarkText}" />
-                                    </Grid>
-                                    <VisualStateManager.VisualStateGroups>
 
-                                        <VisualStateGroup x:Name="WatermarkGroup">
-                                            <VisualStateGroup.Transitions>
-                                                <VisualTransition From="ShowWatermarkState" To="HideWatermarkState">
-                                                    <Storyboard>
-                                                        <DoubleAnimation
-                                                            Storyboard.TargetName="PART_Watermark"
-                                                            Storyboard.TargetProperty="Opacity"
-                                                            From="1"
-                                                            To="0"
-                                                            Duration="0:0:2" />
-                                                    </Storyboard>
-                                                </VisualTransition>
-                                                <VisualTransition From="HideWatermarkState" To="ShowWatermarkState">
-                                                    <Storyboard>
-                                                        <DoubleAnimation
-                                                            Storyboard.TargetName="PART_Watermark"
-                                                            Storyboard.TargetProperty="Opacity"
-                                                            From="0"
-                                                            To="1"
-                                                            Duration="0:0:2" />
-                                                    </Storyboard>
-                                                </VisualTransition>
-                                            </VisualStateGroup.Transitions>
+    <TabControl>
 
-                                            <VisualState x:Name="ShowWatermarkState">
-                                                <Storyboard>
-                                                    <ObjectAnimationUsingKeyFrames
-                                                        Storyboard.TargetName="PART_Watermark"
-                                                        Storyboard.TargetProperty="(UIElement.Visibility)"
-                                                        Duration="0:0:0">
-                                                        <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}" />
-                                                    </ObjectAnimationUsingKeyFrames>
-                                                </Storyboard>
-                                            </VisualState>
-                                            <VisualState x:Name="HideWatermarkState">
-                                                <Storyboard>
-                                                    <ObjectAnimationUsingKeyFrames
-                                                        Storyboard.TargetName="PART_Watermark"
-                                                        Storyboard.TargetProperty="(UIElement.Visibility)"
-                                                        Duration="0:0:0">
-                                                        <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Collapsed}" />
-                                                    </ObjectAnimationUsingKeyFrames>
-                                                </Storyboard>
-                                            </VisualState>
-                                        </VisualStateGroup>
-                                    </VisualStateManager.VisualStateGroups>
-                                </Border>
+        <TabItem Header="ErrorTextBox">
+            <Frame Source="./View/ErrorTextBox.xaml" />
+        </TabItem>
 
-                                <!--<ControlTemplate.Triggers>
-                                    <MultiTrigger>
-                                        <MultiTrigger.Conditions>
-                                            <Condition Property="IsFocused" Value="True" />
-                                        </MultiTrigger.Conditions>
-                                        <Setter TargetName="PART_Watermark" Property="Visibility" Value="Collapsed" />
-                                    </MultiTrigger>
-                                    <MultiTrigger>
-                                        <MultiTrigger.Conditions>
-                                            <Condition Property="RemoveWatermark" Value="True" />
-                                            <Condition Property="IsFocused" Value="False" />
-                                        </MultiTrigger.Conditions>
-                                        <Setter TargetName="PART_Watermark" Property="Visibility" Value="Collapsed" />
-                                    </MultiTrigger>
-                                </ControlTemplate.Triggers>-->
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
+        <TabItem Header="FocusTextBox">
+            <Frame Source="./View/FocusTextBox.xaml" />
+        </TabItem>
 
-                </Style>
-            </vt:WatermarkTextBox.Style>
-        </vt:WatermarkTextBox>
-        <view:WatermarkTextBox Text="ssss" Watermark="please input sth..." />
-        <TextBox  InputScope="AddressStateOrProvince"></TextBox>
-        <TextBox AcceptsReturn="True" TextWrapping="Wrap" Height="150" ScrollViewer.VerticalScrollBarVisibility="Auto"   />
-    </StackPanel>
+        <TabItem Header="AutoFillTextBox">
+            <Frame Source="./View/AutoFillTextBox.xaml" />
+        </TabItem>
+
+    </TabControl>
+
+
 </Window>

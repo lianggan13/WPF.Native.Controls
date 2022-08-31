@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Windows.Controls;
 using WPFTextBox.Model;
 
-namespace WPFTextBox.ViewModel
+namespace WPF.TextBox.ViewModel
 {
-    public class SingleTextBoxVM
+    public class ErrorTextBoxVM
     {
-        public SingleTextBoxModel Model { get; set; }
+        public ErrorTextBoxModel Model { get; set; }
 
         public List<ValidationError> Errors { get; private set; }
         private Action Save { get; set; }
-        public SingleTextBoxVM()
+        public ErrorTextBoxVM()
         {
-            Model = new SingleTextBoxModel();
+            Model = new ErrorTextBoxModel();
             Messages = new Dictionary<string, bool>();
             RecvMsgHandlers = new Dictionary<string, Action<object>>();
             Errors = new List<ValidationError>();
@@ -44,7 +44,7 @@ namespace WPFTextBox.ViewModel
         {
             if (e.PropertyName == nameof(Model.Value))
             {
-                SingleTextBoxModel tm = sender as SingleTextBoxModel;
+                ErrorTextBoxModel tm = sender as ErrorTextBoxModel;
 
                 foreach (string msg in Messages.Keys)
                 {

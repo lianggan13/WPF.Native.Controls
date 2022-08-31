@@ -1,8 +1,8 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 
-namespace WPFTextBox.View
+namespace WPF.TextBox.View
 {
+    using System.Windows.Controls;
     /// <summary>
     /// WatermarkTextBox.xaml 的交互逻辑
     /// </summary>
