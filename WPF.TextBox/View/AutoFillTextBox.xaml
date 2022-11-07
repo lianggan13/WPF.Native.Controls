@@ -3,7 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:Interactivity="http://schemas.microsoft.com/expression/2010/interactivity"
     xmlns:local="clr-namespace:WPF.TextBox.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:WPF.TextBox.ViewModel"
@@ -64,11 +64,11 @@
         Width="300"
         HorizontalAlignment="Center"
          Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-        <i:Interaction.Triggers>
-            <i:EventTrigger EventName="KeyUp">
-                <i:InvokeCommandAction Command="{Binding KeyUpCommand}" />
-            </i:EventTrigger>
-        </i:Interaction.Triggers>
+        <Interactivity:Interaction.Triggers>
+            <Interactivity:EventTrigger EventName="KeyUp">
+                <Interactivity:InvokeCommandAction Command="{Binding KeyUpCommand}" />
+            </Interactivity:EventTrigger>
+        </Interactivity:Interaction.Triggers>
         <local:ContentTextBox.Content>
             <ListBox
                 x:Name="list"

@@ -17,6 +17,16 @@ namespace WPF.Button
         {
 
         }
+
+        private void btnBct_Checked(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("【开启广播】成功！");
+        }
+
+        private void btnBct_Unchecked(object sender, RoutedEventArgs e)
+        {
+            // MessageBox.Show("【停止广播】成功！");
+        }
     }
     public class Foo
     {

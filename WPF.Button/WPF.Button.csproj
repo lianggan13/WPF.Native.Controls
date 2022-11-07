@@ -63,6 +63,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\TickToggleButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\SwitchButtonV2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -80,6 +84,9 @@
     </Compile>
     <Compile Include="Controls\SwitchButton.xaml.cs">
       <DependentUpon>SwitchButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TickToggleButton.xaml.cs">
+      <DependentUpon>TickToggleButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\SwitchButtonV2.xaml.cs">
       <DependentUpon>SwitchButtonV2.xaml</DependentUpon>

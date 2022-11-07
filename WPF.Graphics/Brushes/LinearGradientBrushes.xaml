@@ -66,24 +66,27 @@
         <local:GrateRect
             Width="200"
             Height="34"
-            Bottom="DefenseWarning"
+            Bottom="Unknown"
             Defense="True"
-            Left="Unknown"
+            Left="DefenseWarning"
             Right="DefenseWarning"
             Top="DefenseWarning" />
 
         <Grid Width="200" Height="34">
             <Rectangle
-                Height="3"
+                Height="1"
                 VerticalAlignment="Top"
-                Fill="#A3A9CC">
-                <Rectangle.Effect>
+                Stroke="#596E8A"
+                StrokeDashArray="1,2.1"
+                StrokeThickness="1">
+
+                <!--<Rectangle.Effect>
                     <DropShadowEffect
                         BlurRadius="50"
                         Direction="270"
                         ShadowDepth="1"
                         Color="Red" />
-                </Rectangle.Effect>
+                </Rectangle.Effect>-->
 
                 <!--<Rectangle.Fill>
                     <LinearGradientBrush StartPoint="{Binding StartPoint, RelativeSource={RelativeSource Mode=TemplatedParent}}" EndPoint="{Binding EndPoint, RelativeSource={RelativeSource Mode=TemplatedParent}}">
@@ -94,6 +97,55 @@
                     </LinearGradientBrush>
                 </Rectangle.Fill>-->
             </Rectangle>
+
+
+            <Line
+                Height="1"
+                VerticalAlignment="Bottom"
+                Stroke="#596e8a"
+                StrokeDashArray="1,1,1"
+                StrokeThickness="1"
+                X1="0"
+                X2="20"
+                Y1="0.5"
+                Y2="0.5" />
+
+            <Path
+                VerticalAlignment="Bottom"
+                Stroke="Chocolate"
+                StrokeThickness="1">
+                <Path.Data>
+                    <GeometryGroup>
+                        <!--  top to bottom  -->
+                        <LineGeometry StartPoint="0,0" EndPoint="100, 0" />
+                        <!--  left to right  -->
+
+                    </GeometryGroup>
+                </Path.Data>
+            </Path>
+
+            <Rectangle Height="1" VerticalAlignment="Bottom">
+                <Rectangle.Fill>
+                    <DrawingBrush ViewboxUnits="RelativeToBoundingBox">
+                        <DrawingBrush.Drawing>
+                            <GeometryDrawing>
+                                <GeometryDrawing.Geometry>
+                                    <GeometryGroup>
+                                        <LineGeometry StartPoint="0,0" EndPoint="1,0" />
+                                    </GeometryGroup>
+                                </GeometryDrawing.Geometry>
+                                <GeometryDrawing.Pen>
+                                    <Pen Brush="Green" Thickness="0.01" />
+                                </GeometryDrawing.Pen>
+                            </GeometryDrawing>
+                        </DrawingBrush.Drawing>
+                    </DrawingBrush>
+
+
+                </Rectangle.Fill>
+
+            </Rectangle>
+
 
         </Grid>
 

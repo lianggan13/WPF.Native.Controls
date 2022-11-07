@@ -9,6 +9,68 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
+    <Page.Resources>
+        <DrawingGroup
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            x:Key="DrawingLayer">
+            <DrawingGroup>
+                <DrawingGroup.ClipGeometry>
+                    <RectangleGeometry Rect="0,0,1766,1024" />
+                </DrawingGroup.ClipGeometry>
+                <GeometryDrawing  Brush="#FF79AF56">
+                    <GeometryDrawing.Geometry>
+                        <PathGeometry Figures="M5.0688,480.2816 M201.179415,421.259004L1353.329276,74.501254Q1549.439891,15.478658,1608.462486,211.589273L1608.462486,211.589273Q1667.485082,407.699888,1471.374467,466.722484L319.224606,813.480234Q123.113991,872.50283,64.091396,676.392215L64.091396,676.392215Q5.0688,480.2816,201.179415,421.259004z" FillRule="Nonzero" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing Brush="#FF639C3E">
+                    <GeometryDrawing.Geometry>
+                        <PathGeometry Figures="M56.4736,638.592A204.8,204.8,0,0,0,319.232,813.4912L1471.3856,466.688A204.8,204.8,0,0,0,1593.9584,175.872A204.8512,204.8512,0,0,1,1449.2416,393.216L297.088,739.9424A204.8512,204.8512,0,0,1,56.448,638.592z" FillRule="Nonzero" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing Brush="#FFC0CE6B">
+                    <GeometryDrawing.Geometry>
+                        <PathGeometry Figures="M39.588573,683.781024A51.2,25.6,73.25,1,0,88.616227,669.025376A51.2,25.6,73.25,1,0,39.588573,683.781024z" FillRule="Nonzero" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing Brush="#FF5B9635">
+                    <GeometryDrawing.Geometry>
+                        <PathGeometry Figures="M1608.472514,211.576622 M1583.958687,218.954447A25.6,25.6,0,1,0,1632.986341,204.198798A25.6,25.6,0,1,0,1583.958687,218.954447z" FillRule="Nonzero" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing Brush="#FF639C3E">
+                    <GeometryDrawing.Geometry>
+                        <PathGeometry Figures="M947.6608,236.6976A12.8,12.8,0,1,1,923.1616,244.0704A12.8,12.8,0,0,1,947.6608,236.6976z M668.2624,374.2464A12.8,12.8,0,1,1,643.7376,381.6448A12.8,12.8,0,0,1,668.2624,374.272z M1511.7056,334.2848A12.8,12.8,0,1,1,1487.2064,341.6576A12.8,12.8,0,0,1,1511.7056,334.2848z M1017.6256,335.9488A12.8,12.8,0,1,0,1010.2528,311.424A12.8,12.8,0,0,0,1017.6256,335.9488z M812.9536,410.9056A12.8,12.8,0,1,1,788.4288,418.2784A12.8,12.8,0,0,1,812.9536,410.9056z M360.7552,640.5888A12.8,12.8,0,1,0,353.3824,616.064A12.8,12.8,0,0,0,360.7552,640.5888z M165.8368,659.1488A12.8,12.8,0,1,1,141.3376,666.5216A12.8,12.8,0,0,1,165.8368,659.1488z M1316.8128,352.8448A12.8,12.8,0,1,0,1309.4144,328.32A12.8,12.8,0,0,0,1316.7872,352.8448z M332.672,769.3568A12.8,12.8,0,1,1,308.1728,776.704A12.8,12.8,0,0,1,332.672,769.3312z M488.32,709.12A12.8,12.8,0,1,0,480.9472,684.5952A12.8,12.8,0,0,0,488.32,709.12z M931.968,495.4112A12.8,12.8,0,1,0,924.5696,470.8864A12.8,12.8,0,0,0,931.9424,495.4112z M783.6928,580.1472A12.8,12.8,0,1,1,759.168,587.4944A12.8,12.8,0,0,1,783.6928,580.1216z M1137.8176,379.9552A12.8,12.8,0,1,0,1130.4448,355.456A12.8,12.8,0,0,0,1137.8176,379.9808z M1288.704,481.5872A12.8,12.8,0,1,1,1264.2048,488.96A12.8,12.8,0,0,1,1288.704,481.5872z M510.208,515.3792A12.8,12.8,0,1,0,502.8608,490.88A12.8,12.8,0,0,0,510.2336,515.3792z M1190.4,243.8656A12.8,12.8,0,1,1,1165.9008,251.2384A12.8,12.8,0,0,1,1190.4256,243.8656z M1466.2656,227.6864A12.8,12.8,0,1,0,1458.8928,203.1616A12.8,12.8,0,0,0,1466.2656,227.6864z M481.8944,376.9088A12.8,12.8,0,1,1,457.3952,384.2816A12.8,12.8,0,0,1,481.8944,376.9088z M267.4688,508.288A12.8,12.8,0,1,0,260.096,483.7632A12.8,12.8,0,0,0,267.4688,508.288z M1396.2752,128.4096A12.8,12.8,0,1,1,1371.776,135.7824A12.8,12.8,0,0,1,1396.2752,128.4096z M596.1472,623.2064A12.8,12.8,0,1,0,588.7488,598.6816A12.8,12.8,0,0,0,596.1472,623.2064z" FillRule="Nonzero" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <DrawingGroup Opacity="0.5">
+                    <GeometryDrawing>
+                        <GeometryDrawing.Brush>
+                            <SolidColorBrush Opacity="0.5" Color="#FF599532" />
+                        </GeometryDrawing.Brush>
+                        <GeometryDrawing.Geometry>
+                            <PathGeometry Figures="M717.5168,626.7648 M509.149272,689.476308A217.6,217.6,0,1,0,925.884328,564.053292A217.6,217.6,0,1,0,509.149272,689.476308z" FillRule="Nonzero" />
+                        </GeometryDrawing.Geometry>
+                    </GeometryDrawing>
+                </DrawingGroup>
+                <GeometryDrawing Brush="#FFD2E896">
+                    <GeometryDrawing.Geometry>
+                        <PathGeometry Figures="M721.2032,639.0272 M527.543968,697.312013A202.24,202.24,0,1,0,914.862432,580.742387A202.24,202.24,0,1,0,527.543968,697.312013z" FillRule="Nonzero" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing Brush="#FFE9F5C8">
+                    <GeometryDrawing.Geometry>
+                        <PathGeometry Figures="M721.2032,639.0272 M623.147893,668.538498A102.4,102.4,0,1,0,819.258507,609.515902A102.4,102.4,0,1,0,623.147893,668.538498z" FillRule="Nonzero" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing Brush="#FFD2E896">
+                    <GeometryDrawing.Geometry>
+                        <PathGeometry Figures="M705.8688,610.2272C707.9168,617.0112 712.2688,621.6704 715.6736,620.6464 719.0528,619.6224 720.1536,613.3248 718.1056,606.5664 716.0576,599.7824 711.68,595.1232 708.3008,596.1216 704.9216,597.1456 703.8208,603.4688 705.8688,610.2272z M727.9872,683.776C730.0352,690.5344 734.4128,695.2192 737.8176,694.1952 741.1968,693.1712 742.272,686.848 740.2496,680.0896 738.2016,673.3312 733.824,668.6464 730.4192,669.6704 727.04,670.6944 725.9648,677.0176 727.9872,683.776z M710.9376,667.6992C714.0352,669.3888 713.856,675.7888 710.5024,682.0352 707.1744,688.2304 701.9264,691.9424 698.8032,690.2528 695.7056,688.5888 695.8848,682.1888 699.2384,675.968 702.5664,669.7216 707.8144,666.0352 710.9376,667.6992z M747.2896,600.064C750.3872,601.728 750.208,608.128 746.8544,614.3744 743.5264,620.5952 738.2784,624.2816 735.1808,622.6176 732.0576,620.928 732.2368,614.528 735.5904,608.2816 738.9184,602.0864 744.1664,598.4 747.2896,600.064z M698.5472,652.544C699.5712,655.9232 694.8864,660.3264 688.128,662.3488 681.3696,664.3968 675.0464,663.296 674.048,659.9168 673.024,656.5376 677.6576,652.1344 684.4416,650.112 691.2,648.064 697.4976,649.1648 698.5216,652.544z M772.0704,630.4C773.0944,633.7792 768.4352,638.1824 761.6768,640.2304 754.8928,642.2784 748.5952,641.1776 747.5712,637.7728 746.5472,634.3936 751.2064,630.016 757.9648,627.968 764.7488,625.92 771.072,627.0208 772.0704,630.4z M700.4928,633.0368C698.8288,636.16 692.4288,635.9808 686.208,632.6272 679.9616,629.2992 676.2752,624.0512 677.9392,620.928 679.6288,617.8048 686.0288,618.0096 692.2752,621.3376 698.4704,624.6912 702.1824,629.9392 700.4928,633.0368z M768.1536,669.3888C766.4896,672.512 760.064,672.3072 753.8432,668.9792 747.6224,665.6512 743.936,660.4032 745.6,657.28 747.264,654.1568 753.6896,654.3616 759.9104,657.6896 766.1312,661.0432 769.8176,666.2912 768.1536,669.3888z" FillRule="Nonzero" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+            </DrawingGroup>
+        </DrawingGroup>
+    </Page.Resources>
 
     <UniformGrid>
         <UniformGrid>
@@ -49,7 +111,6 @@
             </Canvas>
 
             <WrapPanel>
-
                 <Path Fill="Cyan" Stroke="Black">
                     <Path.Data>
                         <PathGeometry>
@@ -66,142 +127,182 @@
                     </Path.Data>
                 </Path>
 
-                <Path
-                    Data="M 0,0 L 50,0 50,50 0,50 Z"
-                    Fill="Cyan"
-                    Stroke="Black" />
+
             </WrapPanel>
+
+
+            <Path Fill="Cyan" Stroke="Black">
+                <Path.Data>
+                    <GeometryGroup>
+                        <RectangleGeometry Rect="0,0,50,50" />
+                        <EllipseGeometry
+                            Center="50,25"
+                            RadiusX="30"
+                            RadiusY="10" />
+                    </GeometryGroup>
+                </Path.Data>
+            </Path>
+
+            <Path Fill="Cyan" Stroke="Black">
+                <Path.Data>
+                    <!--  Union,Intersect,Xor,Exclude  -->
+                    <CombinedGeometry GeometryCombineMode="Union">
+                        <CombinedGeometry.Geometry1>
+                            <RectangleGeometry Rect="0,0,50,50" />
+                        </CombinedGeometry.Geometry1>
+                        <CombinedGeometry.Geometry2>
+                            <EllipseGeometry
+                                Center="50,25"
+                                RadiusX="30"
+                                RadiusY="10" />
+                        </CombinedGeometry.Geometry2>
+                    </CombinedGeometry>
+                </Path.Data>
+            </Path>
+
+
+            <Viewbox>
+                <StackPanel>
+                    <Ellipse
+                        Width="140"
+                        Height="60"
+                        Fill="Cyan"
+                        Stroke="Black" />
+                    <Path
+                        Canvas.Left="180"
+                        Fill="Cyan"
+                        Stroke="Black">
+                        <Path.Data>
+                            <PathGeometry>
+                                <PathFigure IsClosed="True" StartPoint="0,11">
+                                    <ArcSegment
+                                        IsLargeArc="False"
+                                        Point="50,61"
+                                        Size="70,30"
+                                        SweepDirection="Counterclockwise" />
+                                </PathFigure>
+                                <PathFigure IsClosed="True" StartPoint="30,11">
+                                    <ArcSegment
+                                        IsLargeArc="True"
+                                        Point="80,61"
+                                        Size="70,30"
+                                        SweepDirection="Clockwise" />
+                                </PathFigure>
+                                <PathFigure IsClosed="True" StartPoint="240,1">
+                                    <ArcSegment
+                                        IsLargeArc="True"
+                                        Point="290,51"
+                                        Size="70,30"
+                                        SweepDirection="Counterclockwise" />
+                                </PathFigure>
+                                <PathFigure IsClosed="True" StartPoint="280,1">
+                                    <ArcSegment
+                                        IsLargeArc="False"
+                                        Point="330,51"
+                                        Size="70,30"
+                                        SweepDirection="Clockwise" />
+                                </PathFigure>
+                            </PathGeometry>
+                        </Path.Data>
+                    </Path>
+                </StackPanel>
+            </Viewbox>
+
+            <Path Stroke="Chocolate">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="0,50">
+                            <BezierSegment
+                                Point1="60,50"
+                                Point2="100,0"
+                                Point3="100,50" />
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+
+            <Path Stroke="Chocolate">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="0,0">
+                            <PolyBezierSegment>
+                                <PolyBezierSegment.Points>
+                                    <Point X="0" Y="10" />
+                                    <Point X="20" Y="10" />
+                                    <Point X="40" Y="10" />
+                                    <Point X="60" Y="10" />
+                                    <Point X="120" Y="15" />
+                                    <Point X="100" Y="50" />
+                                </PolyBezierSegment.Points>
+                            </PolyBezierSegment>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+
+            <Viewbox>
+                <Path Data="M 10,100 L 100,100 100,50 Z M 10,10 L 100,10 100,40 Z" Stroke="Blue" />
+            </Viewbox>
+
+            <Viewbox>
+                <Grid>
+                    <Path
+                        Data="M 0,0 A 50,50 32 1 0 0.01 0"
+                        Stroke="Chartreuse"
+                        StrokeThickness="5" />
+                    <Path
+                        Data="M 0,0 A 50,50 2 1 0 50,50"
+                        Stroke="Yellow"
+                        StrokeThickness="5" />
+                    <Path
+                        Data="M 0,0 A 50,50 20 0 0 50,50"
+                        Stroke="Yellow"
+                        StrokeThickness="5" />
+
+                </Grid>
+            </Viewbox>
+
+
+
+            <Viewbox>
+                <Grid>
+                    <!--  Red 实线圆弧，200:旋转度200°，1:获取大圆弧, 0:逆时针  -->
+                    <Path
+                        Data="M 0,0 A 50,50 200 1 0 50,50"
+                        Fill="Transparent"
+                        Stroke="Red"
+                        StrokeThickness="5" />
+                    <!--  Green 实线圆弧，200:旋转度200°，0:获取小圆弧, 1:顺时针  -->
+                    <Path
+                        Data="M 0,0 A 50,50 200 0 1 50,50"
+                        Fill="Transparent"
+                        Stroke="Green"
+                        StrokeDashArray="2 2"
+                        StrokeThickness="5" />
+                </Grid>
+            </Viewbox>
+
+            <Image>
+
+                <Image.Source>
+                    <DrawingImage Drawing="{DynamicResource DrawingLayer}" />
+                </Image.Source>
+
+            </Image>
+
         </UniformGrid>
 
 
 
 
-        <Path Stroke="Black">
-            <Path.Data>
-                <PathGeometry>
-                    <PathFigure StartPoint="0,50">
-                        <BezierSegment
-                            Point1="60,50"
-                            Point2="100,0"
-                            Point3="100,50" />
-                    </PathFigure>
-                </PathGeometry>
-            </Path.Data>
-        </Path>
-
-        <Path Stroke="Black">
-            <Path.Data>
-                <PathGeometry>
-                    <PathFigure StartPoint="0,0">
-                        <PolyBezierSegment>
-                            <PolyBezierSegment.Points>
-                                <Point X="0" Y="10" />
-                                <Point X="20" Y="10" />
-                                <Point X="40" Y="10" />
-                                <Point X="60" Y="10" />
-                                <Point X="120" Y="15" />
-                                <Point X="100" Y="50" />
-                            </PolyBezierSegment.Points>
-                        </PolyBezierSegment>
-                    </PathFigure>
-                </PathGeometry>
-            </Path.Data>
-        </Path>
-
-        <Path Fill="Cyan" Stroke="Black">
-            <Path.Data>
-                <GeometryGroup>
-                    <RectangleGeometry Rect="0,0,50,50" />
-                    <EllipseGeometry
-                        Center="50,25"
-                        RadiusX="30"
-                        RadiusY="10" />
-                </GeometryGroup>
-            </Path.Data>
-        </Path>
-
-        <Path Fill="Cyan" Stroke="Black">
-            <Path.Data>
-                <!--  Union,Intersect,Xor,Exclude  -->
-                <CombinedGeometry GeometryCombineMode="Union">
-                    <CombinedGeometry.Geometry1>
-                        <RectangleGeometry Rect="0,0,50,50" />
-                    </CombinedGeometry.Geometry1>
-                    <CombinedGeometry.Geometry2>
-                        <EllipseGeometry
-                            Center="50,25"
-                            RadiusX="30"
-                            RadiusY="10" />
-                    </CombinedGeometry.Geometry2>
-                </CombinedGeometry>
-            </Path.Data>
-        </Path>
-
-        <WrapPanel>
-            <Ellipse
-                Width="140"
-                Height="60"
-                Fill="Cyan"
-                Stroke="Black" />
-            <Path
-                Canvas.Left="180"
-                Fill="Cyan"
-                Stroke="Black">
-                <Path.Data>
-                    <PathGeometry>
-                        <PathFigure IsClosed="True" StartPoint="0,11">
-                            <ArcSegment
-                                IsLargeArc="False"
-                                Point="50,61"
-                                Size="70,30"
-                                SweepDirection="Counterclockwise" />
-                        </PathFigure>
-                        <PathFigure IsClosed="True" StartPoint="30,11">
-                            <ArcSegment
-                                IsLargeArc="True"
-                                Point="80,61"
-                                Size="70,30"
-                                SweepDirection="Clockwise" />
-                        </PathFigure>
-                        <PathFigure IsClosed="True" StartPoint="240,1">
-                            <ArcSegment
-                                IsLargeArc="True"
-                                Point="290,51"
-                                Size="70,30"
-                                SweepDirection="Counterclockwise" />
-                        </PathFigure>
-                        <PathFigure IsClosed="True" StartPoint="280,1">
-                            <ArcSegment
-                                IsLargeArc="False"
-                                Point="330,51"
-                                Size="70,30"
-                                SweepDirection="Clockwise" />
-                        </PathFigure>
-                    </PathGeometry>
-                </Path.Data>
-            </Path>
-        </WrapPanel>
-
         <Canvas>
-            <!--  红色的实线圆弧，旋转200度，顺时针，获取大圆弧  -->
-            <Path
-                Data="M 50,200 A 100,100 200 1 0 200,100"
-                Fill="Transparent"
-                Stroke="Red"
-                StrokeThickness="5" />
-            <!--  绿色的虚线圆，旋转200度，顺时针，获取小圆弧  -->
-            <Path
-                Data="M 50,200 A 100,100 200 0 1 200,100"
-                Fill="Transparent"
-                Stroke="Green"
-                StrokeDashArray="2 2"
-                StrokeThickness="5" />
+
 
 
 
             <Path Data="M 20,10 h40 v40 h-40 v-40" Stroke="Black" />
             <Path Data="M 20,60 L 100,200 L 300,400" Stroke="DarkCyan" />
-            <Path Data="M 10,100 L 100,100 100,50 Z M 10,10 L 100,10 100,40 Z" Stroke="Blue" />
+
 
             <Path
                 Data="M 150,10 S 250,100 80,280"
@@ -237,10 +338,7 @@
                 Stroke="Violet"
                 StrokeThickness="2" />
 
-            <Path
-                Data="M 75 75 A 73,73 0 1 1 74,75 Z"
-                Stroke="Yellow"
-                StrokeThickness="4" />
+
             <TextBlock Margin="300,300,0,0">
                 <TextBlock.Text>
                     <MultiBinding StringFormat="{}M({0},{1})">

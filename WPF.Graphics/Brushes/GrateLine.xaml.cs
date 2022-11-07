@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
+
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
 namespace WPF.Graphics.Brushes
 {
+    using System.Windows.Media;
+
     /// <summary>
     /// 光栅状态
     /// </summary>
@@ -93,20 +95,32 @@ namespace WPF.Graphics.Brushes
             if (rect == null)
                 return;
 
-            const string Brush_Defense = nameof(Brush_Defense);
-            const string Brush_NoDefense = nameof(Brush_NoDefense);
-            string brushName;
             if (Defense && (State == GratingState.Defense || State == GratingState.DefenseWarning))
             {
-                brushName = Brush_Defense;
+                // Defense
+                rect.Fill = new LinearGradientBrush(((LinearGradientBrush)FindResource("LinearGradientBrush.Defense")).GradientStops, StartPoint, EndPoint);
+            }
+            else if (State != GratingState.Unknown)
+            {
+                // NoDefense
+                rect.Fill = new LinearGradientBrush(((LinearGradientBrush)FindResource("LinearGradientBrush.NoDefense")).GradientStops, StartPoint, EndPoint);
             }
             else
             {
-                brushName = Brush_NoDefense;
+                // Unknown
+                rect.Fill = Brushes.Transparent;
             }
 
-            rect.Fill = new LinearGradientBrush(((LinearGradientBrush)FindResource(brushName)).GradientStops, StartPoint, EndPoint);
 
+            // Clear Animation
+            if (storyboard.Children.Count > 0)
+            {
+                storyboard.Stop(rect);
+                storyboard.Remove(rect);
+
+                storyboard.Children.Clear();
+            }
+            // Add Animation
             if (Defense && State == GratingState.DefenseWarning)
             {
                 PointAnimation pointAnimation = new PointAnimation();
@@ -124,48 +138,13 @@ namespace WPF.Graphics.Brushes
 
                 storyboard.Begin(rect, isControllable: true);
             }
-            else
-            {
-                if (storyboard.Children.Count > 0)
-                {
-                    storyboard.Stop(rect);
-                    storyboard.Remove(rect);
-
-                    storyboard.Children.Clear();
-                }
-            }
         }
 
 
-        const double depth = 5;
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
             rect = (Rectangle)Template.FindName(PART_Rect, this);
-            if (rect.VerticalAlignment == VerticalAlignment.Top)
-            {
-                rect.Height = depth;
-                StartPoint = new Point(0.5, 0);
-                EndPoint = new Point(0.5, 1);
-            }
-            else if (rect.VerticalAlignment == VerticalAlignment.Bottom)
-            {
-                rect.Height = depth;
-                StartPoint = new Point(0.5, 1);
-                EndPoint = new Point(0.5, 0);
-            }
-            else if (rect.HorizontalAlignment == HorizontalAlignment.Left)
-            {
-                rect.Width = depth;
-                StartPoint = new Point(0, 0.5);
-                EndPoint = new Point(1, 0.5);
-            }
-            else if (rect.HorizontalAlignment == HorizontalAlignment.Right)
-            {
-                rect.Width = depth;
-                StartPoint = new Point(1, 0.5);
-                EndPoint = new Point(0, 0.5);
-            }
 
             DefenseOrStateChanged();
         }
