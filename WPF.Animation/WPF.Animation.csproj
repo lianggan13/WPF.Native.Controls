@@ -76,7 +76,6 @@
     <Compile Include="Storyboard\StoryboardPage.xaml.cs">
       <DependentUpon>StoryboardPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\LoadingWaitViewModel.cs" />
     <Compile Include="View\AccelDecelRatios.xaml.cs">
       <DependentUpon>AccelDecelRatios.xaml</DependentUpon>
     </Compile>
@@ -109,9 +108,6 @@
     </Compile>
     <Compile Include="View\KeyFrameAnimationView.xaml.cs">
       <DependentUpon>KeyFrameAnimationView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\LoadingWait.xaml.cs">
-      <DependentUpon>LoadingWait.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PathAnimations.xaml.cs">
       <DependentUpon>PathAnimations.xaml</DependentUpon>
@@ -193,10 +189,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\LoadingWait.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="View\PathAnimations.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -243,6 +235,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
+    <Folder Include="ViewModel\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WPF.Common\WPF.Common.csproj">

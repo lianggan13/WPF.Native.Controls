@@ -1,0 +1,29 @@
+﻿<Window
+    x:Class="WPF.Virtualization.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dv="clr-namespace:WPF.Virtualization.DataVirtualization"
+    xmlns:local="clr-namespace:WPF.Virtualization"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uv="clr-namespace:WPF.Virtualization.UIVirtualization"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Grid>
+        <TabControl>
+            <TabItem Header="UI Virtualization">
+                <uv:UiView />
+            </TabItem>
+
+            <TabItem Header="Data Virtualization (2)">
+                <UniformGrid Columns="2">
+                    <dv:ProviderView />
+                    <dv:PagerView />
+                </UniformGrid>
+            </TabItem>
+
+        </TabControl>
+    </Grid>
+</Window>

@@ -261,7 +261,7 @@
             x:Name="ccs"
             Grid.Row="1"
             ItemTemplateSelector="{StaticResource CourseDataTemplateSelector}"
-            ItemsSource="{Binding CourseSeriesList}">
+            ItemsSource="{Binding CourseSeriesList, Mode=TwoWay}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <VirtualizingStackPanel />

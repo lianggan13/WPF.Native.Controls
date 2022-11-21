@@ -1,0 +1,195 @@
+﻿<UserControl
+    x:Class="WPF.Virtualization.DataVirtualization.ProviderView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <UserControl.Resources>
+        <Style x:Key="lvStyle" TargetType="{x:Type ListView}">
+            <Setter Property="VirtualizingStackPanel.IsVirtualizing" Value="True" />
+            <Setter Property="VirtualizingStackPanel.VirtualizationMode" Value="Recycling" />
+            <Setter Property="ScrollViewer.IsDeferredScrollingEnabled" Value="True" />
+            <Setter Property="ListView.ItemsSource" Value="{Binding}" />
+            <Setter Property="ListView.View">
+                <Setter.Value>
+                    <GridView>
+                        <GridViewColumn Width="100" Header="Id">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Id}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="150" Header="Name">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsLoading}" Value="True">
+                    <Setter Property="ListView.Cursor" Value="Wait" />
+                    <Setter Property="ListView.Background" Value="LightGray" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Margin="5">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+
+        <GroupBox Grid.Row="0" Header="ItemsProvider">
+            <StackPanel Margin="0,2,0,0" Orientation="Horizontal">
+                <TextBlock
+                    Margin="5"
+                    VerticalAlignment="Center"
+                    Text="Number of items:"
+                    TextAlignment="Right" />
+                <TextBox
+                    x:Name="tbNumItems"
+                    Width="60"
+                    Margin="5"
+                    VerticalAlignment="Center"
+                    Text="1000000" />
+                <TextBlock
+                    Margin="5"
+                    VerticalAlignment="Center"
+                    Text="Fetch Delay (ms):"
+                    TextAlignment="Right" />
+                <TextBox
+                    x:Name="tbFetchDelay"
+                    Width="60"
+                    Margin="5"
+                    VerticalAlignment="Center"
+                    Text="1000" />
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Grid.Row="1" Header="Collection">
+            <StackPanel>
+                <StackPanel Margin="0,2,0,0" Orientation="Horizontal">
+                    <TextBlock
+                        Margin="5"
+                        VerticalAlignment="Center"
+                        Text="Type:"
+                        TextAlignment="Right" />
+                    <RadioButton
+                        x:Name="rbNormal"
+                        Margin="5"
+                        VerticalAlignment="Center"
+                        Content="List(T)"
+                        GroupName="rbGroup" />
+                    <RadioButton
+                        x:Name="rbVirtualizing"
+                        Margin="5"
+                        VerticalAlignment="Center"
+                        Content="VirtualizingList(T)"
+                        GroupName="rbGroup" />
+                    <RadioButton
+                        x:Name="rbAsync"
+                        Margin="5"
+                        VerticalAlignment="Center"
+                        Content="AsyncVirtualizingList(T)"
+                        GroupName="rbGroup"
+                        IsChecked="True" />
+                </StackPanel>
+                <StackPanel Margin="0,2,0,0" Orientation="Horizontal">
+                    <TextBlock
+                        Margin="5"
+                        VerticalAlignment="Center"
+                        Text="Page size:"
+                        TextAlignment="Right" />
+                    <TextBox
+                        x:Name="tbPageSize"
+                        Width="60"
+                        Margin="5"
+                        VerticalAlignment="Center"
+                        Text="100" />
+                    <TextBlock
+                        Margin="5"
+                        VerticalAlignment="Center"
+                        Text="Page timeout (s):"
+                        TextAlignment="Right" />
+                    <TextBox
+                        x:Name="tbPageTimeout"
+                        Width="60"
+                        Margin="5"
+                        VerticalAlignment="Center"
+                        Text="30" />
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <TextBlock
+                Margin="5"
+                VerticalAlignment="Center"
+                Text="Memory Usage:" />
+            <TextBlock
+                x:Name="tbMemory"
+                Width="80"
+                Margin="5"
+                VerticalAlignment="Center" />
+
+            <Button
+                Width="100"
+                Margin="5"
+                VerticalAlignment="Center"
+                Click="Button_Click"
+                Content="Refresh" />
+
+            <Rectangle
+                Name="rectangle"
+                Width="20"
+                Height="20"
+                Margin="5"
+                VerticalAlignment="Center"
+                Fill="Blue">
+                <Rectangle.RenderTransform>
+                    <RotateTransform Angle="0" CenterX="10" CenterY="10" />
+                </Rectangle.RenderTransform>
+                <Rectangle.Triggers>
+                    <EventTrigger RoutedEvent="Rectangle.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                                    RepeatBehavior="Forever"
+                                    Storyboard.TargetName="rectangle"
+                                    Storyboard.TargetProperty="(TextBlock.RenderTransform).(RotateTransform.Angle)"
+                                    From="0"
+                                    To="360"
+                                    Duration="0:0:5" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Rectangle.Triggers>
+            </Rectangle>
+
+            <TextBlock
+                Margin="5"
+                VerticalAlignment="Center"
+                FontStyle="Italic"
+                Text="Pause in animation indicates UI thread stalled." />
+
+        </StackPanel>
+
+        <ListView
+            Grid.Row="3"
+            Margin="5"
+            Style="{DynamicResource lvStyle}" />
+
+    </Grid>
+</UserControl>
+
+
+

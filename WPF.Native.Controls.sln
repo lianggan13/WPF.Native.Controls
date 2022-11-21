@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF.RoutedEvent", "WPF.Rout
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.Window", "WPF.Window\WPF.Window.csproj", "{28CC2667-54EE-46C7-8FC2-F904BDF90096}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.VisualState", "WPF.VisualState\WPF.VisualState.csproj", "{9182E0BD-9D29-4B86-940A-16ADCEE3B317}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.TreeView", "WPF.TreeView\WPF.TreeView.csproj", "{8C4B6AD0-2D5F-462C-8321-429F02523159}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.Thumb", "WPF.Thumb\WPF.Thumb.csproj", "{D9BC6D7F-6118-4ECC-812A-6D9C0BC4C0C8}"
@@ -75,7 +73,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.Event", "WPF.Event\WPF.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF.Graphics", "WPF.Graphics\WPF.Graphics.csproj", "{12967860-BEEB-46D5-BB39-6311614DD9D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.Popup", "WPF.Popup\WPF.Popup.csproj", "{ED03E06E-9F3F-4164-9583-880C59E0C7B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF.Popup", "WPF.Popup\WPF.Popup.csproj", "{ED03E06E-9F3F-4164-9583-880C59E0C7B4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF.Virtualization", "WPF.Virtualization\WPF.Virtualization.csproj", "{0726B850-2C83-43B7-91AB-F89D59E757FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,10 +91,6 @@ Global
 		{28CC2667-54EE-46C7-8FC2-F904BDF90096}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28CC2667-54EE-46C7-8FC2-F904BDF90096}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28CC2667-54EE-46C7-8FC2-F904BDF90096}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9182E0BD-9D29-4B86-940A-16ADCEE3B317}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9182E0BD-9D29-4B86-940A-16ADCEE3B317}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9182E0BD-9D29-4B86-940A-16ADCEE3B317}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9182E0BD-9D29-4B86-940A-16ADCEE3B317}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8C4B6AD0-2D5F-462C-8321-429F02523159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8C4B6AD0-2D5F-462C-8321-429F02523159}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C4B6AD0-2D5F-462C-8321-429F02523159}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -227,6 +223,10 @@ Global
 		{ED03E06E-9F3F-4164-9583-880C59E0C7B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED03E06E-9F3F-4164-9583-880C59E0C7B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED03E06E-9F3F-4164-9583-880C59E0C7B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0726B850-2C83-43B7-91AB-F89D59E757FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0726B850-2C83-43B7-91AB-F89D59E757FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0726B850-2C83-43B7-91AB-F89D59E757FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0726B850-2C83-43B7-91AB-F89D59E757FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

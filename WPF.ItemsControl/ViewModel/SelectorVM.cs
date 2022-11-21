@@ -57,54 +57,43 @@ namespace WPFItemsControl.ViewModel
                 this.CourseSeriesList.Add(csm);
             };
 
-            Task.Run(new Action(async () =>
+            Task.Run(new Action(() =>
             {
-                var cList = new List<CourseSeriesModel>(); // LocalDataAccess.GetInstance().GetCoursePlayRecord();
-                for (int i = 0; i < count; i++)
-                {
-                    CourseSeriesModel csm = new CourseSeriesModel()
-                    {
-                        CourseName = $"{nameof(CourseSeriesModel.CourseName)}_{i}",
-                        SeriesColection = new LiveCharts.SeriesCollection(),
-                        SeriesList = new ObservableCollection<SeriesModel>(),
-                    };
-                    cList.Add(csm);
-                }
-
-                await Task.Delay(4000);
-
-                Application.Current.Dispatcher.Invoke(() =>
+                Application.Current.Dispatcher.Invoke(async () =>
                 {
                     this.CourseSelections.Clear();
-                    this.CourseSeriesList.Clear();
-
+                    //this.CourseSeriesList.Clear();
                     this.CourseSelections.Add(new CourseSeriesModel() { CourseName = "All" });
 
-
-                    this.ItemCount = cList.Max(c => c.SeriesList.Count);
-                    foreach (var csm in cList)
+                    foreach (var (i, c) in CourseSeriesList.Select((c, i) => (i, c)))
                     {
-                        csm.SeriesColection.Add(new PieSeries
+                        c.CourseName = $"{nameof(CourseSeriesModel.CourseName)}_{i}";
+                        c.SeriesColection = new SeriesCollection();
+                        c.SeriesList = new ObservableCollection<SeriesModel>();
+
+                        await Task.Delay(TimeSpan.FromSeconds(2)).ConfigureAwait(true);
+
+                        c.SeriesColection.Add(new PieSeries
                         {
                             Title = "PieSeriesTitle1",
                             Values = new ChartValues<ObservableValue> { new ObservableValue(3) },
                             DataLabels = false
                         });
-                        csm.SeriesColection.Add(new PieSeries
+                        c.SeriesColection.Add(new PieSeries
                         {
                             Title = "PieSeriesTitle2",
                             Values = new ChartValues<ObservableValue> { new ObservableValue(2) },
                             DataLabels = false
                         });
-                        csm.SeriesColection.Add(new PieSeries
+                        c.SeriesColection.Add(new PieSeries
                         {
                             Title = "PieSeriesTitle3",
                             Values = new ChartValues<ObservableValue> { new ObservableValue(1) },
                             DataLabels = false
                         });
-                        foreach (var s in csm.SeriesColection)
+                        foreach (var s in c.SeriesColection)
                         {
-                            csm.SeriesList.Add(new SeriesModel
+                            c.SeriesList.Add(new SeriesModel
                             {
                                 SeriesName = s.Title,
                                 CurrentValue = (decimal)(s.Values[0] as ObservableValue).Value,
@@ -113,9 +102,14 @@ namespace WPFItemsControl.ViewModel
                             });
                         }
 
-                        this.CourseSelections.Add(new CourseSeriesModel() { CourseName = csm.CourseName });
-                        this.CourseSeriesList.Add(csm);
+                        this.CourseSelections.Add(new CourseSeriesModel() { CourseName = c.CourseName });
+
+                        c.IsShowSkeleton = false;
+
+
                     }
+
+                    this.ItemCount = CourseSeriesList.Max(c => c.SeriesList.Count);
                 });
             }));
 

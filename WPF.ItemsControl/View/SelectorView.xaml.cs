@@ -21,8 +21,9 @@ namespace WPFItemsControl.View
             RadioButton radBtn = sender as RadioButton;
             string courseName = radBtn.Content.ToString();
 
+            //CollectionViewSource.GetDefaultView(CourseSeriesList).Refresh();
             ICollectionView cview = CollectionViewSource.GetDefaultView(this.ccs.ItemsSource);//VM.CourseSeriesList);
-
+            //cview.Refresh();
             if (courseName == "All")
             {
                 cview.Filter = null;

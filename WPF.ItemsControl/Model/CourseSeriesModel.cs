@@ -1,9 +1,10 @@
 ﻿using LiveCharts;
 using System.Collections.ObjectModel;
+using WPFCommon.MVVMFoundation;
 
 namespace WPFItemsControl.Model
 {
-    public class CourseSeriesModel
+    public class CourseSeriesModel : NotifyPropertyChanged
     {
         public string CourseName { get; set; }
 
@@ -11,7 +12,12 @@ namespace WPFItemsControl.Model
 
         public ObservableCollection<SeriesModel> SeriesList { get; set; }
 
-        public bool IsShowSkeleton { get; set; }
+        private bool isShowSkeleton;
 
+        public bool IsShowSkeleton
+        {
+            get { return isShowSkeleton; }
+            set { isShowSkeleton = value; OnPropertyChanged(); }
+        }
     }
 }

@@ -1,7 +1,7 @@
-﻿<Application x:Class="WPFVisualState.App"
+﻿<Application x:Class="WPF.Virtualization.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:WPFVisualState"
+             xmlns:local="clr-namespace:WPF.Virtualization"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          
