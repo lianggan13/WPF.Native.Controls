@@ -49,7 +49,7 @@ namespace WPF.Virtualization.UIVirtualization.ViewModel
             items.Add(new ViewItem { Id = "9", Name = "Shibatosh", Developer = "WPF", Salary = 40000.20f });
 
 
-            var ids = Enumerable.Range(10, 999999);
+            var ids = Enumerable.Range(10, 999);
             foreach (var i in ids)
             {
                 items.Add(new ViewItem { Id = $"{i}", Name = $"Lianggan{i}", Developer = "WPF", Salary = 40000.20f });

@@ -55,6 +55,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\PageItemModel.cs" />
+    <Compile Include="Model\PBomItemModel.cs" />
+    <Compile Include="ViewModel\PagesViewModel.cs" />
+    <Compile Include="ViewModel\PBomViewModel.cs" />
+    <Compile Include="View\PagesView.xaml.cs">
+      <DependentUpon>PagesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\BlankPage.xaml.cs">
+      <DependentUpon>BlankPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\PBomPage.xaml.cs">
+      <DependentUpon>PBomPage.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,15 +80,20 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="PathTabControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="View\PagesView.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\BlankPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\PBomPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PathTabControl.xaml.cs">
-      <DependentUpon>PathTabControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -93,6 +111,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Assets\Fonts\iconfont.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -106,6 +125,15 @@
       <Project>{a0f9c22b-b526-44dd-b58a-a837e3a833ec}</Project>
       <Name>WPF.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Device\d_1.png" />
+    <Resource Include="Assets\Images\Device\d_2.png" />
+    <Resource Include="Assets\Images\Device\d_3.png" />
+    <Resource Include="Assets\Images\Device\d_4.png" />
+    <Resource Include="Assets\Images\Device\d_5.png" />
+    <Resource Include="Assets\Images\Jovan.jpg" />
+    <Resource Include="Assets\Images\Logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -12,15 +12,10 @@
     Height="450"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-    <TabControl SelectedIndex="1">
+    <TabControl SelectedIndex="0">
 
-        <TabItem Header="NativeTree">
-            <Frame Source="./View/NativeTree.xaml" />
+        <TabItem Header="MenuView">
+            <Frame Source="./View/MenuView.xaml" />
         </TabItem>
-        <TabItem Header="NestMenuTree">
-            <Frame Source="./View/NestMenuTree.xaml" />
-        </TabItem>
-
-
     </TabControl>
 </Window>

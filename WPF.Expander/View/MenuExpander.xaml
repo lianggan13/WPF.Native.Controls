@@ -1,12 +1,12 @@
 ﻿<Page
-    x:Class="WPF.TreeView.View.NestMenuTree"
+    x:Class="WPF.Expander.View.MenuExpander"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:WPF.TreeView.View"
+    xmlns:local="clr-namespace:WPF.Expander.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:selector="clr-namespace:WPF.TreeView.Selector"
-    Title="NestMenuTree"
+    xmlns:selector="clr-namespace:WPF.Expander.Selector"
+    Title="MenuExpander"
     d:DesignHeight="450"
     d:DesignWidth="800"
     FontFamily="/WPF.Common;component/Assets/Fonts/#FontAwesome"
@@ -145,7 +145,6 @@
                     Background="#282B33"
                     ItemTemplateSelector="{DynamicResource MenuItemTemplateSelector}"
                     ItemsSource="{Binding SubItems}" />
-
             </Expander>
         </DataTemplate>
 
@@ -197,8 +196,6 @@
     </Page.Resources>
 
     <StackPanel HorizontalAlignment="Left">
-        <ItemsControl ItemTemplateSelector="{DynamicResource MenuItemTemplateSelector}" ItemsSource="{Binding MenuItems, RelativeSource={RelativeSource AncestorType={x:Type local:NestMenuTree}}}" />
-
-
+        <ItemsControl ItemTemplateSelector="{DynamicResource MenuItemTemplateSelector}" ItemsSource="{Binding MenuItems, RelativeSource={RelativeSource AncestorType={x:Type local:MenuExpander}}}" />
     </StackPanel>
 </Page>

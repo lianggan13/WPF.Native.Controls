@@ -21,6 +21,7 @@
                 <ResourceDictionary Source="/WPFCommon;component/Language/zh_CN_upper_monitor.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <FontFamily x:Key="iconfont">/WPFCommon;component/Assets/Fonts/#iconfont</FontFamily>-->
+            <FontFamily x:Key="Iconfont">pack://application:,,,/WPF.TreeView;component/Assets/Fonts/#iconfont</FontFamily>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

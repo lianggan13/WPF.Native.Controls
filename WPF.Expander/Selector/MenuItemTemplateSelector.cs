@@ -1,8 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using WPF.TreeView.Model;
+using WPF.Expander.Model;
 
-namespace WPF.TreeView.Selector
+namespace WPF.Expander.Selector
 {
     public class MenuItemTemplateSelector : DataTemplateSelector
     {

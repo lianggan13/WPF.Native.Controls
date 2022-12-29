@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPF.TreeView.View
+namespace WPFDataGrid
 {
     /// <summary>
-    /// NativeTree.xaml 的交互逻辑
+    /// UserControl1.xaml 的交互逻辑
     /// </summary>
-    public partial class NativeTree : Page
+    public partial class UserControl1 : UserControl
     {
-        public NativeTree()
+        public UserControl1()
         {
             InitializeComponent();
         }

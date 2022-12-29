@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using WPFCommon.MVVMFoundation;
 
-namespace WPF.TreeView.Model
+namespace WPF.Expander.Model
 {
     public class MenuItemModel : NotifyPropertyChanged
     {

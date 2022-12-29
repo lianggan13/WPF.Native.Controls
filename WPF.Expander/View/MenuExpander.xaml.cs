@@ -1,15 +1,15 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Controls;
-using WPF.TreeView.Model;
+using WPF.Expander.Model;
 
-namespace WPF.TreeView.View
+namespace WPF.Expander.View
 {
     /// <summary>
-    /// NestMenuTree.xaml 的交互逻辑
+    /// MenuExpander.xaml 的交互逻辑
     /// </summary>
-    public partial class NestMenuTree : Page
+    public partial class MenuExpander : Page
     {
-        public NestMenuTree()
+        public MenuExpander()
         {
             InitializeComponent();
         }
