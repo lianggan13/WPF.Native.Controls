@@ -24,10 +24,6 @@ namespace WPFComboBox
 
         }
 
-        private void ComboBoxEdit_PopupClosing(object sender, DevExpress.Xpf.Editors.ClosingPopupEventArgs e)
-        {
-            e.Handled = true;
-        }
 
         [DllImport("User32.dll")]
         public static extern IntPtr SetFocus(IntPtr hWnd);
