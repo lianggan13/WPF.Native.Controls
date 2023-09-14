@@ -1,7 +1,7 @@
-﻿<Application x:Class="WPFMouse.App"
+﻿<Application x:Class="WPF.Mouse.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:WPFMouse"
+             xmlns:local="clr-namespace:WPF.Mouse"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

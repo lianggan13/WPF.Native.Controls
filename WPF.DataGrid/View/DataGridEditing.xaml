@@ -1,0 +1,62 @@
+﻿<UserControl
+    x:Class="WPF.DataGrid.View.DataGridEditing"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPF.DataGrid.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    d:Height="635"
+    d:Width="517"
+    mc:Ignorable="d">
+
+    <Grid>
+        <DataGrid
+            x:Name="gridProducts"
+            Margin="5"
+            AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Width="175"
+                    Binding="{Binding ModelName}"
+                    Header="Product" />
+                <DataGridTextColumn Header="Price">
+                    <DataGridTextColumn.Binding>
+                        <Binding Path="UnitCost" StringFormat="{}{0:C}">
+                            <Binding.ValidationRules>
+                                <local:PositivePriceRule Max="999.99" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding ModelNumber}" Header="Model Number" />
+
+                <DataGridComboBoxColumn
+                    x:Name="categoryColumn"
+                    DisplayMemberPath="CategoryName"
+                    Header="Category"
+                    SelectedValueBinding="{Binding Path=CategoryID}"
+                    SelectedValuePath="CategoryID" />
+
+                <DataGridTemplateColumn Header="Date Added">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock
+                                Margin="4"
+                                VerticalAlignment="Center"
+                                Text="{Binding Path=DateAdded, StringFormat={}{0:d}}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <DatePicker Margin="4" SelectedDate="{Binding Path=DateAdded}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</UserControl>

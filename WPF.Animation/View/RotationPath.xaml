@@ -1,0 +1,84 @@
+﻿<Page
+    x:Class="WPF.Animation.View.RotationPath"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPF.Animation.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="RotationPath"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <Grid x:Name="Grid">
+        <Slider
+            x:Name="RadiusControl"
+            Width="105"
+            Height="33"
+            Margin="0,55,48,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top" />
+        <Label
+            x:Name="ContentLabel"
+            Width="100"
+            Height="23.2766666666667"
+            Margin="0,23.83,58,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Content="Radius Length:"
+            RenderTransformOrigin="0.5,0.5"
+            TabIndex="4" />
+
+        <Rectangle
+            x:Name="MyControl"
+            Width="50"
+            Height="50"
+            MinHeight="0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            RadiusX="11"
+            RadiusY="11"
+            RenderTransformOrigin="0.5,0.5"
+            Stroke="sc#1, 0.32030192, 0.293796659, 0.9098395">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <TranslateTransform X="-0.5" Y="-0.5" />
+                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                            <SkewTransform AngleX="0" AngleY="0" />
+                            <RotateTransform Angle="-90" />
+                            <TranslateTransform X="0.5" Y="0.5" />
+                            <TranslateTransform X="0" Y="0" />
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStopCollection>
+                            <GradientStop Offset="0" Color="#FE1216A1" />
+                            <GradientStop Offset="1" Color="sc#0.996078432, 1, 1, 1" />
+                            <GradientStop Offset="0.41529898672755938" Color="sc#0.996078432, 0, 0.00211989, 0.222403333" />
+                            <GradientStop Offset="0.82974168688454564" Color="sc#0.996078432, 0.05701078, 0.05701078, 0.05701078" />
+                            <GradientStop Offset="0.12644498358784184" Color="sc#0.996078432, 0, 0.004114673, 0.639381647" />
+                            <GradientStop Offset="0.30226915941201776" Color="#FE000893" />
+                            <GradientStop Offset="0.89253603539317994" Color="#FE8E8EA0" />
+                        </GradientStopCollection>
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+            <!--<Rectangle.RenderTransform>
+            <TransformGroup>
+                <TranslateTransform X="0" Y="0" />
+                <ScaleTransform ScaleX="1" ScaleY="1" />
+                <SkewTransform AngleX="0" AngleY="0" />
+                <RotateTransform Angle="0" />
+                <TranslateTransform X="0" Y="0" />
+                <TranslateTransform X="0" Y="0" />
+            </TransformGroup>
+        </Rectangle.RenderTransform>-->
+        </Rectangle>
+        <Ellipse
+            Width="200"
+            Height="200"
+            Stroke="Black" />
+    </Grid>
+</Page>

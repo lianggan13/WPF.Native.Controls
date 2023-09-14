@@ -26,4 +26,8 @@
     <ProjectReference Include="..\WPF.Common\WPF.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DataInit\" />
+  </ItemGroup>
+
 </Project>

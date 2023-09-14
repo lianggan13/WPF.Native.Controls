@@ -1,0 +1,316 @@
+﻿<Window
+    x:Class="WPF.Control.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:components="clr-namespace:WPF.Control.Components"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPF.Control"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="1024"
+    Height="768"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <ControlTemplate x:Key="AlternateTemplate" TargetType="{x:Type components:FlipPanel}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!--  This is the front content.  -->
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <Border.RenderTransform>
+                        <ScaleTransform x:Name="FrontContentTransform" />
+                    </Border.RenderTransform>
+                    <Border.Effect>
+                        <BlurEffect x:Name="FrontContentEffect" Radius="30" />
+                    </Border.Effect>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <ContentPresenter Content="{TemplateBinding FrontContent}" />
+
+                        <Rectangle
+                            Grid.Row="1"
+                            Fill="LightSteelBlue"
+                            Stretch="Fill" />
+                        <ToggleButton
+                            x:Name="FlipButton"
+                            Grid.Row="1"
+                            Margin="5"
+                            Padding="15,0"
+                            HorizontalAlignment="Right"
+                            Content="˄"
+                            FontSize="12"
+                            FontWeight="Bold" />
+                    </Grid>
+
+                </Border>
+
+                <!--  This is the back content.  -->
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    RenderTransformOrigin="0,1">
+                    <Border.RenderTransform>
+                        <ScaleTransform x:Name="BackContentTransform" ScaleY="0" />
+                    </Border.RenderTransform>
+                    <Border.Effect>
+                        <BlurEffect x:Name="BackContentEffect" Radius="0" />
+                    </Border.Effect>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <Rectangle Fill="LightSteelBlue" Stretch="Fill" />
+                        <ToggleButton
+                            x:Name="FlipButtonAlternate"
+                            Margin="5"
+                            Padding="15,0"
+                            HorizontalAlignment="Right"
+                            Content="˅"
+                            FontSize="12"
+                            FontWeight="Bold" />
+
+                        <ContentPresenter Grid.Row="1" Content="{TemplateBinding BackContent}" />
+
+                    </Grid>
+
+                </Border>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="ViewStates">
+
+                        <VisualState x:Name="Normal">
+                            <Storyboard>
+                                <DoubleAnimation
+                                    Storyboard.TargetName="FrontContentTransform"
+                                    Storyboard.TargetProperty="ScaleY"
+                                    To="1" />
+
+                                <DoubleAnimation
+                                    Storyboard.TargetName="FrontContentEffect"
+                                    Storyboard.TargetProperty="Radius"
+                                    To="0" />
+
+                                <DoubleAnimation
+                                    Storyboard.TargetName="BackContentTransform"
+                                    Storyboard.TargetProperty="ScaleY"
+                                    To="0" />
+
+                                <DoubleAnimation
+                                    Storyboard.TargetName="BackContentEffect"
+                                    Storyboard.TargetProperty="Radius"
+                                    To="30" />
+                            </Storyboard>
+                        </VisualState>
+
+                        <VisualState x:Name="Flipped">
+                            <Storyboard>
+                                <DoubleAnimation
+                                    Storyboard.TargetName="FrontContentTransform"
+                                    Storyboard.TargetProperty="ScaleY"
+                                    To="0" />
+
+                                <DoubleAnimation
+                                    Storyboard.TargetName="FrontContentEffect"
+                                    Storyboard.TargetProperty="Radius"
+                                    To="30" />
+
+                                <DoubleAnimation
+                                    Storyboard.TargetName="BackContentTransform"
+                                    Storyboard.TargetProperty="ScaleY"
+                                    To="1" />
+
+                                <DoubleAnimation
+                                    Storyboard.TargetName="BackContentEffect"
+                                    Storyboard.TargetProperty="Radius"
+                                    To="0" />
+                            </Storyboard>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Grid>
+
+        </ControlTemplate>
+    </Window.Resources>
+
+    <TabControl>
+        <TabItem Header="FlipPanel">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <components:FlipPanel
+                    x:Name="panel"
+                    Margin="10"
+                    BorderBrush="DarkOrange"
+                    BorderThickness="3"
+                    CornerRadius="4"
+                    IsFlipped="True">
+                    <components:FlipPanel.FrontContent>
+                        <StackPanel Margin="6">
+                            <TextBlock
+                                Margin="3"
+                                FontSize="16"
+                                Foreground="DarkOrange"
+                                TextWrapping="Wrap">
+                                This is the front side of the FlipPanel.
+                            </TextBlock>
+                            <Button
+                                Margin="3"
+                                Padding="3"
+                                Content="Button One" />
+                            <Button
+                                Margin="3"
+                                Padding="3"
+                                Content="Button Two" />
+                            <Button
+                                Margin="3"
+                                Padding="3"
+                                Content="Button Three" />
+                            <Button
+                                Margin="3"
+                                Padding="3"
+                                Content="Button Four" />
+                        </StackPanel>
+                    </components:FlipPanel.FrontContent>
+                    <components:FlipPanel.BackContent>
+                        <Grid Margin="6">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <TextBlock
+                                Margin="3"
+                                FontSize="16"
+                                Foreground="DarkMagenta"
+                                TextWrapping="Wrap">
+                                This is the back side of the FlipPanel.
+                            </TextBlock>
+                            <Button
+                                Grid.Row="2"
+                                Margin="3"
+                                Padding="10"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Click="cmdFlip_Click"
+                                Content="Flip Back to Front" />
+                        </Grid>
+                    </components:FlipPanel.BackContent>
+                </components:FlipPanel>
+
+                <components:FlipPanel
+                    Grid.Row="1"
+                    Margin="10"
+                    BorderBrush="DarkOrange"
+                    BorderThickness="3"
+                    CornerRadius="4"
+                    Template="{StaticResource AlternateTemplate}">
+                    <components:FlipPanel.FrontContent>
+                        <StackPanel Margin="6">
+                            <TextBlock
+                                Margin="3"
+                                FontSize="16"
+                                Foreground="DarkOrange"
+                                TextWrapping="Wrap">
+                                This is the front side of the FlipPanel.
+                            </TextBlock>
+                            <Button
+                                Margin="3"
+                                Padding="3"
+                                Content="Button One" />
+                            <Button
+                                Margin="3"
+                                Padding="3"
+                                Content="Button Two" />
+                            <Button
+                                Margin="3"
+                                Padding="3"
+                                Content="Button Three" />
+                            <Button
+                                Margin="3"
+                                Padding="3"
+                                Content="Button Four" />
+                        </StackPanel>
+                    </components:FlipPanel.FrontContent>
+                    <components:FlipPanel.BackContent>
+                        <Grid Margin="6">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <TextBlock
+                                Margin="3"
+                                FontSize="16"
+                                Foreground="DarkMagenta"
+                                TextWrapping="Wrap">
+                                This is the back side of the FlipPanel.
+                            </TextBlock>
+                            <Button
+                                Grid.Row="2"
+                                Margin="3"
+                                Padding="10"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Click="cmdFlip_Click"
+                                Content="Flip Back to Front" />
+                        </Grid>
+                    </components:FlipPanel.BackContent>
+                </components:FlipPanel>
+            </Grid>
+        </TabItem>
+
+        <TabItem Header="CustomDrawnDecorator">
+            <TabItem.Resources>
+                <ControlTemplate x:Key="ButtonWithCustomChrome">
+                    <components:CustomDrawnDecorator BackgroundColor="LightGreen">
+                        <ContentPresenter
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding ContentControl.Content}"
+                            ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}"
+                            RecognizesAccessKey="True" />
+                    </components:CustomDrawnDecorator>
+                </ControlTemplate>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Margin" Value="3" />
+                    <Setter Property="Padding" Value="10" />
+                </Style>
+            </TabItem.Resources>
+            <StackPanel>
+                <Button Template="{StaticResource ButtonWithCustomChrome}">Test Custom</Button>
+                <Button>Test Normal</Button>
+                <Button Template="{StaticResource ButtonWithCustomChrome}">Test Custom</Button>
+            </StackPanel>
+        </TabItem>
+
+        <TabItem Header="EllipseWithChild">
+            <components:EllipseWithChild Fill="ForestGreen">
+                <components:EllipseWithChild.Stroke>
+                    <Pen Brush="Magenta" Thickness="24" />
+                </components:EllipseWithChild.Stroke>
+                <components:EllipseWithChild.Child>
+                    <TextBlock FontSize="24" Text="Text inside ellipse" />
+                </components:EllipseWithChild.Child>
+            </components:EllipseWithChild>
+        </TabItem>
+    </TabControl>
+
+</Window>

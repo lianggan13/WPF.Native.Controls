@@ -10,16 +10,20 @@
     Title="AnimationProgressBar"
     d:DesignHeight="450"
     d:DesignWidth="800"
+    Loaded="Page_Loaded"
     mc:Ignorable="d">
 
     <Grid>
         <ProgressBar
+            x:Name="progBar"
             Height="30"
             Maximum="100"
+            Minimum="0"
             Value="30">
             <i:Interaction.Behaviors>
                 <behavior:ProgressBarBehavior />
             </i:Interaction.Behaviors>
         </ProgressBar>
+
     </Grid>
 </Page>

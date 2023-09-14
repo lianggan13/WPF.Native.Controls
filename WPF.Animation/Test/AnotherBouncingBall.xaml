@@ -1,0 +1,49 @@
+<!--
+    ======================================================
+    AnotherBouncingBall.xaml (c) 2006 by Charles Petzold
+    ======================================================
+-->
+<Canvas
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:s="clr-namespace:System;assembly=mscorlib">
+
+    <Line
+        Stroke="Black"
+        StrokeThickness="5"
+        X1="0"
+        X2="1000"
+        Y1="506"
+        Y2="506" />
+
+    <Ellipse
+        Name="elips"
+        Canvas.Left="96"
+        Width="24"
+        Height="24"
+        Fill="Red">
+
+        <Ellipse.Triggers>
+            <EventTrigger RoutedEvent="Ellipse.Loaded">
+                <BeginStoryboard>
+                    <Storyboard
+                        RepeatBehavior="Forever"
+                        TargetProperty="(Canvas.Top)"
+                        TargetName="elips">
+                        <DoubleAnimationUsingKeyFrames>
+                            <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="96" />
+                            <SplineDoubleKeyFrame
+                                KeySpline="0.25 0, 0.6 0.2"
+                                KeyTime="0:0:1"
+                                Value="480" />
+                            <SplineDoubleKeyFrame
+                                KeySpline="0.75 1, 0.4 0.8"
+                                KeyTime="0:0:2"
+                                Value="96" />
+                        </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Ellipse.Triggers>
+    </Ellipse>
+</Canvas>

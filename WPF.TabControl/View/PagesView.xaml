@@ -46,7 +46,7 @@
             <Style TargetType="{x:Type TabItem}">
                 <Setter Property="IsSelected" Value="{Binding IsSelected}" />
                 <Setter Property="Background" Value="#336590C1" />
-                <Setter Property="Margin" Value="2,0" />
+                <Setter Property="Margin" Value="0" />
                 <Setter Property="Foreground" Value="#777" />
                 <Setter Property="Template">
                     <Setter.Value>
@@ -83,6 +83,8 @@
                     <Trigger Property="IsSelected" Value="True">
                         <Setter Property="Background" Value="#FF6590C1" />
                         <Setter Property="Foreground" Value="#FFDEFBFF" />
+                        <Setter Property="Panel.ZIndex" Value="1" />
+                        <Setter Property="Margin" Value="-2,0,-2,0" />
                     </Trigger>
                 </Style.Triggers>
             </Style>

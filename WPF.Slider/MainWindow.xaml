@@ -12,9 +12,17 @@
     mc:Ignorable="d">
 
     <Grid>
-        <UniformGrid Columns="2">
+        <UniformGrid Columns="2" Rows="2">
             <view:EllipseThumbSlider />
-            <view:TickSlider></view:TickSlider>
+            <view:TickSlider />
+            <Slider
+                IsSelectionRangeEnabled="True"
+                Maximum="100"
+                SelectionEnd="75"
+                SelectionStart="25"
+                TickFrequency="10"
+                TickPlacement="Both"
+                Value="10" />
         </UniformGrid>
 
 

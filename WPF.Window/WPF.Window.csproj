@@ -56,6 +56,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Common\WindowManager.cs" />
+    <Compile Include="Common\WindowPositionHelper.cs" />
+    <Compile Include="TaskBar\ThumbnailButtons.xaml.cs">
+      <DependentUpon>ThumbnailButtons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CustomWindow.xaml.cs">
+      <DependentUpon>CustomWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MenuAnimation.xaml.cs">
       <DependentUpon>MenuAnimation.xaml</DependentUpon>
     </Compile>
@@ -74,9 +81,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="TaskBar\ThumbnailButtons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\BilibiliUserCenter.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\CustomWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\MaxSignAutoChrome.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -141,7 +156,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Assets\Images\pause-big.png" />
+    <Resource Include="Assets\Images\pause.png" />
+    <Resource Include="Assets\Images\play-big.png" />
+    <Resource Include="Assets\Images\play.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Images\dog.png" />
   </ItemGroup>
@@ -150,6 +170,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Images\哔哩哔哩.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="JumpListTask\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

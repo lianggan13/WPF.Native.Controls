@@ -1,15 +1,23 @@
 ﻿using System.Windows;
+using WPF.Common.Database;
 
-namespace WPFDataGrid
+namespace WPF.DataGrid
 {
     /// <summary>
-    /// App.xaml 的交互逻辑
+    /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
-        private void Application_Startup(object sender, StartupEventArgs e)
+        private static StoreDb storeDb = new StoreDb();
+        public static StoreDb StoreDb
         {
-            //ApplicationThemeHelper.ApplicationThemeName = DevExpress.Xpf.Core.Theme.DefaultThemeFullName;
+            get { return storeDb; }
+        }
+
+        private static StoreDbDataSet storeDbDataSet = new StoreDbDataSet();
+        public static StoreDbDataSet StoreDbDataSet
+        {
+            get { return storeDbDataSet; }
         }
     }
 }

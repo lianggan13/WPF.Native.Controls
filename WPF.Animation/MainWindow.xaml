@@ -5,12 +5,21 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:WPFAnimation"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:pg="clr-namespace:WPF.Animation.View"
-    xmlns:vm="clr-namespace:WPFAnimation.View"
+    xmlns:views="clr-namespace:WPF.Animation.View"
     Title="MainWindow"
     Width="1000"
     Height="650"
     mc:Ignorable="d">
+    <Window.Resources>
+        <TransformGroup x:Key="angleHour">
+            <TranslateTransform
+                X="20"
+                Y="13" />
+            <MatrixTransform Matrix="30 0 0.5 1 0 0" />
+        </TransformGroup>
+    </Window.Resources>
+    
+    
     <Window.Triggers>
         <EventTrigger RoutedEvent="Window.Loaded">
             <BeginStoryboard>
@@ -50,11 +59,11 @@
 
     <TabControl SelectedIndex="4">
         <TabItem Header="LinearAnimation">
-            <vm:LinearAnimationView />
+            <views:LinearAnimationView />
         </TabItem>
 
         <TabItem Header="KeyFrameAnimation">
-            <vm:KeyFrameAnimationView />
+            <views:KeyFrameAnimationView />
         </TabItem>
 
         <TabItem Header="Adanced Animation">
@@ -244,7 +253,7 @@
         </TabItem>
 
         <TabItem Header="DropdownView">
-            <vm:DropdownView />
+            <views:DropdownView />
         </TabItem>
         <TabItem Header="SplineXYProgress">
             <Frame Source="./View/SplineXYProgress.xaml" />
@@ -271,7 +280,32 @@
             <Frame Source="./Clock/ClockPage.xaml" />
         </TabItem>
 
+        <TabItem Header="RotationPath">
+            <Frame Source="./View/RotationPath.xaml" />
+        </TabItem>
+
+        <TabItem Header="ImageViewer">
+            <Frame Source="./View/ImageViewer.xaml" />
+        </TabItem>
+
+        <TabItem Header="BouncingBall">
+            <Frame Source="./View/BouncingBall.xaml" />
+        </TabItem>
+        <TabItem Header="ButtonEventTrigger">
+            <views:ButtonEventTrigger />
+        </TabItem>
+
+        <TabItem Header="ImageOpacity">
+            <views:ImageOpacity />
+        </TabItem>
+
+        <TabItem Header="DesiredFrameRate">
+            <views:DesiredFrameRate />
+        </TabItem>
+        
+        <TabItem Header="RenderCache">
+            <views:RenderCache />
+        </TabItem>
+
     </TabControl>
-
-
 </Window>

@@ -77,6 +77,7 @@ namespace WPF.Animation.View
             var xAnimation =
                 new DoubleAnimation(targetPoint.X,
                     new Duration(TimeSpan.FromSeconds(4)));
+
             _interactiveTranslateTransform.BeginAnimation(
                 TranslateTransform.XProperty, xAnimation, HandoffBehavior.SnapshotAndReplace);
 

@@ -16,6 +16,11 @@
         public MainWindow()
         {
             InitializeComponent();
+            Left = SystemParameters.PrimaryScreenWidth - Width;
+            Top = SystemParameters.PrimaryScreenHeight - Height;
+
+            Left = SystemParameters.WorkArea.Width - Width;
+            Top = SystemParameters.WorkArea.Height - Height;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

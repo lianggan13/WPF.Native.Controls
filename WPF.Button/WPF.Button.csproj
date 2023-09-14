@@ -55,11 +55,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Controls\PushButton.xaml">
+    <Page Include="Controls\ButtonAnimation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\SwitchButton.xaml">
+    <Page Include="Controls\ButtonFastener.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\PushButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -79,12 +83,19 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controls\ButtonAnimation.xaml.cs">
+      <DependentUpon>ButtonAnimation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ButtonFastener.xaml.cs">
+      <DependentUpon>ButtonFastener.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ColorCellButton.cs" />
+    <Compile Include="Controls\ColorGrid.cs" />
+    <Compile Include="Controls\DrawnButton.cs" />
     <Compile Include="Controls\PushButton.xaml.cs">
       <DependentUpon>PushButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\SwitchButton.xaml.cs">
-      <DependentUpon>SwitchButton.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Controls\RoundedButton.cs" />
     <Compile Include="Controls\TickToggleButton.xaml.cs">
       <DependentUpon>TickToggleButton.xaml</DependentUpon>
     </Compile>

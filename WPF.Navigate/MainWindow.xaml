@@ -1,0 +1,26 @@
+﻿<Window
+    x:Class="WPF.Navigate.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPF.Navigate"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Grid>
+        <TabControl>
+            <TabItem Header="NavAnimation">
+                <Frame Source="/NavAnimation/Page0.xaml" />
+            </TabItem>
+            <TabItem Header="NavCustomJournal">
+                <Frame Source="/NavCustomJournal/PageWithMultipleJournalEntries.xaml" />
+            </TabItem>
+            <TabItem Header="NavParameter">
+                <Frame Source="/NavParameter/Page0.xaml" />
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

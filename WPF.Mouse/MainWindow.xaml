@@ -1,67 +1,43 @@
 ﻿<Window
-    x:Class="WPFMouse.MainWindow"
+    x:Class="WPF.Mouse.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:WPFMouse"
+    xmlns:local="clr-namespace:WPF.Mouse"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:WPF.Mouse.Views"
     Title="MainWindow"
-    Width="800"
-    Height="450"
+    Width="1024"
+    Height="768"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-    <Grid>
-        <!--  FrameworkElement.MouseMove 仅当区域有一些明确的背景画笔\填充集时才有效  -->
-        <!--  PreviewMouseMove="Canvas_PreviewMouseMove"  -->
-        <Canvas
-            x:Name="canvas"
-            Background="Transparent"
-            PreviewMouseLeftButtonDown="Canvas_PreviewMouseLeftButtonDown"
-            PreviewMouseLeftButtonUp="Canvas_PreviewMouseLeftButtonUp"
-            PreviewMouseRightButtonDown="Canvas_PreviewMouseRightButtonDown"
-            PreviewMouseRightButtonUp="Canvas_PreviewMouseRightButtonUp">
-
-            <Border
-                Canvas.Left="50"
-                Canvas.Top="50"
-                Width="100"
-                Height="50"
-                Background="Orange"
-                CornerRadius="20">
-                <TextBlock
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    IsHitTestVisible="False"
-                    Text="开始" />
-            </Border>
-
-            <Border
-                Canvas.Left="220"
-                Canvas.Top="167"
-                Width="100"
-                Height="50"
-                Background="CadetBlue">
-                <TextBlock
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    IsHitTestVisible="False"
-                    Text="执行" />
-            </Border>
-
-
-            <Border
-                Canvas.Left="50"
-                Canvas.Top="290"
-                Width="100"
-                Height="50"
-                Background="LightSeaGreen"
-                CornerRadius="20">
-                <TextBlock
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    IsHitTestVisible="False"
-                    Text="结束" />
-            </Border>
-
-        </Canvas>
-    </Grid>
+    <TabControl>
+        <TabItem Header="LinkLine">
+            <views:LinkLine />
+        </TabItem>
+        <TabItem Header="MousePosition">
+            <views:MousePosition />
+        </TabItem>
+        <TabItem Header="MouseFollow">
+            <views:MouseFollow />
+        </TabItem>
+        <TabItem Header="CirclesHitTest">
+            <views:CirclesHitTest />
+        </TabItem>
+        <TabItem Header="PointHitTest">
+            <views:PointHitTest />
+        </TabItem>
+        <TabItem Header="DragInCanvas">
+            <views:DragInCanvas />
+        </TabItem>
+        <TabItem Header="DrawCircles">
+            <views:DrawCircles />
+        </TabItem>
+        <TabItem Header="DragAndDrop">
+            <views:DragAndDrop />
+        </TabItem>
+        <TabItem Header="VisualLayer">
+            <views:VisualLayer />
+        </TabItem>
+    </TabControl>
 </Window>

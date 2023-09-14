@@ -17,11 +17,16 @@
                 <uv:UiView />
             </TabItem>
 
-            <TabItem Header="Data Virtualization (2)">
-                <UniformGrid Columns="2">
-                    <dv:ProviderView />
-                    <dv:PagerView />
-                </UniformGrid>
+            <TabItem Header="PendingUI">
+                <uv:PendingUI />
+            </TabItem>
+
+            <TabItem Header="Data Virtualization x1">
+                <dv:ProviderView />
+            </TabItem>
+
+            <TabItem Header="Data Virtualization x2">
+                <dv:PagerView />
             </TabItem>
 
         </TabControl>

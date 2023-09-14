@@ -8,7 +8,7 @@
     Title="MainWindow"
     Width="800"
     Height="450"
-    WindowStartupLocation="CenterScreen"
+    WindowStartupLocation="Manual"
     mc:Ignorable="d">
     <Grid>
         <StackPanel HorizontalAlignment="Left" ButtonBase.Click="Button_Click">
@@ -16,6 +16,7 @@
             <Button>MaxSignAutoChrome</Button>
             <Button>MenuAnimation</Button>
             <Button>WindowSkin</Button>
+            <Button>CustomWindow</Button>
         </StackPanel>
     </Grid>
 </Window>

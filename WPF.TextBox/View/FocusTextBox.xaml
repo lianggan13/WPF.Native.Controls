@@ -40,7 +40,10 @@
                             </Storyboard>
                         </ControlTemplate.Resources>
                         <Grid>
-                            <Grid x:Name="grid1" RenderTransformOrigin="0.5,0.5">
+                            <Grid
+                                x:Name="grid1"
+                                Margin="0"
+                                RenderTransformOrigin="0.5,0.5">
                                 <Grid.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform ScaleX="0.95" ScaleY="0.98" />
@@ -133,9 +136,9 @@
                                 <Trigger.ExitActions>
                                     <BeginStoryboard x:Name="Storyboard2_BeginStoryboard" Storyboard="{StaticResource Storyboard2}" />
                                 </Trigger.ExitActions>
-                                <Trigger.EnterActions>
+                                <!--<Trigger.EnterActions>
                                     <BeginStoryboard Storyboard="{StaticResource Storyboard1}" />
-                                </Trigger.EnterActions>
+                                </Trigger.EnterActions>-->
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="false">
                                 <Setter TargetName="border" Property="Opacity" Value="0.56" />

@@ -1,0 +1,63 @@
+﻿<Window
+    x:Class="WPF.Brush.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:brush="clr-namespace:WPF.Brush.Brushes"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPF.Brush"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:WPF.Brush.Views"
+    Title="MainWindow"
+    Width="1546"
+    Height="869"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <TabControl>
+        <TabItem Header="SolidColorBrushInXAML">
+            <brush:SolidColorBrushInXAML />
+        </TabItem>
+        <TabItem Header="SolidColorBrushInXAML">
+            <brush:SolidColorBrushInXAML />
+        </TabItem>
+        <TabItem Header="LinearGradientBrushes">
+            <brush:LinearGradientBrushes />
+        </TabItem>
+        <TabItem Header="RadialGradientBrushes">
+            <brush:RadialGradientBrushes />
+        </TabItem>
+        <TabItem Header="ClickTheGradientCenter">
+            <brush:ClickTheGradientCenter />
+        </TabItem>
+        <TabItem Header="GradientBrushInXAML">
+            <brush:GradientBrushInXAML />
+        </TabItem>
+
+        <TabItem Header="DrawingBrushes">
+            <brush:DrawingBrushes />
+        </TabItem>
+        <TabItem Header="ImageBrushes">
+            <brush:ImageBrushes />
+        </TabItem>
+
+        <TabItem Header="Components">
+            <TabControl>
+                <TabItem Header="GrateLine">
+                    <brush:GrateLine />
+                </TabItem>
+                <TabItem Header="GrateRect">
+                    <brush:GrateRect />
+                </TabItem>
+                <TabItem Header="LightBand">
+                    <brush:LightBand />
+                </TabItem>
+                <TabItem Header="Track">
+                    <brush:TrackPath Height="30" />
+                </TabItem>
+            </TabControl>
+        </TabItem>
+
+        <TabItem Header="VaryBrush">
+            <views:VaryBrush />
+        </TabItem>
+    </TabControl>
+</Window>

@@ -5,27 +5,16 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:WPF.Graphics"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pen="clr-namespace:WPF.GraphicalShape.Pen"
     Title="MainWindow"
-    Width="800"
-    Height="450"
-    Background="Transparent"
+    Width="1080"
+    Height="590"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-    <TabControl Background="Transparent" SelectedIndex="0">
+    <TabControl SelectedIndex="0">
 
-        <TabItem Header="VisualBrushes">
-            <Frame Source="./Brushes/VisualBrushes.xaml" />
-        </TabItem>
-
-        <TabItem Header="DrawingBrushes">
-            <Frame Source="./Brushes/DrawingBrushes.xaml" />
-        </TabItem>
-
-        <TabItem Header="LinearGradientBrushes">
-            <Frame Source="./Brushes/LinearGradientBrushes.xaml" />
-        </TabItem>
-
-        <TabItem Header="VisualLayer">
-            <Frame Source="./VisualRender/VisualLayer.xaml" />
+        <TabItem Header="PenProperties">
+            <pen:PenProperties />
         </TabItem>
     </TabControl>
 </Window>

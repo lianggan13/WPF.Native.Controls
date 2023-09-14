@@ -1,8 +1,0 @@
-﻿<!-- QuitterPage.xaml -->
-<Page
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Quitter!"
-    WindowTitle="Tsk, Tsk, Tsk...">
-  <TextBlock>Quitters never win and winners never quit...</TextBlock>
-</Page>

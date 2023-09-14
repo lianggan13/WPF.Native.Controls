@@ -8,24 +8,34 @@
     xmlns:local="clr-namespace:WPF.Button"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="MainWindow"
-    Width="800"
-    Height="450"
+    Width="1024"
+    Height="768"
     Loaded="Window_Loaded"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Window.Resources />
 
     <Grid>
-        <UniformGrid>
-            <ctrls:SwitchButton />
-            <Grid Background="#FF030A28">
-                <ctrls:PushButton Width="60" Height="60" />
-            </Grid>
+        <TabControl>
+            <TabItem Header="ButtonFastener">
+                <ctrls:ButtonFastener />
+            </TabItem>
 
-            <Grid Background="#FF030A28">
+            <TabItem Header="PushButton">
+                <Grid Background="#FF030A28">
+                    <ctrls:PushButton Width="60" Height="60" />
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="ButtonFastener">
                 <ctrls:SwitchButtonV2 Width="60" Height="60" />
-            </Grid>
+            </TabItem>
 
-            <!--<Grid>
+            <TabItem Header="ButtonFastener">
+                <ctrls:ButtonFastener />
+            </TabItem>
+
+            <TabItem Header="Flip Dog">
                 <Button
                     Margin="5"
                     Padding="5"
@@ -34,58 +44,44 @@
                     FontSize="22"
                     FontWeight="Bold"
                     Foreground="Green" />
+            </TabItem>
 
-            </Grid>-->
+            <TabItem Header="TickToggleButton">
+                <ctrls:TickToggleButton
+                    Checked="btnBct_Checked"
+                    Unchecked="btnBct_Unchecked"
+                    Duration="0:0:10" />
+            </TabItem>
 
-            <Button>
-                <local:Foo.Bar>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStop Offset="0" Color="#800" />
-                            <GradientStop Offset="0.35" Color="Red" />
-                            <GradientStop Offset="1" Color="#500" />
-                        </LinearGradientBrush.GradientStops>
-                    </LinearGradientBrush>
-                </local:Foo.Bar>
-            </Button>
+            <TabItem Header="DrawnButton">
+                <ctrls:DrawnButton
+                    Padding="5,20"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="24"
+                    Knock="DrawnButton_Knock"
+                    Text="Click this button" />
+            </TabItem>
 
-            <ItemsControl>
-                <ItemsControl.ItemsSource>
-                    <x:Array xmlns:sys="clr-namespace:System;assembly=mscorlib" Type="{x:Type sys:String}">
-                        <sys:String>toe</sys:String>
-                        <sys:String>foot</sys:String>
-                        <sys:String>ankle</sys:String>
-                        <sys:String>knee</sys:String>
-                        <sys:String>thigh</sys:String>
-                    </x:Array>
-                </ItemsControl.ItemsSource>
+            <TabItem Header="RoundedButton">
+                <ctrls:RoundedButton
+                    Width="32"
+                    Height="32"
+                    Margin="4">
+                    <ctrls:RoundedButton.Child>
+                        <TextBlock Text="+" />
+                    </ctrls:RoundedButton.Child>
+                </ctrls:RoundedButton>
+            </TabItem>
 
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <WrapPanel>
-                            <TextBlock Text="The " />
-                            <TextBlock Text="{Binding RelativeSource={RelativeSource PreviousData}}" />
-                            <TextBlock Text=" bone's connected to the " />
-                            <TextBlock Text="{Binding}" />
-                            <TextBlock Text=" bone" />
-                        </WrapPanel>
-                        <DataTemplate.Triggers>
-                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource PreviousData}}" Value="{x:Null}">
-                                <Setter Property="Visibility" Value="Collapsed" />
-                            </DataTrigger>
-                        </DataTemplate.Triggers>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-
-            </ItemsControl>
-
-
-            <ctrls:TickToggleButton
-                Checked="btnBct_Checked"
-                Unchecked="btnBct_Unchecked"
-                Duration="0:0:10" />
-
-        </UniformGrid>
-
+            <TabItem Header="ColorGrid">
+                <Grid>
+                    <ctrls:ColorGrid
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        SelectedColorChanged="ColorGrid_SelectedColorChanged" />
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

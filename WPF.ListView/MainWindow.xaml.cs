@@ -12,24 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ListViewAddAnimation.ViewModel;
 
-namespace ListViewAddAnimation
+namespace WPF.ListView
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainViewModel();
-        }
-
-        private void Storyboard_Completed(object sender, EventArgs e)
-        {
-
         }
     }
 }

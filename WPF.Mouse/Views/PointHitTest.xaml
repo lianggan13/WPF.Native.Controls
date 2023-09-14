@@ -1,0 +1,40 @@
+<Grid
+    x:Class="WPF.Mouse.Views.PointHitTest"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/interactivedesigner/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="DocumentRoot"
+    Background="#FFFFFFFF"
+    mc:Ignorable="d">
+
+    <Grid.Resources>
+        <Storyboard x:Key="OnLoaded" />
+    </Grid.Resources>
+
+    <Grid.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard x:Name="OnLoaded_BeginStoryboard" Storyboard="{DynamicResource OnLoaded}" />
+        </EventTrigger>
+    </Grid.Triggers>
+
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition />
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+        <RowDefinition />
+    </Grid.RowDefinitions>
+    <Rectangle
+        x:Name="RectangleArea"
+        Width="200"
+        Height="200"
+        Margin="202,123,238,157"
+        Fill="sc#1, 0, 0.08110714, 1" />
+    <Label
+        x:Name="HitLabel"
+        Width="Auto"
+        Height="28"
+        Margin="125.685,0,149.479999999981,99"
+        VerticalAlignment="Bottom"
+        Content="Label" />
+</Grid>

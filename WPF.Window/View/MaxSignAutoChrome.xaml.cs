@@ -12,7 +12,7 @@ namespace WPF.Window.View
         public MaxSignAutoChrome()
         {
             InitializeComponent();
-            this.MaxHeight = SystemParameters.PrimaryScreenHeight;
+            //this.MaxHeight = SystemParameters.PrimaryScreenHeight;
         }
 
         #region frame ui

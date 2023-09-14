@@ -1,0 +1,29 @@
+﻿<Window
+    x:Class="WPF.Geometry_Path.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:beziers="clr-namespace:WPF.Geometry_Path.Beziers"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPF.Geometry_Path"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:paghg="clr-namespace:WPF.Geometry_Path.Geometries.PathGeometries"
+    xmlns:textgs="clr-namespace:WPF.Geometry_Path.Geometries.TextGeometries"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <TabControl>
+        <TabItem Header="BezierExperimenter">
+            <beziers:BezierExperimenter />
+        </TabItem>
+
+        <TabItem Header="TextGeometry">
+            <textgs:TextGeometryView />
+        </TabItem>
+
+        <TabItem Header="ProgressBarTrack">
+            <paghg:ProgressBarTrack />
+        </TabItem>
+    </TabControl>
+</Window>

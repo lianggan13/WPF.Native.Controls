@@ -1,0 +1,76 @@
+﻿<UserControl
+    x:Class="WPF.Button.Controls.ButtonAnimation"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPF.Button.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <ControlTemplate x:Key="ButtonTemplate" TargetType="{x:Type Button}">
+            <Border
+                Name="Border"
+                Background="Red"
+                BorderBrush="Orange"
+                BorderThickness="3"
+                CornerRadius="2"
+                TextBlock.Foreground="White">
+                <Grid>
+                    <Rectangle
+                        Name="FocusCue"
+                        SnapsToDevicePixels="True"
+                        Stroke="Black"
+                        StrokeDashArray="1 2"
+                        StrokeThickness="1"
+                        Visibility="Hidden" />
+                    <ContentPresenter Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" />
+                </Grid>
+            </Border>
+            <ControlTemplate.Triggers>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation
+                                AutoReverse="True"
+                                RepeatBehavior="Forever"
+                                Storyboard.TargetName="Border"
+                                Storyboard.TargetProperty="Background.Color"
+                                To="Blue"
+                                Duration="0:0:1" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation
+                                Storyboard.TargetName="Border"
+                                Storyboard.TargetProperty="Background.Color"
+                                Duration="0:0:0.5" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter TargetName="Border" Property="Background" Value="IndianRed" />
+                    <Setter TargetName="Border" Property="BorderBrush" Value="DarkKhaki" />
+                </Trigger>
+                <Trigger Property="IsKeyboardFocused" Value="True">
+                    <Setter TargetName="FocusCue" Property="Visibility" Value="Visible" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+    </UserControl.Resources>
+    <StackPanel Margin="10">
+        <Button
+            Name="cmdOne"
+            Margin="10"
+            Padding="5"
+            Template="{StaticResource ButtonTemplate}">
+            A Simple Button with a Custom Template
+        </Button>
+
+    </StackPanel>
+</UserControl>

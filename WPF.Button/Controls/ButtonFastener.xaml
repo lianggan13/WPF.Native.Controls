@@ -1,0 +1,102 @@
+﻿<ToggleButton
+    x:Class="WPF.Button.Controls.ButtonFastener"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPF.Button.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="30"
+    d:DesignWidth="60"
+    mc:Ignorable="d">
+    <ToggleButton.Style>
+        <Style TargetType="{x:Type ToggleButton}">
+            <Setter Property="Width" Value="60" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="IsThreeState" Value="False" />
+            <Setter Property="Background" Value="#FF081526" />
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <ControlTemplate.Resources>
+                            <Storyboard x:Key="Storyboard.Checked">
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-2">
+                                        <EasingDoubleKeyFrame.EasingFunction>
+                                            <QuadraticEase EasingMode="EaseInOut" />
+                                        </EasingDoubleKeyFrame.EasingFunction>
+                                    </EasingDoubleKeyFrame>
+                                </DoubleAnimationUsingKeyFrames>
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                    <EasingColorKeyFrame KeyTime="0:0:0.3" Value="#FF18AC76" />
+                                </ColorAnimationUsingKeyFrames>
+
+                            </Storyboard>
+                            <Storyboard x:Key="Storyboard.UnChecked">
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-32">
+                                        <EasingDoubleKeyFrame.EasingFunction>
+                                            <QuadraticEase EasingMode="EaseInOut" />
+                                        </EasingDoubleKeyFrame.EasingFunction>
+                                    </EasingDoubleKeyFrame>
+                                </DoubleAnimationUsingKeyFrames>
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                    <EasingColorKeyFrame KeyTime="0:0:0.3" Value="#FF081526" />
+                                </ColorAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </ControlTemplate.Resources>
+                        <Border
+                            x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="15"
+                            SnapsToDevicePixels="true">
+                            <Ellipse
+                                x:Name="ellipse"
+                                Width="26"
+                                Height="26"
+                                HorizontalAlignment="Right"
+                                Fill="#FFFFFFFF"
+                                RenderTransformOrigin="0.5,0.5">
+                                <Ellipse.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform />
+                                        <SkewTransform />
+                                        <RotateTransform />
+                                        <TranslateTransform X="-32" />
+                                    </TransformGroup>
+                                </Ellipse.RenderTransform>
+                                <Ellipse.Effect>
+                                    <DropShadowEffect ShadowDepth="0" Color="#FFEDEDED" />
+                                </Ellipse.Effect>
+                            </Ellipse>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard x:Name="BeginCheckedStoryboard" Storyboard="{StaticResource Storyboard.Checked}" />
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <RemoveStoryboard BeginStoryboardName="BeginCheckedStoryboard" />
+                                </Trigger.ExitActions>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard x:Name="BeginUnCheckedStoryboard" Storyboard="{StaticResource Storyboard.UnChecked}" />
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <RemoveStoryboard BeginStoryboardName="BeginUnCheckedStoryboard" />
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </ToggleButton.Style>
+</ToggleButton>

@@ -55,6 +55,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Components\RadialPanel.cs" />
+    <Compile Include="Views\WheelCorlorListItems.xaml.cs">
+      <DependentUpon>WheelCorlorListItems.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CircleTheButtons.xaml.cs">
+      <DependentUpon>CircleTheButtons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DiagonalizeButtons.xaml.cs">
+      <DependentUpon>DiagonalizeButtons.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,14 +73,28 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Components\DiagonalizePanel.cs" />
+    <Compile Include="Components\WrapBreakPanel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\WheelCorlorListItems.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CircleTheButtons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DiagonalizeButtons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\FlowPanel.cs" />
-    <Compile Include="Model\TilePanel.cs" />
+    <Compile Include="Components\FlowPanel.cs" />
+    <Compile Include="Components\TilePanel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -96,5 +120,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

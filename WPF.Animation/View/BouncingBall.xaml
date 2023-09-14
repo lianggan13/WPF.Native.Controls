@@ -1,0 +1,146 @@
+﻿<Page
+    x:Class="WPF.Animation.View.BouncingBall"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPF.Animation.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="BouncingBall"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    Background="Black"
+    MouseDown="BouncingBall_MouseDown"
+    MouseMove="BouncingBall_MouseMove"
+    MouseUp="BouncingBall_MouseUp"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <local:FlipConverter x:Key="FlipConverter" />
+    </Page.Resources>
+
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!--  Bouncing Ball Background  -->
+        <Border
+            x:Name="BouncingBallContainer"
+            Grid.Row="0"
+            Grid.Column="0"
+            VerticalAlignment="Stretch"
+            BorderBrush="White"
+            BorderThickness="1">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="0.8" Color="Gray" />
+                    <GradientStop Offset="0.99" Color="Black" />
+                </LinearGradientBrush>
+            </Border.Background>
+            <!--  Bouncing Ball  -->
+            <Canvas
+                x:Name="BouncingBallCanvas"
+                VerticalAlignment="Stretch"
+                Background="Transparent">
+
+                <Ellipse
+                    Width="100"
+                    Height="100"
+                    Fill="Red"
+                    Opacity=".8" />
+                <Ellipse
+                    Width="100"
+                    Height="100"
+                    Fill="Red"
+                    Opacity="1">
+                    <Ellipse.OpacityMask>
+                        <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                            <GradientStop Offset="0.04" Color="White" />
+                            <GradientStop Offset="0.5" Color="#00000000" />
+                        </LinearGradientBrush>
+                    </Ellipse.OpacityMask>
+                </Ellipse>
+                <Ellipse
+                    Width="60"
+                    Height="60"
+                    Margin="20,0,0,0"
+                    Fill="White"
+                    Opacity="0.3">
+                    <Ellipse.OpacityMask>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Offset="0" Color="White" />
+                            <GradientStop Offset="0.8" Color="#00000000" />
+                        </LinearGradientBrush>
+                    </Ellipse.OpacityMask>
+                </Ellipse>
+
+                <Canvas.RenderTransform>
+                    <TranslateTransform x:Name="bounce" X="0" Y="0" />
+                </Canvas.RenderTransform>
+
+                <Canvas.Triggers>
+                    <EventTrigger RoutedEvent="Canvas.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                                    AutoReverse="True"
+                                    RepeatBehavior="Forever"
+                                    Storyboard.TargetName="bounce"
+                                    Storyboard.TargetProperty="Y"
+                                    From="1.0"
+                                    To="55.0"
+                                    Duration="0:0:.25" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Canvas.Triggers>
+
+            </Canvas>
+            <!--  End Bouncing Ball  -->
+
+        </Border>
+        <!--  End Bouncing Ball Background  -->
+        <!--  Glass  -->
+        <Border
+            Grid.Row="1"
+            Grid.Column="0"
+            Height="300"
+            Background="Black"
+            Opacity=".8">
+
+            <!--  Reflection  -->
+            <Border>
+
+                <Border.Background>
+                    <VisualBrush
+                        AlignmentX="Left"
+                        Opacity=".35"
+                        Stretch="None"
+                        Visual="{Binding ElementName=BouncingBallCanvas}">
+                        <VisualBrush.Transform>
+                            <TransformGroup>
+                                <ScaleTransform CenterX="150" CenterY="104" ScaleX="1" ScaleY="-1" />
+                                <TranslateTransform X="{Binding ElementName=bounce, Path=X}" Y="{Binding ElementName=bounce, Converter={StaticResource FlipConverter}, Path=Y}" />
+                            </TransformGroup>
+                        </VisualBrush.Transform>
+                    </VisualBrush>
+                </Border.Background>
+
+                <Border.OpacityMask>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Offset="0" Color="Black" />
+                        <GradientStop Offset=".9" Color="Transparent" />
+                    </LinearGradientBrush>
+                </Border.OpacityMask>
+
+            </Border>
+            <!--  End Reflection  -->
+
+        </Border>
+        <!--  End Glass  -->
+
+    </Grid>
+</Page>

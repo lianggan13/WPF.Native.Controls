@@ -250,7 +250,6 @@
                                     </Trigger>
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
-
                         </RadioButton.Template>
                     </RadioButton>
                 </DataTemplate>

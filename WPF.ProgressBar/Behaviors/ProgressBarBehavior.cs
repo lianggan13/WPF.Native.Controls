@@ -25,7 +25,8 @@ namespace WPF.ProgressBar.Behaviors
 
         private void Progress_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if (IsRun) return;
+            if (IsRun)
+                return;
             IsRun = true;
 
             ProgressBar progress = sender as ProgressBar;

@@ -1,0 +1,153 @@
+﻿<Window
+    x:Class="ListViewImgTurn.SlideImageView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ListViewImgTurn"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    PreviewMouseWheel="Window_PreviewMouseWheel"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <x:Array x:Key="ImageList" Type="{x:Type sys:String}">
+            <sys:String>/Assets/Images/1.jpg</sys:String>
+            <sys:String>/Assets/Images/2.jpg</sys:String>
+            <sys:String>/Assets/Images/3.jpg</sys:String>
+            <sys:String>/Assets/Images/4.jpg</sys:String>
+            <sys:String>/Assets/Images/5.jpg</sys:String>
+            <sys:String>/Assets/Images/6.jpg</sys:String>
+        </x:Array>
+    </Window.Resources>
+    <Grid>
+        <Viewbox
+            x:Name="vb"
+            RenderTransformOrigin="0.5,0.5"
+            Stretch="Fill">
+            <Viewbox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform x:Name="st" ScaleX="0.5" ScaleY="0.5" />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Viewbox.RenderTransform>
+            <ListView
+                x:Name="lvImg"
+                ItemsSource="{StaticResource ImageList}"
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                SelectedIndex="{Binding SelectedIndex, ElementName=lvOption}">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Opacity" Value="0" />
+                        <Setter Property="IsHitTestVisible" Value="False" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListBoxItem">
+                                    <ContentPresenter IsHitTestVisible="{TemplateBinding IsHitTestVisible}" />
+
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="Selector.IsSelected" Value="True">
+                                            <Trigger.EnterActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <DoubleAnimation
+                                                            Storyboard.TargetProperty="Opacity"
+                                                            From="0"
+                                                            To="1"
+                                                            Duration="0:0:0.5" />
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </Trigger.EnterActions>
+                                            <Trigger.ExitActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <DoubleAnimation
+                                                            Storyboard.TargetProperty="Opacity"
+                                                            From="1"
+                                                            To="0"
+                                                            Duration="0:0:0.5" />
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </Trigger.ExitActions>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Image
+                            Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type ListView}}}"
+                            Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType={x:Type ListView}}}"
+                            Source="{Binding}"
+                            Stretch="Fill" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Viewbox>
+
+        <ListView
+            x:Name="lvOption"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            Background="Transparent"
+            BorderThickness="0"
+            ItemsSource="{StaticResource ImageList}"
+            SelectedIndex="0">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Margin" Value="5" />
+                    <Setter Property="Cursor" Value="Hand" />
+                    <Setter Property="BorderBrush" Value="AliceBlue" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListViewItem">
+                                <Border
+                                    x:Name="radioButtonBorder"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="100">
+                                    <Grid x:Name="markGrid" Margin="2">
+                                        <Ellipse
+                                            x:Name="optionMark"
+                                            MinWidth="6"
+                                            MinHeight="6"
+                                            Fill="#ccc"
+                                            Opacity="0" />
+                                    </Grid>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter TargetName="optionMark" Property="Opacity" Value="1" />
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="true">
+                                        <Setter TargetName="optionMark" Property="Opacity" Value="1" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+    </Grid>
+</Window>

@@ -1,0 +1,183 @@
+﻿<UserControl
+    x:Class="WPF.Animation.View.ButtonEventTrigger"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPF.Animation.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <Color x:Key="DefaultForeground">White</Color>
+
+        <!--  Button  -->
+        <Color x:Key="ButtonDefault_0">#FF5A5A5A</Color>
+        <Color x:Key="ButtonDefault_1">#FF4C4C4C</Color>
+        <Color x:Key="ButtonDefault_2">#FF3E3E3E</Color>
+
+        <Color x:Key="ButtonMouseOver_0">#FF7F8183</Color>
+        <Color x:Key="ButtonMouseOver_1">#FF646566</Color>
+        <Color x:Key="ButtonMouseOver_2">#FF4A4A4A</Color>
+
+        <Color x:Key="ButtonPressed_0">#FF565656</Color>
+        <Color x:Key="ButtonPressed_1">#FF464646</Color>
+        <Color x:Key="ButtonPressed_2">#FF363636</Color>
+
+        <Color x:Key="ButtonNotEnabled_0">#FF969696</Color>
+        <Color x:Key="ButtonNotEnabled_1">#FF7B7B7B</Color>
+        <Color x:Key="ButtonNotEnabled_2">#FF616161</Color>
+
+        <LinearGradientBrush x:Key="ButtonBlackBackground" StartPoint="0,0" EndPoint="0,1">
+            <LinearGradientBrush.GradientStops>
+                <GradientStop Offset="0.0" Color="{StaticResource ButtonDefault_0}" />
+                <GradientStop Offset="0.2" Color="{StaticResource ButtonDefault_1}" />
+                <GradientStop Offset="0.5" Color="{StaticResource ButtonDefault_2}" />
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="ButtonBlackBackground_MouseOver" StartPoint="0,0" EndPoint="0,1">
+            <LinearGradientBrush.GradientStops>
+                <GradientStop Offset="0" Color="{StaticResource ButtonMouseOver_0}" />
+                <GradientStop Offset="0.2" Color="{StaticResource ButtonMouseOver_1}" />
+                <GradientStop Offset="0.5" Color="{StaticResource ButtonMouseOver_2}" />
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="ButtonBlackBackground_Pressed" StartPoint="0,0" EndPoint="0,1">
+            <LinearGradientBrush.GradientStops>
+                <GradientStop Offset="0" Color="{StaticResource ButtonPressed_0}" />
+                <GradientStop Offset="0.2" Color="{StaticResource ButtonPressed_1}" />
+                <GradientStop Offset="0.5" Color="{StaticResource ButtonPressed_2}" />
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="ButtonBlackBackground_NotEnabled" StartPoint="0,0" EndPoint="0,1">
+            <LinearGradientBrush.GradientStops>
+                <GradientStop Offset="0" Color="{StaticResource ButtonNotEnabled_0}" />
+                <GradientStop Offset="0.2" Color="{StaticResource ButtonNotEnabled_1}" />
+                <GradientStop Offset="0.5" Color="{StaticResource ButtonNotEnabled_2}" />
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+        <Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid x:Name="ButtonGrid">
+                            <Border
+                                x:Name="ButtonBorder"
+                                MinHeight="21.96"
+                                Background="{DynamicResource ButtonBlackBackground}"
+                                BorderBrush="#FF2E2E2E"
+                                BorderThickness="1"
+                                CornerRadius="5" />
+                            <ContentPresenter
+                                x:Name="ButtonContentPresenter"
+                                HorizontalAlignment="{TemplateBinding Property=Button.HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding Property=Button.VerticalContentAlignment}"
+                                Content="{TemplateBinding Property=Button.Content}" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                <Setter TargetName="ButtonBorder" Property="Background" Value="{StaticResource ButtonBlackBackground_MouseOver}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="ButtonBorder" Property="Background" Value="{StaticResource ButtonBlackBackground_Pressed}" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="ButtonBorder" Property="Background" Value="{StaticResource ButtonBlackBackground_NotEnabled}" />
+                            </Trigger>
+                            <EventTrigger RoutedEvent="Button.MouseEnter">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation
+                                                Storyboard.TargetName="ButtonBorder"
+                                                Storyboard.TargetProperty="Background.GradientStops[0].Color"
+                                                To="{StaticResource ButtonMouseOver_0}"
+                                                Duration="0:0:0.17" />
+                                            <ColorAnimation
+                                                Storyboard.TargetName="ButtonBorder"
+                                                Storyboard.TargetProperty="Background.GradientStops[1].Color"
+                                                To="{StaticResource ButtonMouseOver_1}"
+                                                Duration="0:0:0.17" />
+                                            <ColorAnimation
+                                                Storyboard.TargetName="ButtonBorder"
+                                                Storyboard.TargetProperty="Background.GradientStops[2].Color"
+                                                To="{StaticResource ButtonMouseOver_2}"
+                                                Duration="0:0:0.17" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="Button.MouseLeave">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation
+                                                Storyboard.TargetName="ButtonBorder"
+                                                Storyboard.TargetProperty="Background.GradientStops[0].Color"
+                                                To="{StaticResource ButtonDefault_0}"
+                                                Duration="0:0:0.17" />
+                                            <ColorAnimation
+                                                Storyboard.TargetName="ButtonBorder"
+                                                Storyboard.TargetProperty="Background.GradientStops[1].Color"
+                                                To="{StaticResource ButtonDefault_1}"
+                                                Duration="0:0:0.17" />
+                                            <ColorAnimation
+                                                Storyboard.TargetName="ButtonBorder"
+                                                Storyboard.TargetProperty="Background.GradientStops[2].Color"
+                                                To="{StaticResource ButtonDefault_2}"
+                                                Duration="0:0:0.17" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="Button.MouseDown">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation
+                                                Storyboard.TargetName="ButtonBorder"
+                                                Storyboard.TargetProperty="Background.GradientStops[0].Color"
+                                                To="{StaticResource ButtonPressed_0}"
+                                                Duration="0:0:0.17" />
+                                            <ColorAnimation
+                                                Storyboard.TargetName="ButtonBorder"
+                                                Storyboard.TargetProperty="Background.GradientStops[1].Color"
+                                                To="{StaticResource ButtonPressed_1}"
+                                                Duration="0:0:0.17" />
+                                            <ColorAnimation
+                                                Storyboard.TargetName="ButtonBorder"
+                                                Storyboard.TargetProperty="Background.GradientStops[2].Color"
+                                                To="{StaticResource ButtonPressed_2}"
+                                                Duration="0:0:0.17" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <!--<Setter Property="Foreground" Value="{StaticResource DefaultForeground}" />-->
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Button
+            Grid.Row="0"
+            Margin="25"
+            Content="Dummy"
+            Foreground="White" />
+        <Button
+            Grid.Row="1"
+            Margin="25"
+            Content="Dummy2"
+            Foreground="Yellow" />
+    </Grid>
+</UserControl>

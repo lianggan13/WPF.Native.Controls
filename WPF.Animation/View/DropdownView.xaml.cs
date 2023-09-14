@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Media.Animation;
 
 
-namespace WPFAnimation.View
+namespace WPF.Animation.View
 {
     /// <summary>
     /// DropdownView.xaml 的交互逻辑

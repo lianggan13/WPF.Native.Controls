@@ -1,0 +1,22 @@
+﻿<!--  Page2.xaml  -->
+<Page
+    x:Class="WPF.Navigate.NavParameter.Page2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Result"
+    WindowTitle="Guess Result:"> 
+    <!--  KeepAlive not set  -->
+    <StackPanel Margin="10">
+        <TextBlock>
+            You guessed:
+            <TextBlock Name="guessBlock" />
+        </TextBlock>
+        <TextBlock
+            Name="resultBlock"
+            FontSize="32"
+            FontWeight="Bold" />
+        <TextBlock HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Hyperlink Name="tryAgainLink">Try Again</Hyperlink>
+        </TextBlock>
+    </StackPanel>
+</Page>

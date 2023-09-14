@@ -57,13 +57,13 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Algorithm\Utils.cs" />
     <Compile Include="Assets\Compent\PopupEx.cs" />
     <Compile Include="Assets\Compent\PopupPlus.cs" />
     <Compile Include="Assets\Compent\TreeViewAssist.cs" />
     <Compile Include="Converters\BoolConverter.cs" />
     <Compile Include="Converters\BrushRoundConverter.cs" />
     <Compile Include="Converters\EnableToColorConvert.cs" />
+    <Compile Include="Converters\ImagePathConverter.cs" />
     <Compile Include="Converters\IndexToVisibilityConverter.cs" />
     <Compile Include="Converters\MathConverter.cs" />
     <Compile Include="Converters\MathMultipleConverter.cs" />
@@ -76,12 +76,18 @@
     <Compile Include="Converters\StringToBrushConverter.cs" />
     <Compile Include="Converters\StringToVisibilityConverter.cs" />
     <Compile Include="Converters\TreeViewLineConverter.cs" />
+    <Compile Include="Database\Category.cs" />
+    <Compile Include="Database\Product.cs" />
+    <Compile Include="Database\store.Designer.cs" />
+    <Compile Include="Database\StoreDB.cs" />
+    <Compile Include="Database\StoreDbDataSet.cs" />
     <Compile Include="MVVMFoundation\AsyncRelayCommand.cs" />
     <Compile Include="MVVMFoundation\Messenger.cs" />
     <Compile Include="MVVMFoundation\NotifyPropertyChanged.cs" />
     <Compile Include="MVVMFoundation\ObservableObject.cs" />
     <Compile Include="MVVMFoundation\RelayCommand.cs" />
     <Compile Include="Themes\CustomTheme.cs" />
+    <Compile Include="Utility\VisualTreeSearcher.cs" />
     <Page Include="Assets\Styles\Border.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -160,6 +166,20 @@
     </EmbeddedResource>
     <Resource Include="Assets\Fonts\iconfont.ttf" />
     <Resource Include="Assets\Fonts\fontawesome-webfont.ttf" />
+    <None Include="Database\store.xsc">
+      <DependentUpon>store.xsd</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Database\store.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>store1.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Database\store.xss">
+      <DependentUpon>store.xsd</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -171,6 +191,27 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Images\Moggie.jpg" />
+    <None Include="Database\store.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Assets\Images\image.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Assets\Images\360.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Assets\Images\362.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Assets\Images\397.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Assets\Images\401.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Assets\Images\404.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="MVVMFoundation\Dlls\Microsoft.Expression.Interactions.dll" />
     <Content Include="MVVMFoundation\Dlls\System.Windows.Interactivity.dll" />
   </ItemGroup>

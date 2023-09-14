@@ -5,8 +5,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:WPFItemsControl.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:vm="clr-namespace:WPFItemsControl.ViewModel"
     xmlns:syscom="clr-namespace:System.ComponentModel;assembly=System"
+    xmlns:vm="clr-namespace:WPFItemsControl.ViewModel"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
@@ -20,9 +20,9 @@
                 <PropertyGroupDescription PropertyName="FileName" />
             </CollectionViewSource.GroupDescriptions>
             <!--<CollectionViewSource.SortDescriptions>
-                <syscom:SortDescription 
+                <syscom:SortDescription
             </CollectionViewSource.SortDescriptions>-->
-            
+
         </CollectionViewSource>
     </UserControl.Resources>
     <StackPanel>
@@ -52,8 +52,8 @@
                                                 <Style TargetType="{x:Type Expander}">
                                                     <Setter Property="Margin" Value="20,0,0,0" />
                                                     <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding Path=DataContext.IsBottomLevel, RelativeSource={RelativeSource AncestorType={x:Type Expander}}}" Value="true">
-                                                            <Setter Property="Margin" Value="0" />
+                                                        <DataTrigger Binding="{Binding IsBottomLevel}" Value="true">
+                                                            <Setter Property="Margin" Value="10,0,0,0" />
                                                         </DataTrigger>
                                                     </Style.Triggers>
                                                 </Style>

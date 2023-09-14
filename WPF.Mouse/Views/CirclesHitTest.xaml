@@ -1,0 +1,65 @@
+<Grid
+    x:Class="WPF.Mouse.Views.CirclesHitTest"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/interactivedesigner/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="DocumentRoot"
+    Background="#FFFFFFFF"
+    mc:Ignorable="d">
+
+    <Grid.Resources>
+        <Storyboard x:Key="OnLoaded" />
+    </Grid.Resources>
+
+    <Grid.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard x:Name="OnLoaded_BeginStoryboard" Storyboard="{DynamicResource OnLoaded}" />
+        </EventTrigger>
+    </Grid.Triggers>
+
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition />
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+        <RowDefinition />
+    </Grid.RowDefinitions>
+    <Label
+        x:Name="HitLabel"
+        Width="Auto"
+        Height="28"
+        Margin="4.6850000000003,0,25.7399999999999,71"
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Bottom"
+        Content="Label" />
+
+    <Canvas
+        x:Name="SceneCanvas"
+        Height="Auto"
+        Margin="5.99999999999204,6.0000000000001,3.00000000000591,129.210526315788"
+        VerticalAlignment="Stretch">
+        <Ellipse
+            x:Name="DragEllipse"
+            Canvas.Left="500"
+            Canvas.Top="81"
+            Width="94"
+            Height="94"
+            MinWidth="94"
+            MinHeight="94"
+            MaxWidth="94"
+            MaxHeight="94"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Fill="sc#1, 0.9257866, 0.5352878, 0"
+            Stroke="{x:Null}" />
+        <Rectangle
+            x:Name="RectangleArea"
+            Canvas.Left="203"
+            Canvas.Top="74"
+            Width="200"
+            Height="200"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Fill="sc#1, 0, 0.08110714, 1" />
+    </Canvas>
+</Grid>

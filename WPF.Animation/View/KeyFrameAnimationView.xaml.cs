@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace WPFAnimation.View
+namespace WPF.Animation.View
 {
     /// <summary>
     /// KeyFrameAnimationView.xaml 的交互逻辑

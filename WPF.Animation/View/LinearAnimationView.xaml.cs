@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace WPFAnimation.View
+namespace WPF.Animation.View
 {
     /// <summary>
     /// BasicAnimationView.xaml 的交互逻辑

@@ -18,14 +18,16 @@
             Fill="Red">
             <Ellipse.Triggers>
                 <EventTrigger RoutedEvent="Ellipse.MouseEnter">
-                    <BeginStoryboard Name="changeWidth">
-                        <Storyboard>
-                            <DoubleAnimation
-                                Storyboard.TargetProperty="(Ellipse.Width)"
-                                To="300"
-                                Duration="0:0:5" />
-                        </Storyboard>
-                    </BeginStoryboard>
+                    <EventTrigger.Actions>
+                        <BeginStoryboard Name="changeWidth">
+                            <Storyboard>
+                                <DoubleAnimation
+                                    Storyboard.TargetProperty="(Ellipse.Width)"
+                                    To="300"
+                                    Duration="0:0:5" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
                 </EventTrigger>
 
                 <EventTrigger RoutedEvent="Ellipse.MouseLeftButtonDown">

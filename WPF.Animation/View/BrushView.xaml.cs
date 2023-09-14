@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPFAnimation.View
+namespace WPF.Animation.View
 {
     /// <summary>
     /// BrushView.xaml 的交互逻辑

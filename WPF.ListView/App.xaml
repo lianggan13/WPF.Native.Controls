@@ -1,23 +1,8 @@
-<Application
-    x:Class="ListViewAddAnimation.App"
+﻿<Application
+    x:Class="WPF.ListView.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:local="clr-namespace:ListViewAddAnimation"
-    d1p1:Ignorable="d"
-    StartupUri="View/ListImageView.xaml">
-    <!--  StartupUri="View/ImgTurnView.xaml">  -->
-    <!--  StartupUri="MainWindow.xaml">  -->
-    <Application.Resources>
-        <ResourceDictionary>
-            <vm:ViewModelLocator
-                xmlns:vm="clr-namespace:ListViewAddAnimation.ViewModel"
-                x:Key="Locator"
-                d:IsDataSource="True" />
-
-            <!--<BitmapImage x:Key="PlaceHolder" UriSource="pack://application:,,,/WPF.ListView;component/Assets/Images/6.jpg" />-->
-            <BitmapImage x:Key="PlaceHolder" UriSource="/Assets/Images/6.jpg" />
-        </ResourceDictionary>
-    </Application.Resources>
+    xmlns:local="clr-namespace:WPF.ListView"
+    StartupUri="MainWindow.xaml">
+        
 </Application>

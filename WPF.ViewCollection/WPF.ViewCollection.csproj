@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\Images\DataContainer_MoveFirstHS.png" />
+    <None Remove="Assets\Images\DataContainer_MoveLastHS.png" />
+    <None Remove="Assets\Images\DataContainer_MoveNextHS.png" />
+    <None Remove="Assets\Images\DataContainer_MovePreviousHS.png" />
+    <None Remove="Assets\Images\DataContainer_NewRecordHS.png" />
+    <None Remove="Assets\Images\DeleteHS.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WPF.Common\WPF.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Images\DataContainer_MoveFirstHS.png" />
+    <Resource Include="Assets\Images\DataContainer_MoveLastHS.png" />
+    <Resource Include="Assets\Images\DataContainer_MoveNextHS.png" />
+    <Resource Include="Assets\Images\DataContainer_MovePreviousHS.png" />
+    <Resource Include="Assets\Images\DataContainer_NewRecordHS.png" />
+    <Resource Include="Assets\Images\DeleteHS.png" />
+  </ItemGroup>
+
+</Project>

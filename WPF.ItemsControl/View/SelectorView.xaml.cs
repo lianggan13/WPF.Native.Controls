@@ -35,8 +35,6 @@ namespace WPFItemsControl.View
                     return (o as CourseSeriesModel).CourseName == courseName;
                 });
             }
-
-
         }
     }
 }

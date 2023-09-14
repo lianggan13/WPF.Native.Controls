@@ -31,6 +31,9 @@ namespace WPFItemsControl.View
 
         private void Expander_Expanded(object sender, RoutedEventArgs e)
         {
+            Expander exp = (Expander)sender;
+
+            //var d = exp.DataContext as MS.Internal.Data.CollectionViewGroupInternal;
 
         }
     }

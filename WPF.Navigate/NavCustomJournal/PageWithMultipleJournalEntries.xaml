@@ -1,0 +1,42 @@
+﻿<Page
+    x:Class="WPF.Navigate.NavCustomJournal.PageWithMultipleJournalEntries"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="PageWithMultipleJournalEntries"
+    Loaded="Page_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <ListBox
+                Name="lstSource"
+                Grid.Column="0"
+                Margin="5" />
+            <StackPanel
+                Grid.Column="1"
+                Margin="5"
+                VerticalAlignment="Center">
+                <Button Margin="3" Click="cmdAdd_Click">Add -&gt;</Button>
+                <Button Margin="3" Click="cmdRemove_Click">&lt;- Remove</Button>
+            </StackPanel>
+            <ListBox
+                Name="lstTarget"
+                Grid.Column="2"
+                Margin="5" />
+
+        </Grid>
+
+        <TextBlock Grid.Row="1" Margin="5">
+            Click<Hyperlink NavigateUri="Menu.xaml">here</Hyperlink>
+            to continue.</TextBlock>
+
+    </Grid>
+</Page>

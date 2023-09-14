@@ -1,5 +1,7 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
+using WPF.Button.Controls;
 
 namespace WPF.Button
 {
@@ -27,26 +29,19 @@ namespace WPF.Button
         {
             // MessageBox.Show("【停止广播】成功！");
         }
-    }
-    public class Foo
-    {
-        public static Brush GetBar(DependencyObject obj)
+
+        private void DrawnButton_Knock(object sender, RoutedEventArgs e)
         {
-            return (Brush)obj.GetValue(BarProperty);
+            DrawnButton btn = e.Source as DrawnButton;
+            MessageBox.Show("The button labeled \"" + btn.Text +
+                            "\" has been knocked.", Title);
         }
 
-        public static void SetBar(DependencyObject obj, Brush value)
+        private void ColorGrid_SelectedColorChanged(object sender, System.EventArgs e)
         {
-            obj.SetValue(BarProperty, value);
+            ColorGrid clrgrid = sender as ColorGrid;
+            var grid = (Grid)clrgrid.Parent;
+            grid.Background = new SolidColorBrush(clrgrid.SelectedColor);
         }
-
-        // Using a DependencyProperty as the backing store for Bar.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty BarProperty =
-            //DependencyProperty.RegisterAttached("Bar", typeof(Brush), typeof(System.Windows.Controls.Button), new PropertyMetadata(null));
-            DependencyProperty.RegisterAttached("Bar", typeof(Brush), typeof(Foo), new PropertyMetadata(null));
-
-
-
-
     }
 }

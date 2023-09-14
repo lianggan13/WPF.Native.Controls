@@ -14,6 +14,21 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -64,6 +79,8 @@
     <Compile Include="Clock\ClockPage.xaml.cs">
       <DependentUpon>ClockPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\ArithmeticConverter.cs" />
+    <Compile Include="Converters\Class1.cs" />
     <Compile Include="Media\MediaPage.xaml.cs">
       <DependentUpon>MediaPage.xaml</DependentUpon>
     </Compile>
@@ -79,11 +96,20 @@
     <Compile Include="View\BeginTimes.xaml.cs">
       <DependentUpon>BeginTimes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\BouncingBall.xaml.cs">
+      <DependentUpon>BouncingBall.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ButtonEventTrigger.xaml.cs">
+      <DependentUpon>ButtonEventTrigger.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ByIsAdditive.xaml.cs">
       <DependentUpon>ByIsAdditive.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ByIsCumulative.xaml.cs">
       <DependentUpon>ByIsCumulative.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DesiredFrameRate.xaml.cs">
+      <DependentUpon>DesiredFrameRate.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\DropdownView.xaml.cs">
       <DependentUpon>DropdownView.xaml</DependentUpon>
@@ -93,6 +119,12 @@
     </Compile>
     <Compile Include="View\HandoffBehaviors.xaml.cs">
       <DependentUpon>HandoffBehaviors.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ImageOpacity.xaml.cs">
+      <DependentUpon>ImageOpacity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ImageViewer.xaml.cs">
+      <DependentUpon>ImageViewer.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\LinearAnimationView.xaml.cs">
       <DependentUpon>LinearAnimationView.xaml</DependentUpon>
@@ -106,8 +138,14 @@
     <Compile Include="View\PathAnimations.xaml.cs">
       <DependentUpon>PathAnimations.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\RenderCache.xaml.cs">
+      <DependentUpon>RenderCache.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\RepeatBehaviors.xaml.cs">
       <DependentUpon>RepeatBehaviors.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RotationPath.xaml.cs">
+      <DependentUpon>RotationPath.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Speeds.xaml.cs">
       <DependentUpon>Speeds.xaml</DependentUpon>
@@ -139,6 +177,110 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Test\AllXamlClock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Test\AnimatedTextTransform.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Test\AnotherBouncingBall.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Test\BetterBouncingBall.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Test\ControllingTheStoryboard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Test\Diner1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Test\Diner2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Test\ExpandingCircles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Test\FourSidedBounce2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Test\InfinityAnimation1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Test\InfinityAnimation2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Test\MatrixAnimatedButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Test\NewtonsCradle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Test\PathAngleAnimatedButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Test\PathAnimatedButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Test\PendulumButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Test\PulsatingRectangle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Test\Pulse.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Test\RectangularOpacity.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Test\SecondHandSteps.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Test\ShakingButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Test\SimplePathAnimation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Test\SquaringTheCircle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Test\TotalEclipseOfTheSun.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Test\UnicycleMan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Test\WiggleWaggleAndExplode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\AccelDecelRatios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -151,11 +293,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\BouncingBall.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ButtonEventTrigger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ByIsAdditive.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ByIsCumulative.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DesiredFrameRate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -168,6 +322,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\HandoffBehaviors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ImageOpacity.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ImageViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -187,7 +349,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\RenderCache.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\RepeatBehaviors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RotationPath.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -222,6 +392,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Readme.md" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -231,6 +402,15 @@
     <Folder Include="ViewModel\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\Images\Beach.jpg" />
+    <Resource Include="Assets\Images\Blossoms.jpg" />
+    <Resource Include="Assets\Images\Flower.jpg" />
+    <Resource Include="Assets\Images\Hills.jpg" />
+    <Resource Include="Assets\Images\Rain.jpg" />
+    <Resource Include="Assets\Images\Trees.jpg" />
+    <Resource Include="Assets\Images\Water.jpg" />
+    <Resource Include="Assets\Images\day.jpg" />
+    <Resource Include="Assets\Images\night.jpg" />
     <Content Include="Assets\Medias\VoiceRecording.wma">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -240,6 +420,18 @@
       <Project>{a0f9c22b-b526-44dd-b58a-a837e3a833ec}</Project>
       <Name>WPF.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

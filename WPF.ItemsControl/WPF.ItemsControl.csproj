@@ -61,7 +61,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Assets\CourseDataTemplateSelector.cs" />
+    <Compile Include="Selectors\CourseDataTemplateSelector.cs" />
     <Compile Include="Model\CourseSeriesModel.cs" />
     <Compile Include="Model\GroupingModel.cs" />
     <Compile Include="Model\LogModel.cs" />
@@ -134,6 +134,9 @@
       <Project>{a0f9c22b-b526-44dd-b58a-a837e3a833ec}</Project>
       <Name>WPF.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
