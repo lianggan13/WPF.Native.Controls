@@ -1,21 +1,27 @@
 ﻿<Window
-    x:Class="WPFTreeView.MainWindow"
+    x:Class="WPF.TreeView.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
-    xmlns:local="clr-namespace:WPFTreeView"
+    xmlns:local="clr-namespace:WPF.TreeView"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:navtree="clr-namespace:WPF.TreeView.NavigationTree"
+    xmlns:rectree="clr-namespace:WPF.TreeView.RecurseDirectories"
+    xmlns:typetree="clr-namespace:WPF.TreeView.ClassHierarchy"
     Title="MainWindow"
-    Width="837"
-    Height="450"
+    Width="1024"
+    Height="768"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-    <TabControl SelectedIndex="0">
-
-        <TabItem Header="MenuView">
-            <Frame Source="./View/MenuView.xaml" />
+    <TabControl>
+        <TabItem Header="NavigationTreeView">
+            <navtree:NavigationTreeView />
+        </TabItem>
+        <TabItem Header="RecurseDirectoriesView">
+            <rectree:RecurseDirectoriesView />
+        </TabItem>
+        <TabItem Header="ClassHierarchyTreeView">
+            <typetree:ClassHierarchyTreeView />
         </TabItem>
     </TabControl>
 </Window>

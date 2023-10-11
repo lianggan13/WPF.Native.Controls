@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\Images\boldhs.png" />
+    <None Remove="Assets\Images\ColorHS.png" />
+    <None Remove="Assets\Images\Color_fontHS.png" />
+    <None Remove="Assets\Images\CopyHS.png" />
+    <None Remove="Assets\Images\CutHS.png" />
+    <None Remove="Assets\Images\DeleteHS.png" />
+    <None Remove="Assets\Images\Edit_RedoHS.png" />
+    <None Remove="Assets\Images\Edit_UndoHS.png" />
+    <None Remove="Assets\Images\ItalicHS.png" />
+    <None Remove="Assets\Images\NewDocumentHS.png" />
+    <None Remove="Assets\Images\openHS.png" />
+    <None Remove="Assets\Images\PasteHS.png" />
+    <None Remove="Assets\Images\PrintHS.png" />
+    <None Remove="Assets\Images\saveHS.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Images\boldhs.png" />
+    <Resource Include="Assets\Images\ColorHS.png" />
+    <Resource Include="Assets\Images\Color_fontHS.png" />
+    <Resource Include="Assets\Images\CopyHS.png" />
+    <Resource Include="Assets\Images\CutHS.png" />
+    <Resource Include="Assets\Images\DeleteHS.png" />
+    <Resource Include="Assets\Images\Edit_RedoHS.png" />
+    <Resource Include="Assets\Images\Edit_UndoHS.png" />
+    <Resource Include="Assets\Images\ItalicHS.png" />
+    <Resource Include="Assets\Images\NewDocumentHS.png" />
+    <Resource Include="Assets\Images\openHS.png" />
+    <Resource Include="Assets\Images\PasteHS.png" />
+    <Resource Include="Assets\Images\PrintHS.png" />
+    <Resource Include="Assets\Images\saveHS.png" />
+  </ItemGroup>
+
+</Project>

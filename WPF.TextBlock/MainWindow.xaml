@@ -19,5 +19,9 @@
             <Frame Source="./DrawText/DrawTextViewer.xaml" />
         </TabItem>
 
+        <TabItem Header="Inlines">
+            <Frame Source="./View/Inlines.xaml" />
+        </TabItem>
+
     </TabControl>
 </Window>

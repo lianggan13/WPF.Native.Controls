@@ -41,7 +41,7 @@
 
                 <LineBreak />
 
-                <Hyperlink NavigateUri="www.baidu.com" OverridesDefaultStyle="True">
+                <Hyperlink OverridesDefaultStyle="True">
                     超级链接(自定义样式)
                     <Hyperlink.Style>
                         <Style>

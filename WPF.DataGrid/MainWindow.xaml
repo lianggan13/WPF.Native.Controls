@@ -7,8 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:view="clr-namespace:WPF.DataGrid.View"
     Title="MainWindow"
-    Width="800"
-    Height="450"
+    Width="1280"
+    Height="768"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <TabControl>
