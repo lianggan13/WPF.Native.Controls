@@ -1,6 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using WPF.Template.Models;
+﻿using System.Windows.Controls;
 
 namespace WPF.Template.Views
 {
@@ -14,11 +12,5 @@ namespace WPF.Template.Views
             InitializeComponent();
         }
 
-        private void EmployeeButtonOnClick(object sender, RoutedEventArgs e)
-        {
-            Button btn = e.Source as Button;
-            Employee emp = btn.Content as Employee;
-            MessageBox.Show(emp.Name + " button clicked!");
-        }
     }
 }

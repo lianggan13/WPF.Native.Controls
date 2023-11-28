@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
-using WPFTextBox.Model;
+using WPF.TextBox.Model;
 
 namespace WPF.TextBox.ViewModel
 {

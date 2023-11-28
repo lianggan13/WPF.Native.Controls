@@ -1,6 +1,7 @@
 ﻿using System.Windows;
+using WPF.TextBox.Components.NotepadClone;
 
-namespace WPFTextBox
+namespace WPF.TextBox
 {
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
@@ -17,6 +18,19 @@ namespace WPFTextBox
 
 
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void NoeepadCloneButton_Click(object sender, RoutedEventArgs e)
+        {
+            new NotepadClone()
+            {
+                Owner = this,
+            }.ShowDialog();
         }
     }
 }

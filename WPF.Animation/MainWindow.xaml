@@ -7,19 +7,18 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:views="clr-namespace:WPF.Animation.View"
     Title="MainWindow"
-    Width="1000"
-    Height="650"
+    Width="1385"
+    Height="660"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Window.Resources>
         <TransformGroup x:Key="angleHour">
-            <TranslateTransform
-                X="20"
-                Y="13" />
+            <TranslateTransform X="20" Y="13" />
             <MatrixTransform Matrix="30 0 0.5 1 0 0" />
         </TransformGroup>
     </Window.Resources>
-    
-    
+
+
     <Window.Triggers>
         <EventTrigger RoutedEvent="Window.Loaded">
             <BeginStoryboard>
@@ -57,7 +56,35 @@
         </EventTrigger>
     </Window.Triggers>
 
-    <TabControl SelectedIndex="4">
+    <TabControl SelectedIndex="0">
+        <TabItem Header="ButtonEventTrigger">
+            <views:ButtonEventTrigger />
+        </TabItem>
+
+        <TabItem Header="EllipseAnimation">
+            <views:EllipseAnimation />
+        </TabItem>
+
+        <TabItem Header="RectangleAnimation">
+            <views:RectangleAnimation />
+        </TabItem>
+
+        <TabItem Header="BezierAnimation">
+            <views:BezierAnimation />
+        </TabItem>
+
+        <TabItem Header="ControllingTheStoryboard">
+            <views:ControllingTheStoryboard />
+        </TabItem>
+
+        <TabItem Header="AnimatedTextTransform">
+            <views:AnimatedTextTransform />
+        </TabItem>
+
+        <TabItem Header="XamlClock">
+            <views:XamlClock />
+        </TabItem>
+
         <TabItem Header="LinearAnimation">
             <views:LinearAnimationView />
         </TabItem>
@@ -291,9 +318,7 @@
         <TabItem Header="BouncingBall">
             <Frame Source="./View/BouncingBall.xaml" />
         </TabItem>
-        <TabItem Header="ButtonEventTrigger">
-            <views:ButtonEventTrigger />
-        </TabItem>
+
 
         <TabItem Header="ImageOpacity">
             <views:ImageOpacity />
@@ -302,7 +327,7 @@
         <TabItem Header="DesiredFrameRate">
             <views:DesiredFrameRate />
         </TabItem>
-        
+
         <TabItem Header="RenderCache">
             <views:RenderCache />
         </TabItem>

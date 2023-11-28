@@ -18,11 +18,25 @@
             Name="lstTypes"
             DisplayMemberPath="Name"
             SelectionChanged="lstTypes_SelectionChanged" />
-        <TextBox
-            Name="txtTemplate"
-            Grid.Column="1"
-            FontFamily="Consolas"
-            TextWrapping="Wrap"
-            VerticalScrollBarVisibility="Visible" />
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height=".8*" />
+            </Grid.RowDefinitions>
+
+            <TextBox
+                Name="txtTemplate"
+                FontFamily="Consolas"
+                TextWrapping="Wrap"
+                VerticalScrollBarVisibility="Visible" />
+
+            <TextBox
+                Name="txtTemplate2"
+                Grid.Row="1"
+                FontFamily="Consolas"
+                TextWrapping="Wrap"
+                VerticalScrollBarVisibility="Visible" />
+        </Grid>
+
     </Grid>
 </UserControl>

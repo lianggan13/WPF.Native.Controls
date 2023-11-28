@@ -6,15 +6,18 @@
     xmlns:local="clr-namespace:WPF.Graphics"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:pen="clr-namespace:WPF.GraphicalShape.Pen"
+    xmlns:shapes="clr-namespace:WPF.Graphics.Shapes"
     Title="MainWindow"
     Width="1080"
-    Height="590"
+    Height="690"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <TabControl SelectedIndex="0">
-
         <TabItem Header="PenProperties">
             <pen:PenProperties />
+        </TabItem>
+        <TabItem Header="Polyxxxs">
+            <shapes:Polyxxxs />
         </TabItem>
     </TabControl>
 </Window>

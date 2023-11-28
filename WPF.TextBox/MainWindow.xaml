@@ -1,12 +1,11 @@
 ﻿<Window
-    x:Class="WPFTextBox.MainWindow"
+    x:Class="WPF.TextBox.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:WPFTextBox"
+    xmlns:local="clr-namespace:WPF.TextBox"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:view="clr-namespace:WPF.TextBox.View"
-    xmlns:vt="clr-namespace:WPF.TextBox.View"
     Title="MainWindow"
     Width="529"
     Height="332"
@@ -27,6 +26,18 @@
 
         <TabItem Header="AutoFillTextBox">
             <Frame Source="./View/AutoFillTextBox.xaml" />
+        </TabItem>
+
+        <TabItem Header="TextBoxListerView">
+            <view:TextBoxListerView />
+        </TabItem>
+
+        <TabItem Header="NotepadClone">
+            <Button
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Click="NoeepadCloneButton_Click"
+                Content="NotepadClone" />
         </TabItem>
 
     </TabControl>

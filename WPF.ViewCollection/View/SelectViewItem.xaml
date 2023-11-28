@@ -31,7 +31,7 @@
             Margin="0,5,0,5"
             Padding="5"
             Background="LightSteelBlue">
-            <Grid>
+            <Grid x:Name="detailGrid" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition />

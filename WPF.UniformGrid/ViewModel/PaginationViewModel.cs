@@ -37,7 +37,6 @@ namespace Pagination.ViewModel
             }
         }
 
-
         public ICommand PgUpCommand { get; set; }
         public ICommand PgDnCommand { get; set; }
         public ICommand PgJumpCommand { get; set; }

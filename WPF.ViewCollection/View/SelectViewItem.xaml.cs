@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,12 +24,13 @@ namespace WPF.ViewCollection.View
 
             products = new ObservableCollection<Product>(App.StoreDb.GetProducts());
 
-            DataContext = products;
+            lstProducts.DataContext = products;
+            lstProducts.ItemsSource = products;
+            detailGrid.DataContext = products;
 
             navbar.Collection = products;
             navbar.ItemType = typeof(Product);
-
-            lstProducts.ItemsSource = products;
+            navbar.AddSort(new SortDescription(nameof(Product.ModelName), ListSortDirection.Ascending));
         }
 
         void NewOnExecuted(object sender, ExecutedRoutedEventArgs args)

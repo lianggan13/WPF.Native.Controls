@@ -90,11 +90,17 @@
     <Compile Include="View\AccelDecelRatios.xaml.cs">
       <DependentUpon>AccelDecelRatios.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AnimatedTextTransform.xaml.cs">
+      <DependentUpon>AnimatedTextTransform.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AutoReverses.xaml.cs">
       <DependentUpon>AutoReverses.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\BeginTimes.xaml.cs">
       <DependentUpon>BeginTimes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BezierAnimation.xaml.cs">
+      <DependentUpon>BezierAnimation.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\BouncingBall.xaml.cs">
       <DependentUpon>BouncingBall.xaml</DependentUpon>
@@ -107,6 +113,9 @@
     </Compile>
     <Compile Include="View\ByIsCumulative.xaml.cs">
       <DependentUpon>ByIsCumulative.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ControllingTheStoryboard.xaml.cs">
+      <DependentUpon>ControllingTheStoryboard.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\DesiredFrameRate.xaml.cs">
       <DependentUpon>DesiredFrameRate.xaml</DependentUpon>
@@ -138,6 +147,9 @@
     <Compile Include="View\PathAnimations.xaml.cs">
       <DependentUpon>PathAnimations.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\RectangleAnimation.xaml.cs">
+      <DependentUpon>RectangleAnimation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\RenderCache.xaml.cs">
       <DependentUpon>RenderCache.xaml</DependentUpon>
     </Compile>
@@ -152,6 +164,12 @@
     </Compile>
     <Compile Include="View\SplineXYProgress.xaml.cs">
       <DependentUpon>SplineXYProgress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EllipseAnimation.xaml.cs">
+      <DependentUpon>EllipseAnimation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\XamlClock.xaml.cs">
+      <DependentUpon>XamlClock.xaml</DependentUpon>
     </Compile>
     <Page Include="Clock\ClockPage.xaml">
       <SubType>Designer</SubType>
@@ -177,14 +195,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Test\AllXamlClock.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Test\AnimatedTextTransform.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Test\AnotherBouncingBall.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -193,31 +203,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Test\ControllingTheStoryboard.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Test\Diner1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Test\Diner2.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Test\ExpandingCircles.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Test\FourSidedBounce2.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Test\InfinityAnimation1.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Test\InfinityAnimation2.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -237,31 +227,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Test\PendulumButton.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Test\PulsatingRectangle.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Test\Pulse.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Test\RectangularOpacity.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Test\SecondHandSteps.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Test\ShakingButton.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Test\SimplePathAnimation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -269,19 +235,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Test\TotalEclipseOfTheSun.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Test\UnicycleMan.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Test\WiggleWaggleAndExplode.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="View\AccelDecelRatios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AnimatedTextTransform.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -290,6 +252,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\BeginTimes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BezierAnimation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -306,6 +272,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ByIsCumulative.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ControllingTheStoryboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -349,6 +319,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\RectangleAnimation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\RenderCache.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -366,6 +340,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SplineXYProgress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EllipseAnimation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\XamlClock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -399,7 +381,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
-    <Folder Include="ViewModel\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Images\Beach.jpg" />

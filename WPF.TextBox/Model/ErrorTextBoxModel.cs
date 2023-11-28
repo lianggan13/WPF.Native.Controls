@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Windows.Input;
 
-namespace WPFTextBox.Model
+namespace WPF.TextBox.Model
 {
     public class ErrorTextBoxModel : ValidatorBaseModel
     {

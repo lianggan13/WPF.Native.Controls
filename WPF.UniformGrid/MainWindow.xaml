@@ -7,16 +7,26 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:view="clr-namespace:Pagination.View"
     xmlns:vm="clr-namespace:Pagination.ViewModel"
-    Title="MainWindow"
-    Width="800"
-    Height="450"
+    Width="1385"
+    Height="660"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-    <Grid>
-        <view:PaginationView  Height="50">
-            <!--DataContext="{x:Reference vm:PaginationViewModel}"-->
-            <!--<view:PaginationView.DataContext>
-                <vm:PaginationViewModel />
-            </view:PaginationView.DataContext>-->
-        </view:PaginationView>
-    </Grid>
+    <TabControl>
+        <TabItem Header="Pagination">
+            <view:PaginationView Height="50" />
+        </TabItem>
+        <TabItem Header="FirstColumn">
+            <UniformGrid
+                Columns="3"
+                FirstColumn="1"
+                Rows="3">
+                <Button Content="Button 1" />
+                <Button Content="Button 2" />
+                <Button Content="Button 3" />
+                <Button Content="Button 4" />
+                <Button Content="Button 5" />
+                <Button Content="Button 6" />
+            </UniformGrid>
+        </TabItem>
+    </TabControl>
 </Window>

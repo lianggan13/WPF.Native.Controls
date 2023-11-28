@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text.RegularExpressions;
-using System.Windows.Controls;
+
 using System.Windows.Input;
 using WPFCommon.MVVMFoundation;
 
-namespace WPFTextBox.Model
+namespace WPF.TextBox.Model
 {
+    using System.Windows.Controls;
+
     public abstract class ValidatorBaseModel : NotifyPropertyChanged, IDataErrorInfo
     {
         private string errorMsg;

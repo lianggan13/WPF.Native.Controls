@@ -1,0 +1,22 @@
+﻿<Window
+    x:Class="WPF.DatePicker.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPF.DatePicker"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:WPF.DatePicker.Views"
+    Title="DatePicker"
+    Width="1385"
+    Height="660"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <TabControl>
+        <TabItem Header="Calendar">
+            <views:CalendarView />
+        </TabItem>
+        <TabItem Header="MonthPicker">
+            <views:MonthPickerView />
+        </TabItem>
+    </TabControl>
+</Window>

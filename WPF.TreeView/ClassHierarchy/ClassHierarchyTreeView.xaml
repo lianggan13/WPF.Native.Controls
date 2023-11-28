@@ -9,5 +9,14 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <local:TypeTreeView TypeRoot="{x:Type thread:DispatcherObject}" />
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        <local:TypeTreeView x:Name="tree" TypeRoot="{x:Type thread:DispatcherObject}" />
+        <GridSplitter Grid.Column="1" Width="6" />
+        <local:DependencyPropertyListView Grid.Column="2" Type="{Binding SelectedItem.Type, ElementName=tree, Mode=OneWay}" />
+    </Grid>
 </UserControl>

@@ -40,6 +40,48 @@ namespace WPF.Template.Views
 
             // Show the list of types.
             lstTypes.ItemsSource = derivedTypes;
+
+            LoadContentPropAttrs();
+        }
+
+        private void LoadContentPropAttrs()
+        {
+            // SortedList to store class and content property.
+            SortedList<string, string> listClass = new SortedList<string, string>();
+
+            // Formatting string.
+            string strFormat = "{0,-35}{1}";
+
+            // Loop through the loaded assemblies.
+            foreach (AssemblyName asmblyname in
+                        Assembly.GetExecutingAssembly().GetReferencedAssemblies())
+            {
+                // Loop through the types.
+                foreach (Type type in Assembly.Load(asmblyname).GetTypes())
+                {
+                    // Loop through the custom attributes.
+                    // (Set argument to 'false' for non-inherited only!)
+                    foreach (object obj in type.GetCustomAttributes(
+                                            typeof(ContentPropertyAttribute), true))
+                    {
+                        // Add to list if ContentPropertyAttribute.
+                        if (type.IsPublic && obj as ContentPropertyAttribute != null)
+                            listClass.Add(type.Name,
+                                          (obj as ContentPropertyAttribute).Name);
+                    }
+                }
+            }
+
+            var sb = new StringBuilder();
+
+            // Display the results.
+            sb.AppendLine(string.Format(strFormat, "Class", "Content Property"));
+            sb.AppendLine(string.Format(strFormat, "-----", "----------------"));
+
+            foreach (string strClass in listClass.Keys)
+                sb.AppendLine(string.Format(strFormat, strClass, listClass[strClass]));
+
+            txtTemplate2.Text = sb.ToString();
         }
 
         private void lstTypes_SelectionChanged(object sender, SelectionChangedEventArgs e)

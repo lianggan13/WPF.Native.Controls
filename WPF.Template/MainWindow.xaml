@@ -17,5 +17,8 @@
         <TabItem Header="ContentTemplate">
             <views:ContentTemplate />
         </TabItem>
+        <TabItem Header="ControlTemplateMenu">
+            <views:ControlTemplateMenu />
+        </TabItem>
     </TabControl>
 </Window>

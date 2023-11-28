@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Interaction="http://schemas.microsoft.com/expression/2010/interactions"
     xmlns:Interactivity="http://schemas.microsoft.com/expression/2010/interactivity"
-    xmlns:com="clr-namespace:WPFTextBox.Common"
+    xmlns:com="clr-namespace:WPF.TextBox.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:WPF.TextBox.ViewModel"

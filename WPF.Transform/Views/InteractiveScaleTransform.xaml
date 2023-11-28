@@ -1,0 +1,112 @@
+﻿<UserControl
+    x:Class="WPF.Transform.Views.InteractiveScaleTransform"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPF.Transform.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="1000"
+    mc:Ignorable="d">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Label}">
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                </Style>
+                <Style TargetType="{x:Type ScrollBar}">
+                    <Setter Property="Width" Value="100" />
+                </Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Width" Value="100" />
+                </Style>
+            </StackPanel.Resources>
+            <Label Content="ScaleX" />
+            <ScrollBar
+                Name="xscroll"
+                Maximum="20"
+                Minimum="-20"
+                Orientation="Horizontal"
+                Value="1" />
+            <TextBlock
+                Margin="12"
+                HorizontalAlignment="Center"
+                Text="{Binding ElementName=xscroll, Path=Value}" />
+
+            <Label Content="ScaleY" />
+            <ScrollBar
+                Name="yscroll"
+                Maximum="20"
+                Minimum="-20"
+                Orientation="Horizontal"
+                Value="1" />
+            <TextBlock
+                Margin="12"
+                HorizontalAlignment="Center"
+                Text="{Binding ElementName=yscroll, Path=Value}" />
+
+            <Label Content="CenterX" />
+            <ScrollBar
+                Name="xcenter"
+                Maximum="100"
+                Minimum="-100"
+                Orientation="Horizontal"
+                Value="0" />
+            <TextBlock
+                Margin="12"
+                HorizontalAlignment="Center"
+                Text="{Binding ElementName=xcenter, Path=Value}" />
+
+            <Label Content="CenterY" />
+            <ScrollBar
+                Name="ycenter"
+                Maximum="100"
+                Minimum="-100"
+                Orientation="Horizontal"
+                Value="0" />
+            <TextBlock
+                Margin="12"
+                HorizontalAlignment="Center"
+                Text="{Binding ElementName=ycenter, Path=Value}" />
+        </StackPanel>
+
+        <Canvas>
+            <Line
+                Stroke="Black"
+                X1="100"
+                X2="100"
+                Y1="0"
+                Y2="1000" />
+            <Line
+                Stroke="Black"
+                X1="0"
+                X2="1000"
+                Y1="100"
+                Y2="100" />
+
+            <Button
+                Name="btn"
+                Canvas.Left="100"
+                Canvas.Top="100"
+                Content="Button">
+                <Button.RenderTransform>
+                    <!--
+                        sx:ScaleX  sy:ScaleY
+                        cx:CenterX cy:CenterY
+                        x'= sx • x + (cx — sx • cx)
+                        y'= sy • y + (cy — sy • cy)
+                    -->
+                    <ScaleTransform d:CenterX="35" d:CenterY="12" d:ScaleX="5" d:ScaleY="3" CenterX="{Binding ElementName=xcenter, Path=Value}" CenterY="{Binding ElementName=ycenter, Path=Value}" ScaleX="{Binding ElementName=xscroll, Path=Value}" ScaleY="{Binding ElementName=yscroll, Path=Value}" />
+                </Button.RenderTransform>
+            </Button>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding ElementName=btn, Path=ActualWidth}" />
+                <TextBlock Text="&#x00D7;" />
+                <TextBlock Text="{Binding ElementName=btn, Path=ActualHeight}" />
+            </StackPanel>
+
+            <Label Canvas.Right="0" Content="{Binding ElementName=btn, Path=RenderTransform.Value}" />
+        </Canvas>
+    </StackPanel>
+</UserControl>

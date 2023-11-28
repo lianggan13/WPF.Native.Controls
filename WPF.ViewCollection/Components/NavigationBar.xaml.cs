@@ -33,8 +33,10 @@ namespace WPF.ViewCollection.Components
                 coll = value;
 
                 // Create CollectionView and set event handlers.
+                //collview = new ListCollectionView(coll);
                 collview = CollectionViewSource.GetDefaultView(coll);
                 collview.CurrentChanged += CollectionViewOnCurrentChanged;
+                collview.CurrentChanging += Collview_CurrentChanging;
                 collview.CollectionChanged += CollectionViewOnCollectionChanged;
 
                 // Call an event handler to initialize TextBox and Buttons.
@@ -49,6 +51,7 @@ namespace WPF.ViewCollection.Components
             }
         }
 
+
         // This is the type of the item in the collection. 
         // It's used for the Add command.
         public Type ItemType
@@ -57,11 +60,9 @@ namespace WPF.ViewCollection.Components
             get { return typeItem; }
         }
 
-        // Event handlers for CollectionView.
-        void CollectionViewOnCollectionChanged(object sender,
-                                        NotifyCollectionChangedEventArgs args)
+        private void Collview_CurrentChanging(object sender, CurrentChangingEventArgs e)
         {
-            txtblkTotal.Text = coll.Count.ToString();
+
         }
 
         void CollectionViewOnCurrentChanged(object sender, EventArgs args)
@@ -70,6 +71,12 @@ namespace WPF.ViewCollection.Components
             btnPrev.IsEnabled = collview.CurrentPosition > 0;
             btnNext.IsEnabled = collview.CurrentPosition < coll.Count - 1;
             btnDel.IsEnabled = coll.Count > 1;
+        }
+
+        // Event handlers for CollectionView.
+        void CollectionViewOnCollectionChanged(object sender, NotifyCollectionChangedEventArgs args)
+        {
+            txtblkTotal.Text = coll.Count.ToString();
         }
 
         // Event handlers for buttons.
@@ -89,6 +96,7 @@ namespace WPF.ViewCollection.Components
         {
             collview.MoveCurrentToLast();
         }
+
         void AddOnClick(object sender, RoutedEventArgs args)
         {
             ConstructorInfo info =
@@ -96,6 +104,7 @@ namespace WPF.ViewCollection.Components
             coll.Add(info.Invoke(null));
             collview.MoveCurrentToLast();
         }
+
         void DeleteOnClick(object sender, RoutedEventArgs args)
         {
             coll.RemoveAt(collview.CurrentPosition);
@@ -104,6 +113,13 @@ namespace WPF.ViewCollection.Components
         public void Refresh()
         {
             collview.Refresh();
+        }
+
+        public void AddSort(SortDescription sortDescription)
+        {
+            collview.SortDescriptions.Add(sortDescription);
+            collview.Refresh();
+            collview.MoveCurrentToFirst();
         }
 
         // Event handlers for txtboxCurrent TextBox.
@@ -139,9 +155,8 @@ namespace WPF.ViewCollection.Components
             else
                 return;
 
-            MoveFocus(new TraversalRequest(FocusNavigationDirection.Right));
+            //MoveFocus(new TraversalRequest(FocusNavigationDirection.Right));
+            txtboxCurrent?.MoveFocus(new TraversalRequest(FocusNavigationDirection.Right));
         }
-
-
     }
 }
