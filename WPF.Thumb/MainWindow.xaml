@@ -1,19 +1,27 @@
 ﻿<Window
-    x:Class="WPFThumb.MainWindow"
+    x:Class="WPF.Thumb.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ThumbFlow="clr-namespace:WPF.Thumb.ThumbFlow"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:WPFThumb"
+    xmlns:local="clr-namespace:WPF.Thumb"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:view="clr-namespace:WPF.Thumb.View"
     Title="MainWindow"
     Width="800"
     Height="450"
-    xmlns:view="clr-namespace:WPF.Thumb.View"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-    <Grid>
-        <UniformGrid Columns="2">
-            <view:ThumbWindowSize></view:ThumbWindowSize>
-            <view:ThumbDragAnimation></view:ThumbDragAnimation>
-        </UniformGrid>
-    </Grid>
+    <TabControl>
+        <TabItem Header="ThumbFlow">
+            <ThumbFlow:ThumbFlow />
+        </TabItem>
+        <TabItem Header="ThumbWindowSize">
+            <view:ThumbWindowSize />
+        </TabItem>
+        <TabItem Header="ThumbDragAnimation">
+            <view:ThumbDragAnimation />
+        </TabItem>
+    </TabControl>
+
 </Window>

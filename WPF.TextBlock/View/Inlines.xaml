@@ -103,6 +103,20 @@
             This book is called
             ‘<Bold>Programming WPF</Bold>
             ’</TextBlock>
-
+        <TextBlock TextWrapping="Wrap">
+            <Bold>异常提示：</Bold>
+            <LineBreak />
+            检测到<Span Foreground="Red">
+                <Bold>机械臂伺服电机过载</Bold>
+            </Span>
+            ，请立即停止操作。<LineBreak />
+            <Underline>建议：</Underline>
+            检查机械臂运动路径是否受阻，确认电源电压正常。<LineBreak />
+            若多次出现该异常，请联系<Span Foreground="Blue">
+                <Bold>技术支持</Bold>
+            </Span>
+            处理。<LineBreak />
+            <Span Foreground="Orange">注意：强行复位可能导致设备损坏！</Span>
+        </TextBlock>
     </StackPanel>
 </Page>

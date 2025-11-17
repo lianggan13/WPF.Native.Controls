@@ -233,6 +233,5 @@ namespace WPF.Mouse.Views
             }
             return HitTestResultBehavior.Stop;
         }
-
     }
 }

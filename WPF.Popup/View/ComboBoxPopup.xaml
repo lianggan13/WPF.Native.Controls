@@ -1,0 +1,160 @@
+﻿<ComboBox
+    x:Class="WPF.Popup.View.ComboBoxPopup"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPF.Popup.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Width="50"
+    Height="25"
+    mc:Ignorable="d">
+    <ComboBox.Style>
+        <Style TargetType="{x:Type ComboBox}">
+            <Setter Property="Background" Value="#FF163049" />
+            <Setter Property="BorderBrush" Value="#FF1F4A72" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Foreground" Value="#FFFFFFFF" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="ScrollViewer.CanContentScroll" Value="True" />
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+            <Setter Property="ScrollViewer.PanningMode" Value="Both" />
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ComboBox}">
+                        <Grid x:Name="Root">
+                            <Grid x:Name="PART_Editor">
+                                <Border
+                                    x:Name="IsDefault"
+                                    Background="#FF163049"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}" />
+                                <Grid>
+                                    <ToggleButton
+                                        x:Name="DropDownButton"
+                                        Height="{TemplateBinding Height}"
+                                        Background="Transparent"
+                                        Focusable="True"
+                                        IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+                                        <ToggleButton.Style>
+                                            <Style TargetType="{x:Type ToggleButton}">
+                                                <Setter Property="Cursor" Value="Hand" />
+                                                <Setter Property="Background" Value="Transparent" />
+                                                <Setter Property="ClickMode" Value="Press" />
+                                                <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+                                                <Setter Property="Foreground" Value="#FF47E7FF" />
+                                                <Setter Property="OverridesDefaultStyle" Value="True" />
+                                                <Setter Property="SnapsToDevicePixels" Value="True" />
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                                            <ControlTemplate.Resources>
+                                                                <Storyboard x:Key="Storyboard1">
+                                                                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="textBlock" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                                                                        <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="180" />
+                                                                    </DoubleAnimationUsingKeyFrames>
+                                                                </Storyboard>
+                                                                <Storyboard x:Key="Storyboard2">
+                                                                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="textBlock" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                                                                        <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0" />
+                                                                    </DoubleAnimationUsingKeyFrames>
+                                                                </Storyboard>
+                                                            </ControlTemplate.Resources>
+                                                            <Border
+                                                                x:Name="border"
+                                                                Background="{TemplateBinding Background}"
+                                                                SnapsToDevicePixels="true">
+                                                                <Grid>
+                                                                    <TextBlock
+                                                                        x:Name="textBlock"
+                                                                        HorizontalAlignment="Center"
+                                                                        VerticalAlignment="Center"
+                                                                        FontSize="16"
+                                                                        Foreground="#FF47E7FF"
+                                                                        RenderTransformOrigin="0.5,0.5"
+                                                                        Text="ICON">
+                                                                        <TextBlock.RenderTransform>
+                                                                            <TransformGroup>
+                                                                                <ScaleTransform />
+                                                                                <SkewTransform />
+                                                                                <RotateTransform />
+                                                                                <TranslateTransform />
+                                                                            </TransformGroup>
+                                                                        </TextBlock.RenderTransform>
+                                                                    </TextBlock>
+                                                                </Grid>
+                                                            </Border>
+                                                            <ControlTemplate.Triggers>
+                                                                <Trigger Property="IsMouseOver" Value="True">
+                                                                    <Setter TargetName="textBlock" Property="Text" Value="&#xf107;" />
+                                                                </Trigger>
+                                                                <Trigger Property="IsChecked" Value="True">
+                                                                    <Setter TargetName="textBlock" Property="Text" Value="&#xf107;" />
+                                                                    <Trigger.EnterActions>
+                                                                        <BeginStoryboard Storyboard="{StaticResource Storyboard1}" />
+                                                                    </Trigger.EnterActions>
+                                                                    <Trigger.ExitActions>
+                                                                        <BeginStoryboard x:Name="Storyboard2_BeginStoryboard" Storyboard="{StaticResource Storyboard2}" />
+                                                                    </Trigger.ExitActions>
+                                                                </Trigger>
+                                                            </ControlTemplate.Triggers>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </ToggleButton.Style>
+                                    </ToggleButton>
+                                </Grid>
+                            </Grid>
+
+                            <Popup
+                                x:Name="PART_Popup"
+                                d:IsOpen="True"
+                                AllowsTransparency="True"
+                                IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
+                                Placement="Bottom"
+                                PopupAnimation="Fade"
+                                StaysOpen="False"
+                                VerticalOffset="0">
+                                <Grid>
+                                    <Border
+                                        x:Name="DropDownBorder"
+                                        Background="#FF163049"
+                                        BorderBrush="#FF1F4A72"
+                                        BorderThickness="1,1,1,1.5">
+                                        <ScrollViewer x:Name="DropDownScrollViewer">
+                                            <Grid RenderOptions.ClearTypeHint="Enabled">
+                                                <Canvas HorizontalAlignment="Left" VerticalAlignment="Top">
+                                                    <Rectangle
+                                                        x:Name="OpaqueRect"
+                                                        Width="{Binding ActualWidth, ElementName=DropDownBorder}"
+                                                        Height="{Binding ActualHeight, ElementName=DropDownBorder}"
+                                                        Fill="{Binding Background, ElementName=DropDownBorder}" />
+                                                </Canvas>
+                                                <TextBlock
+                                                    x:Name="PART_LogText"
+                                                    Text="Some text here..."
+                                                    TextWrapping="WrapWithOverflow" />
+                                            </Grid>
+                                        </ScrollViewer>
+                                    </Border>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" Value="#DEDEDE" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="True">
+                                <Setter Property="Background" Value="White" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </ComboBox.Style>
+</ComboBox>
