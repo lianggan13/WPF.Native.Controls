@@ -5,6 +5,7 @@ using System.Windows.Media;
 
 namespace WPF.Mouse.Views
 {
+    using System.Windows.Controls;
     using System.Windows.Input;
     public partial class MousePosition
     {
@@ -38,6 +39,33 @@ namespace WPF.Mouse.Views
             Point position = Mouse.GetPosition(DragEllipse);
             ellipseTransform.X += position.X - (DragEllipse.Width / 2);
             ellipseTransform.Y += position.Y - (DragEllipse.Height / 2);
+        }
+
+        private void Thumb_DragDelta(object sender, System.Windows.Controls.Primitives.DragDeltaEventArgs e)
+        {
+            System.Windows.Controls.Primitives.Thumb thumb = (System.Windows.Controls.Primitives.Thumb)sender;
+            double nTop = Canvas.GetTop(thumb) + e.VerticalChange;
+            double nLeft = Canvas.GetLeft(thumb) + e.HorizontalChange;
+            if (nTop < 0)
+            {
+                nTop = 0;
+            }
+            else if (nTop > canvas.ActualHeight - thumb.ActualHeight)
+            {
+                nTop = canvas.ActualHeight - thumb.ActualHeight;
+            }
+
+            if (nLeft < 0)
+            {
+                nLeft = 0;
+            }
+            else if (nLeft > canvas.ActualWidth - thumb.ActualWidth)
+            {
+                nLeft = canvas.ActualWidth - thumb.ActualWidth;
+            }
+
+            Canvas.SetTop(thumb, nTop);
+            Canvas.SetLeft(thumb, nLeft);
         }
     }
 }

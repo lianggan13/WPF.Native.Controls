@@ -15,8 +15,7 @@
         Height="22"
         Margin="193,140,0,0"
         HorizontalAlignment="Left"
-        VerticalAlignment="Top"
-         />
+        VerticalAlignment="Top" />
     <Rectangle
         x:Name="Rectangle"
         Width="Auto"
@@ -45,8 +44,7 @@
         HorizontalAlignment="Left"
         VerticalAlignment="Top"
         Fill="#FFFFFFFF"
-        Stroke="#FF000000"
-         />
+        Stroke="#FF000000" />
     <Ellipse
         x:Name="fourthEllipse"
         Width="14"
@@ -55,8 +53,7 @@
         HorizontalAlignment="Right"
         VerticalAlignment="Bottom"
         Fill="#FFFFFFFF"
-        Stroke="#FF000000"
-         />
+        Stroke="#FF000000" />
     <Ellipse
         x:Name="thirdEllipse"
         Width="14"
@@ -65,32 +62,28 @@
         HorizontalAlignment="Left"
         VerticalAlignment="Bottom"
         Fill="#FFFFFFFF"
-        Stroke="#FF000000"
-         />
+        Stroke="#FF000000" />
     <Label
         x:Name="secondCoordinates"
         Width="66"
         Height="22"
         Margin="0,140,201,0"
         HorizontalAlignment="Right"
-        VerticalAlignment="Top"
-         />
+        VerticalAlignment="Top" />
     <Label
         x:Name="thirdCoordinates"
         Width="66"
         Height="22"
         Margin="193,0,0,123"
         HorizontalAlignment="Left"
-        VerticalAlignment="Bottom"
-         />
+        VerticalAlignment="Bottom" />
     <Label
         x:Name="fourthCoordinates"
         Width="66"
         Height="22"
         Margin="0,0,201,123"
         HorizontalAlignment="Right"
-        VerticalAlignment="Bottom"
-         />
+        VerticalAlignment="Bottom" />
     <Ellipse
         x:Name="DragEllipse"
         Width="16"
@@ -99,4 +92,55 @@
         HorizontalAlignment="Right"
         VerticalAlignment="Top"
         Fill="sc#1, 0, 0, 0" />
+
+    <Canvas x:Name="canvas" Background="#54D2691E">
+
+        <Button
+            x:Name="button"
+            Canvas.Left="{Binding (Canvas.Left), ElementName=thumb}"
+            Canvas.Top="{Binding (Canvas.Top), ElementName=thumb}"
+            Width="100"
+            Height="100"
+            HorizontalContentAlignment="Left"
+            VerticalContentAlignment="Top"
+            AllowDrop="True">
+            <TextBlock>
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{}(x:{0},y:{1})">
+                        <Binding ElementName="button" Path="(Canvas.Left)" />
+                        <Binding ElementName="button" Path="(Canvas.Top)" />
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+        </Button>
+
+        <Thumb
+            x:Name="thumb"
+            Canvas.Left="0"
+            Canvas.Top="0"
+            Width="100"
+            Height="100"
+            Background="Transparent"
+            Cursor="Cross"
+            DragDelta="Thumb_DragDelta">
+            <Thumb.Template>
+                <ControlTemplate TargetType="{x:Type Thumb}">
+                    <Grid x:Name="PART_Grid" >
+                        <!--<Grid.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Offset="0.1" Color="#aa0311" />
+                            <GradientStop Offset="0.62" Color="#cccccc" />
+                            <GradientStop Offset="0.89" Color="#82C3FF" />
+                        </LinearGradientBrush>
+                    </Grid.Background>-->
+                    </Grid>
+                    <!--<ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding IsDragging, RelativeSource={RelativeSource Mode=Self}}" Value="true">
+                            <Setter TargetName="PART_Grid" Property="Background" Value="Chocolate" />
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>-->
+                </ControlTemplate>
+            </Thumb.Template>
+        </Thumb>
+    </Canvas>
 </Grid>

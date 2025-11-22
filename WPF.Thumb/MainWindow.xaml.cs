@@ -1,9 +1,9 @@
 ﻿using System.Windows;
 
-namespace WPFThumb
+namespace WPF.Thumb
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// ThumbFlow.xaml 的交互逻辑
     /// </summary>
     public partial class MainWindow : Window
     {

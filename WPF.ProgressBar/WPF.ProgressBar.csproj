@@ -71,12 +71,19 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Behaviors\ProgressBarBehavior.cs" />
+    <Compile Include="Components\RoundCornerProgressBar.xaml.cs">
+      <DependentUpon>RoundCornerProgressBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AnimationProgressBar.xaml.cs">
       <DependentUpon>AnimationProgressBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CornerProgressBar.xaml.cs">
       <DependentUpon>CornerProgressBar.xaml</DependentUpon>
     </Compile>
+    <Page Include="Components\RoundCornerProgressBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

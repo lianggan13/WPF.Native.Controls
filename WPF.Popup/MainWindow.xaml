@@ -14,6 +14,9 @@
         <TabItem Header="TogglePopup">
             <view:TogglePopup />
         </TabItem>
-        
+        <TabItem Header="ComboBoxPopup">
+            <view:ComboBoxPopup />
+        </TabItem>
+        ComboBoxPopup
     </TabControl>
 </Window>

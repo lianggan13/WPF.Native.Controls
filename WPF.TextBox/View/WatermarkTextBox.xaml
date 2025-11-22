@@ -44,7 +44,6 @@
                                     VerticalScrollBarVisibility="Hidden" />
                                 <TextBlock
                                     Name="PART_Watermask"
-                                   
                                     VerticalAlignment="Center"
                                     Foreground="Gray"
                                     Text="{Binding Path=Watermark, ElementName=this}"

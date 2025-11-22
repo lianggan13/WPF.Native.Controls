@@ -16,6 +16,7 @@
 
         <UniformGrid Columns="2" Rows="2">
             <Viewport3D>
+                <!--  相机  -->
                 <Viewport3D.Camera>
                     <PerspectiveCamera
                         LookDirection="-5,0,-5"
@@ -23,14 +24,13 @@
                         UpDirection="0,0,1" />
                 </Viewport3D.Camera>
                 <Viewport3D.Children>
-                    <ModelVisual3D x:Name="Light">
-                        <ModelVisual3D.Content>
-                            <AmbientLight />
-                        </ModelVisual3D.Content>
-                    </ModelVisual3D>
                     <ModelVisual3D>
                         <ModelVisual3D.Content>
                             <Model3DGroup>
+                                <!--  光源  -->
+                                <AmbientLight />
+
+                                <!--  模型  -->
                                 <GeometryModel3D>
                                     <GeometryModel3D.Material>
                                         <DiffuseMaterial Brush="Blue" />

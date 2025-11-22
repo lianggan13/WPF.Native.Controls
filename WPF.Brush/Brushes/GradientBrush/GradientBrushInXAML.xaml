@@ -62,7 +62,7 @@
             StrokeThickness="4">
             <Rectangle.Fill>
                 <RadialGradientBrush Center="0.5,0.5" GradientOrigin="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
-                    <GradientStop Offset="0" Color="Black" />
+                    <GradientStop Offset="0" Color="LawnGreen" />
                     <GradientStop Offset="0.45" Color="Gray" />
                     <GradientStop Offset="0.85" Color="Black" />
                 </RadialGradientBrush>
