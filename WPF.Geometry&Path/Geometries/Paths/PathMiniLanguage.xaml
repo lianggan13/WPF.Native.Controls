@@ -10,7 +10,6 @@
         Fill="Aqua"
         Stroke="Magenta"
         StrokeThickness="3" />
-    <!--  二次贝塞尔 一个控制点  -->
     <Path
         Fill="Transparent"
         Stroke="Tomato"
@@ -38,7 +37,6 @@
         </Path.Data>
     </Path>
 
-    <!--  三次贝塞尔 两个控制点  -->
     <Path
         Fill="Transparent"
         Stroke="SteelBlue"
@@ -61,8 +59,8 @@
                     Center="300,100"
                     RadiusX="5"
                     RadiusY="5" />
-                <PathGeometry >
-                    <PathFigure  StartPoint="10,100">
+                <PathGeometry>
+                    <PathFigure StartPoint="10,100">
                         <BezierSegment
                             Point1="80,0"
                             Point2="180,200"
