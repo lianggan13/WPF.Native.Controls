@@ -104,12 +104,12 @@
                         Stroke="Black"
                         StrokeThickness="2" />
                     <Path Margin="0,0,15,15" Fill="Blue">
-                        <Path.RenderTransform>
-                            <TranslateTransform x:Name="MyAnimatedTransform" X="10" Y="100" />
-                        </Path.RenderTransform>
                         <Path.Data>
                             <RectangleGeometry Rect="0,0,30,30" />
                         </Path.Data>
+                        <Path.RenderTransform>
+                            <TranslateTransform x:Name="MyAnimatedTransform" X="10" Y="100" />
+                        </Path.RenderTransform>
                     </Path>
                 </Canvas>
                 <Button HorizontalAlignment="Left" VerticalAlignment="Bottom">
@@ -153,23 +153,21 @@
                     Width="340"
                     Height="240"
                     HorizontalAlignment="Left">
+                    <!--  M 10,100 C 35,0 135,0 160,100 180,190 285,200 310,100  -->
                     <Path
-                        Margin="15,15,15,15"
+                        Margin="15"
                         VerticalAlignment="Top"
                         Data="{StaticResource animPath1}"
                         Stretch="None"
                         Stroke="Black"
                         StrokeThickness="2" />
-                    <Path
-                        x:Name="path3"
-                        Margin="0,0,15,15"
-                        Fill="Blue">
+                    <Path x:Name="path3" Fill="Blue">
                         <Path.Data>
                             <RectangleGeometry x:Name="MyAnimatedRectGeometry" Rect="0,0 30 30">
                                 <RectangleGeometry.Transform>
                                     <TransformGroup>
                                         <RotateTransform Angle="0" CenterX="15" CenterY="15" />
-                                        <TranslateTransform x:Name="MyTranslateTransform" X="10" Y="100" />
+                                        <TranslateTransform x:Name="MyTranslateTransform" X="0" Y="100" />
                                     </TransformGroup>
                                 </RectangleGeometry.Transform>
                             </RectangleGeometry>
@@ -212,6 +210,34 @@
                                         Storyboard.TargetName="MyTranslateTransform"
                                         Storyboard.TargetProperty="Y"
                                         Duration="0:0:5" />
+
+
+                                    <!--<DoubleAnimationUsingPath
+                                        AutoReverse="True"
+                                        PathGeometry="{StaticResource pathData}"
+                                        RepeatBehavior="Forever"
+                                        Source="Angle"
+                                        Storyboard.TargetName="robotPath"
+                                        Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)"
+                                        Duration="0:0:5" />
+
+                                    <DoubleAnimationUsingPath
+                                        AutoReverse="True"
+                                        PathGeometry="{StaticResource pathData}"
+                                        RepeatBehavior="Forever"
+                                        Source="X"
+                                        Storyboard.TargetName="robotPath"
+                                        Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(TranslateTransform.X)"
+                                        Duration="0:0:5" />
+
+                                    <DoubleAnimationUsingPath
+                                        AutoReverse="True"
+                                        PathGeometry="{StaticResource pathData}"
+                                        RepeatBehavior="Forever"
+                                        Source="Y"
+                                        Storyboard.TargetName="robotPath"
+                                        Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(TranslateTransform.Y)"
+                                        Duration="0:0:5" />-->
 
                                 </Storyboard>
                             </BeginStoryboard>

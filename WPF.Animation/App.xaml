@@ -5,6 +5,7 @@
     xmlns:local="clr-namespace:WPFAnimation"
     StartupUri="MainWindow.xaml">
 
+    <!--  StartupUri="MainWindow.xaml">  -->
     <!--  StartupUri="Test/UnicycleMan.xaml">  -->
     <!--  StartupUri="Test/InfinityAnimation1.xaml">  -->
     <Application.Resources>
